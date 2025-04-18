@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tasks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <style>
+        .container {
+          max-width: 900px;
+        }
+
+        .form-select {
+          margin-top: 8px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+    <div class="container-fluid">
+        <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+            <a href="#" th:href="@{/}">
+                <img src="../static/img/logo.svg" th:src="@{/img/logo.svg}" width="38" height="30" class="me-3" alt="Bootstrap">Delivery App
+            </a>
+        </h1>
+        <div class="collapse navbar-collapse navbar-options">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link active" href="#" aria-current="page"  th:href="@{/customers}">Customers</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link" href="#" th:href="@{/admin/}">Admin</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                    <th-block th:with="auth=${#authentication.getPrincipal()}">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false" th:text="${auth.username ?: 'User'}">User</a>
+                    </th-block>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown03">
+                        <li>
+                            <form style="display:none" th:action="@{/logout}" method="POST" id="logoutForm"></form>
+                            <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" href="#" th:href="@{/login}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <div class="container py-5 h-100">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" th:href="@{/customers}">Customers</a></li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="${customer.firstName + ' ' + customer.lastName}">Bengt Oxberry</li>
+            </ol>
+        </nav>
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card rounded-3">
+                    <div class="card-header p-4">
+                        Customer info
+                    </div>
+
+                    <div class="card-body p-4">
+                        <div class="col-12">
+                            <p class="card-text">Full name: <span class="fw-bold" th:text="${customer.firstName + ' ' + customer.lastName}">Bengt Oxberry</span></p>
+                            <p class="card-text">Phone: <span class="fw-bold" th:text="${customer.phone}">694-831-0135</span></p>
+                            <p class="card-text">Email: <span class="fw-bold" th:text="${customer.email}">boxberry0@seattletimes.com</span></p>
+                            <p class="card-text">Birthday: <span class="fw-bold" th:text="${customer.birthday}">1941-06-19</span></p>
+                            <p class="card-text">Gender: <span class="fw-bold" th:text="${customer.gender}">Male</span></p>
+                            <p class="card-text">Registered: <span class="fw-bold" th:text="${customer.createdAt}">2010-07-11</span></p>
+
+                            <div th:if="${addresses.isEmpty()}">
+                                <p class="text-muted">List of addresses is empty</p>
+                            </div>
+
+                            <div class="accordion" id="accordionExample" th:if="${!addresses.isEmpty()}">
+                                <div class="accordion-item" th:each="address, iterStat : ${addresses}">
+                                    <h2 class="accordion-header" th:attr="id=${'heading_' + iterStat.index}">
+                                        <button class="accordion-button"
+                                                type="button"
+                                                th:classappend="${iterStat.index == 0} ? '' : ' collapsed'"
+                                                data-bs-toggle="collapse"
+                                                th:attr="data-bs-target=${'#collapse_' + iterStat.index}, aria-controls=${'collapse_' + iterStat.index}, aria-expanded=${iterStat.index == 0}">
+                                            Address #<span th:text="${iterStat.index + 1}">1</span>
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-collapse collapse"
+                                         th:classappend="${iterStat.index == 0} ? ' show' : ''"
+                                         th:attr="id=${'collapse_' + iterStat.index}, aria-labelledby=${'heading_' + iterStat.index}, data-bs-parent='#accordionExample'">
+                                        <div class="accordion-body">
+                                            <p>Hidden: <span th:text="${address.hidden}">false</span></p>
+                                            <strong th:text="${address.streetSuffix + ' ' + address.streetName + ' ' + address.streetNumber + ' ' + address.postalCode + ' / ' + address.city + ' / ' + address.state + ' / ' + address.country}">
+                                                Road 9 Park Meadow Circle 46618 / Coruña A / Galicia / Spain
+                                            </strong>
+                                            <a href="#" th:href="@{/addresses/{id}/delete(id=${address.id})}" class="btn btn-danger">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card-footer p-4">
+                        <a href="#" th:href="@{/customers}" class="btn btn-primary">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
