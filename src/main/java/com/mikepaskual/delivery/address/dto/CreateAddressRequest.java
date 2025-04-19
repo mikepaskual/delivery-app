@@ -1,37 +1,48 @@
 package com.mikepaskual.delivery.address.dto;
 
+import com.mikepaskual.delivery.customer.model.Customer;
+
 import java.time.LocalDateTime;
 
 public class CreateAddressRequest {
 
     private Long id;
-    private String streetNumber;
-    private String streetName;
-    private String streetSuffix;
+    private String street;
     private String postalCode;
     private String city;
     private String state;
     private String country;
+    private boolean hidden;
+    private boolean main;
     private LocalDateTime createdAt;
+    private Customer customer;
 
     public CreateAddressRequest() {
         super();
     }
 
-    public String getStreetName() {
-        return streetName;
+    public boolean isMain() {
+        return main;
     }
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
+    public void setMain(boolean main) {
+        this.main = main;
     }
 
-    public String getStreetSuffix() {
-        return streetSuffix;
+    public boolean isHidden() {
+        return hidden;
     }
 
-    public void setStreetSuffix(String streetSuffix) {
-        this.streetSuffix = streetSuffix;
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getState() {
@@ -48,14 +59,6 @@ public class CreateAddressRequest {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getStreetNumber() {
-        return streetNumber;
-    }
-
-    public void setStreetNumber(String streetNumber) {
-        this.streetNumber = streetNumber;
     }
 
     public String getPostalCode() {
@@ -90,6 +93,14 @@ public class CreateAddressRequest {
         this.createdAt = createdAt;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     @SuppressWarnings("rawtypes")
     public static Builder builder() {
         return new Builder();
@@ -99,28 +110,35 @@ public class CreateAddressRequest {
     public static class Builder<S extends Builder> {
 
         private Long id;
-        private String streetNumber;
-        private String streetName;
-        private String streetSuffix;
+        private String street;
         private String postalCode;
         private String city;
         private String state;
         private String country;
+        private boolean hidden;
+        private boolean main;
         private LocalDateTime createdAt;
+        private Customer customer;
 
         public Builder() {
             super();
         }
 
         @SuppressWarnings("unchecked")
-        public S setStreetName(String streetName) {
-            this.streetName = streetName;
+        public S setStreet(String street) {
+            this.street = street;
             return (S) this;
         }
 
         @SuppressWarnings("unchecked")
-        public S setStreetSuffix(String streetSuffix) {
-            this.streetSuffix = streetSuffix;
+        public S setMain(boolean main) {
+            this.main = main;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S setHidden(boolean hidden) {
+            this.hidden = hidden;
             return (S) this;
         }
 
@@ -133,12 +151,6 @@ public class CreateAddressRequest {
         @SuppressWarnings("unchecked")
         public S setId(Long id) {
             this.id = id;
-            return (S) this;
-        }
-
-        @SuppressWarnings("unchecked")
-        public S setStreetNumber(String streetNumber) {
-            this.streetNumber = streetNumber;
             return (S) this;
         }
 
@@ -166,16 +178,23 @@ public class CreateAddressRequest {
             return (S) this;
         }
 
+        @SuppressWarnings("unchecked")
+        public S setCustomer(Customer customer) {
+            this.customer = customer;
+            return (S) this;
+        }
+
         public CreateAddressRequest build() {
             CreateAddressRequest request = new CreateAddressRequest();
             request.setCity(this.city);
             request.setCountry(this.country);
+            request.setCustomer(this.customer);
             request.setCreatedAt(this.createdAt);
+            request.setHidden(this.hidden);
             request.setId(this.id);
+            request.setMain(this.main);
             request.setState(this.state);
-            request.setStreetName(this.streetName);
-            request.setStreetNumber(this.streetNumber);
-            request.setStreetSuffix(this.streetSuffix);
+            request.setStreet(this.street);
             request.setPostalCode(this.postalCode);
             return request;
         }

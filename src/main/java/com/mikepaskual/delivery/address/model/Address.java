@@ -12,14 +12,13 @@ public class Address {
     @Id
     @GeneratedValue
     private Long id;
-    private String streetNumber;
-    private String streetName;
-    private String streetSuffix;
+    private String street;
     private String postalCode;
     private String city;
     private String state;
     private String country;
     private boolean hidden;
+    private boolean main;
     private LocalDateTime createdAt;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
@@ -43,14 +42,6 @@ public class Address {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getStreetNumber() {
-        return streetNumber;
-    }
-
-    public void setStreetNumber(String streetNumber) {
-        this.streetNumber = streetNumber;
     }
 
     public String getPostalCode() {
@@ -85,20 +76,12 @@ public class Address {
         this.createdAt = createdAt;
     }
 
-    public String getStreetName() {
-        return streetName;
+    public String getStreet() {
+        return street;
     }
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public String getStreetSuffix() {
-        return streetSuffix;
-    }
-
-    public void setStreetSuffix(String streetSuffix) {
-        this.streetSuffix = streetSuffix;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public boolean isHidden() {
@@ -107,6 +90,14 @@ public class Address {
 
     public void setHidden(boolean hidden) {
         this.hidden = hidden;
+    }
+
+    public boolean isMain() {
+        return main;
+    }
+
+    public void setMain(boolean main) {
+        this.main = main;
     }
 
     public Customer getCustomer() {
@@ -126,14 +117,13 @@ public class Address {
     public static class Builder<S extends Builder> {
 
         private Long id;
-        private String streetNumber;
-        private String streetName;
-        private String streetSuffix;
+        private String street;
         private String postalCode;
         private String city;
         private String state;
         private String country;
         private boolean hidden;
+        private boolean main;
         private LocalDateTime createdAt;
         private Customer customer;
 
@@ -144,6 +134,12 @@ public class Address {
         @SuppressWarnings("unchecked")
         public S setCustomer(Customer customer) {
             this.customer = customer;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S setMain(boolean main) {
+            this.main = main;
             return (S) this;
         }
 
@@ -160,14 +156,8 @@ public class Address {
         }
 
         @SuppressWarnings("unchecked")
-        public S setStreetName(String streetName) {
-            this.streetName = streetName;
-            return (S) this;
-        }
-
-        @SuppressWarnings("unchecked")
-        public S setStreetSuffix(String streetSuffix) {
-            this.streetSuffix = streetSuffix;
+        public S setStreet(String street) {
+            this.street = street;
             return (S) this;
         }
 
@@ -180,12 +170,6 @@ public class Address {
         @SuppressWarnings("unchecked")
         public S setId(Long id) {
             this.id = id;
-            return (S) this;
-        }
-
-        @SuppressWarnings("unchecked")
-        public S setStreetNumber(String streetNumber) {
-            this.streetNumber = streetNumber;
             return (S) this;
         }
 
@@ -215,10 +199,9 @@ public class Address {
             address.setCustomer(this.customer);
             address.setHidden(this.hidden);
             address.setId(this.id);
+            address.setMain(this.main);
             address.setState(this.state);
-            address.setStreetNumber(this.streetNumber);
-            address.setStreetName(this.streetName);
-            address.setStreetSuffix(this.streetSuffix);
+            address.setStreet(this.street);
             address.setPostalCode(this.postalCode);
             return address;
         }

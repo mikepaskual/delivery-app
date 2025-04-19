@@ -26,11 +26,11 @@ public class AddressService {
                 .setCity(request.getCity())
                 .setCountry(request.getCountry())
                 .setCreatedAt(LocalDateTime.now())
+                .setCustomer(request.getCustomer())
                 .setHidden(false)
+                .setMain(request.isMain())
                 .setState(request.getState())
-                .setStreetName(request.getStreetName())
-                .setStreetSuffix(request.getStreetSuffix())
-                .setStreetNumber(request.getStreetNumber())
+                .setStreet(request.getStreet())
                 .setPostalCode(request.getPostalCode())
                 .build();
         return addressRepository.save(address);
@@ -60,5 +60,25 @@ public class AddressService {
         return addresses;
     }
 
+    public Address markAsMain(Long id) {
+        Address address = findById(id);
+        List<Address> addresses = findNotHiddenByCustomer(address.getCustomer());
+        addresses.forEach(a -> {
+            if (a.getId().equals(id)) {
+                a.setMain(true);
+            } else {
+                a.setMain(false);
+            }
+        });
+        addressRepository.saveAll(addresses);
+        return address;
+    }
+
+    public Address unmarkAsMain(Long id) {
+        Address address = findById(id);
+        address.setMain(false);
+        addressRepository.save(address);
+        return address;
+    }
 
 }
