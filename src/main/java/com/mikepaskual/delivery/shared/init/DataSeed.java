@@ -78,9 +78,7 @@ public class DataSeed {
                         .setCity(addressRecord.get("city"))
                         .setCountry(addressRecord.get("country"))
                         .setState(addressRecord.get("state"))
-                        .setStreetNumber(addressRecord.get("street_number"))
-                        .setStreetName(addressRecord.get("street_address"))
-                        .setStreetSuffix(addressRecord.get("street_suffix"))
+                        .setStreet(addressRecord.get("street_address"))
                         .setPostalCode(addressRecord.get("postal_code"))
                         .setCreatedAt(LocalDateTime.now())
                         .build();
