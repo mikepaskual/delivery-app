@@ -9,6 +9,8 @@ import com.mikepaskual.delivery.customer.exception.CustomerNotFoundException;
 import com.mikepaskual.delivery.customer.model.Customer;
 import com.mikepaskual.delivery.customer.model.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +34,7 @@ public class CustomerService {
         Customer customer = Customer.builder()
                 .setAddresses(request.getAddresses())
                 .setBirthday(request.getBirthday())
-                .setCreatedAt(LocalDateTime.now())
+                .setCreatedAt(request.getCreatedAt())
                 .setEmail(request.getEmail())
                 .setFirstName(request.getFirstName())
                 .setGender(request.getGender())
@@ -53,5 +55,10 @@ public class CustomerService {
     public Customer findById(Long id) {
         return customerRepository.findById(id).orElseThrow(() -> new CustomerNotFoundException(id));
     }
+
+    public Page<Customer> findPaginated(Pageable pageable) {
+        return customerRepository.findAll(pageable);
+    }
+
 
 }

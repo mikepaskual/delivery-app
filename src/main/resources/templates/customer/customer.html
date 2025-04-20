@@ -90,7 +90,7 @@
                             </p>
                             <p class="card-text">
                                 <span th:text="#{customer.info.birthday}">Birthday:</span>
-                                <span class="fw-bold" th:text="${customer.birthday}">1941-06-19</span>
+                                <span class="fw-bold" th:text="${#temporals.format(customer.birthday, 'dd/MM/yyyy')}">19/06/1941</span>
                             </p>
                             <p class="card-text">
                                 <span th:text="#{customer.info.gender}">Gender:</span>
@@ -98,7 +98,7 @@
                             </p>
                             <p class="card-text">
                                 <span th:text="#{customer.info.registered}">Registered:</span>
-                                <span class="fw-bold" th:text="${customer.createdAt}">2010-07-11</span>
+                                <span class="fw-bold" th:text="${#temporals.format(customer.createdAt, 'dd/MM/yyyy HH:mm')}">11/07/2010 23:59</span>
                             </p>
                         </div>
 

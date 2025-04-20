@@ -75,12 +75,54 @@
                                     <a href="#" th:href="@{/customers/{id}(id=${customer.id})}" class="list-group-item list-group-item-action">
                                         <div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1" th:text="${customer.firstName + ' ' + customer.lastName}">Bethina Ulyat</h5>
-                                            <small th:text="${customer.createdAt}">1941-06-19</small>
+                                            <small th:text="${#temporals.format(customer.createdAt, 'dd/MM/yyyy HH:mm')}">19-06-1941 23:59</small>
                                         </div>
                                         <p class="mb-1" th:text="${customer.email + ' - ' + customer.phone}">bulyat0@about.com - 694-831-0135</p>
                                     </a>
                                 </div>
                             </div>
+                        </div>
+
+
+                        <!-- Paginación -->
+                        <div class="d-flex justify-content-center mt-4">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <!-- Primera página -->
+                                    <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled' : ''">
+                                        <a class="page-link" th:href="@{/customers(page=0)}" aria-label="First">
+                                            <span aria-hidden="true">««</span>
+                                        </a>
+                                    </li>
+
+                                    <!-- Página anterior -->
+                                    <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled' : ''">
+                                        <a class="page-link" th:href="@{/customers(page=${currentPage - 1})}" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+
+                                    <!-- Mostrar un rango de páginas (5 antes y 5 después de la página actual) -->
+                                    <li class="page-item" th:each="pageNum : ${#numbers.sequence(currentPage - 5, currentPage + 5)}"
+                                        th:if="${pageNum >= 0 && pageNum < totalPages}" th:classappend="${pageNum == currentPage} ? 'active' : ''">
+                                        <a class="page-link" th:href="@{/customers(page=${pageNum})}" th:text="${pageNum + 1}">1</a>
+                                    </li>
+
+                                    <!-- Página siguiente -->
+                                    <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled' : ''">
+                                        <a class="page-link" th:href="@{/customers(page=${currentPage + 1})}" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+
+                                    <!-- Última página -->
+                                    <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled' : ''">
+                                        <a class="page-link" th:href="@{/customers(page=${totalPages - 1})}" aria-label="Last">
+                                            <span aria-hidden="true">»»</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>

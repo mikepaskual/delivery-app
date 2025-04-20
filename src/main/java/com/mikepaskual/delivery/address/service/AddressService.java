@@ -25,9 +25,9 @@ public class AddressService {
         Address address = Address.builder()
                 .setCity(request.getCity())
                 .setCountry(request.getCountry())
-                .setCreatedAt(LocalDateTime.now())
+                .setCreatedAt(request.getCreatedAt())
                 .setCustomer(request.getCustomer())
-                .setHidden(false)
+                .setHidden(request.isHidden())
                 .setMain(request.isMain())
                 .setState(request.getState())
                 .setStreet(request.getStreet())
@@ -42,6 +42,7 @@ public class AddressService {
 
     public Address markAsHidden(Long id) {
         Address address = findById(id);
+        address.setMain(false);
         address.setHidden(true);
         return addressRepository.save(address);
     }
