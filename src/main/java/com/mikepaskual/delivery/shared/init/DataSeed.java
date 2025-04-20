@@ -110,7 +110,8 @@ public class DataSeed {
                     .setPhone(customerRecords.get(i).get("phone_number"))
                     .setGender(Gender.valueOf(customerRecords.get(i).get("gender").toUpperCase()))
                     .setBirthday(LocalDate.parse(customerRecords.get(i).get("date_of_birth")))
-                    .setCreatedAt(LocalDateTime.of(LocalDate.parse(customerRecords.get(i).get("join_date")), LocalTime.now()))
+                    .setCreatedAt(LocalDateTime.of(LocalDate.parse(customerRecords.get(i).get("join_date")),
+                            LocalTime.of(random.nextInt(24), random.nextInt(60), random.nextInt(60))))
                     .build();
 
             int numberOfAddresses = random.nextInt(4);

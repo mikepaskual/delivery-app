@@ -70,6 +70,18 @@
                         <h3 th:text="#{customers.title.list}">Customers list</h3>
 
                         <div class="col-12">
+                            <div class="d-flex justify-content-end gap-2 mb-3">
+                                <a class="btn btn-outline-primary"
+                                   th:href="@{/customers(page=0, size=${size}, sortField='createdAt', sortDir=${reverseSortDir})}">Ordenar por registro
+                                    <span th:text="${sortDir == 'asc' ? '↑' : '↓'}"></span>
+                                </a>
+
+                                <a class="btn btn-outline-primary"
+                                   th:href="@{/customers(page=0, size=${size}, sortField='firstName', sortDir=${reverseSortDir})}">Ordenar por nombre
+                                    <span th:text="${sortField == 'firstName' ? (sortDir == 'asc' ? '↑' : '↓') : ''}"></span>
+                                </a>
+                            </div>
+
                             <div class="list-group">
                                 <div th:each="customer : ${customers}">
                                     <a href="#" th:href="@{/customers/{id}(id=${customer.id})}" class="list-group-item list-group-item-action">
@@ -90,14 +102,14 @@
                                 <ul class="pagination">
                                     <!-- Primera página -->
                                     <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled' : ''">
-                                        <a class="page-link" th:href="@{/customers(page=0)}" aria-label="First">
+                                        <a class="page-link" th:href="@{/customers(page=0, size=${size}, sortField=${sortField}, sortDir=${sortDir})}" aria-label="First">
                                             <span aria-hidden="true">««</span>
                                         </a>
                                     </li>
 
                                     <!-- Página anterior -->
                                     <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled' : ''">
-                                        <a class="page-link" th:href="@{/customers(page=${currentPage - 1})}" aria-label="Previous">
+                                        <a class="page-link" th:href="@{/customers(page=${currentPage - 1}, size=${size}, sortField=${sortField}, sortDir=${sortDir})}" aria-label="Previous">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
@@ -105,19 +117,21 @@
                                     <!-- Mostrar un rango de páginas (5 antes y 5 después de la página actual) -->
                                     <li class="page-item" th:each="pageNum : ${#numbers.sequence(currentPage - 5, currentPage + 5)}"
                                         th:if="${pageNum >= 0 && pageNum < totalPages}" th:classappend="${pageNum == currentPage} ? 'active' : ''">
-                                        <a class="page-link" th:href="@{/customers(page=${pageNum})}" th:text="${pageNum + 1}">1</a>
+                                        <a class="page-link"
+                                           th:href="@{/customers(page=${pageNum}, size=${size}, sortField=${sortField}, sortDir=${sortDir})}"
+                                           th:text="${pageNum + 1}">1</a>
                                     </li>
 
                                     <!-- Página siguiente -->
                                     <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled' : ''">
-                                        <a class="page-link" th:href="@{/customers(page=${currentPage + 1})}" aria-label="Next">
+                                        <a class="page-link" th:href="@{/customers(page=${currentPage + 1}, size=${size}, sortField=${sortField}, sortDir=${sortDir})}" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>
                                     </li>
 
                                     <!-- Última página -->
                                     <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled' : ''">
-                                        <a class="page-link" th:href="@{/customers(page=${totalPages - 1})}" aria-label="Last">
+                                        <a class="page-link" th:href="@{/customers(page=${totalPages - 1}, size=${size}, sortField=${sortField}, sortDir=${sortDir})}" aria-label="Last">
                                             <span aria-hidden="true">»»</span>
                                         </a>
                                     </li>
