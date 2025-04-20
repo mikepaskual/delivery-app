@@ -5,10 +5,15 @@ import com.mikepaskual.delivery.address.service.AddressService;
 import com.mikepaskual.delivery.customer.model.Customer;
 import com.mikepaskual.delivery.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,8 +33,23 @@ public class CustomerController {
     }
 
     @GetMapping("/customers")
-    public String showCustomers(Model model) {
-        model.addAttribute("customers", customerService.findAll());
+    public String showCustomers(@RequestParam(defaultValue = "0") int page,
+                                @RequestParam(defaultValue = "10") int size,
+                                @RequestParam(defaultValue = "createdAt") String sortField,
+                                @RequestParam(defaultValue = "desc") String sortDir,
+                                Model model) {
+        Sort.Direction direction = sortDir.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortField));
+        Page<Customer> customerPage = customerService.findPaginated(pageable);
+
+        model.addAttribute("customers", customerPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", customerPage.getTotalPages());
+        model.addAttribute("size", size);
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+
         return "customer/customers";
     }
 

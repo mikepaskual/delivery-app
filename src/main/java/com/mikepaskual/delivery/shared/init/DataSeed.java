@@ -68,60 +68,68 @@ public class DataSeed {
 
     public void loadAddressesAndCustomersFromCsv() {
         Random random = new Random();
-        List<Address> addresses = new ArrayList<>();
+
+        // reading addresses from csv file
+        List<CreateAddressRequest> addressesRequest = new ArrayList<>();
+        CSVParser addressCsvParser = null;
         try {
-            CSVParser addressParser = CSVFormat.DEFAULT
+            addressCsvParser = CSVFormat.DEFAULT
                     .withFirstRecordAsHeader()
                     .parse(new InputStreamReader(new ClassPathResource("seed/addresses.csv").getInputStream()));
-            for (CSVRecord addressRecord : addressParser) {
-                CreateAddressRequest addressRequest = CreateAddressRequest.builder()
-                        .setCity(addressRecord.get("city"))
-                        .setCountry(addressRecord.get("country"))
-                        .setState(addressRecord.get("state"))
-                        .setStreet(addressRecord.get("street_address"))
-                        .setPostalCode(addressRecord.get("postal_code"))
-                        .setCreatedAt(LocalDateTime.now())
-                        .build();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        for (CSVRecord addressRecord : addressCsvParser) {
+            addressesRequest.add(CreateAddressRequest.builder()
+                    .setCity(addressRecord.get("city"))
+                    .setCountry(addressRecord.get("country"))
+                    .setHidden(false)
+                    .setState(addressRecord.get("state"))
+                    .setStreet(addressRecord.get("street_address"))
+                    .setPostalCode(addressRecord.get("postal_code"))
+                    .build());
+        }
+
+        // reading customers from csv file
+        List<CSVRecord> customerRecords;
+        try (CSVParser customerParser = CSVFormat.DEFAULT
+                .withFirstRecordAsHeader()
+                .parse(new InputStreamReader(new ClassPathResource("seed/customers.csv").getInputStream()))) {
+            customerRecords = customerParser.getRecords();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        int indexAddress = 0;
+        List<Address> addresses;
+        for (int i = 0; i < customerRecords.size(); i++) {
+            CreateCustomerRequest customerRequest = CreateCustomerRequest.builder()
+                    .setFirstName(customerRecords.get(i).get("first_name"))
+                    .setLastName(customerRecords.get(i).get("last_name"))
+                    .setEmail(customerRecords.get(i).get("email"))
+                    .setPhone(customerRecords.get(i).get("phone_number"))
+                    .setGender(Gender.valueOf(customerRecords.get(i).get("gender").toUpperCase()))
+                    .setBirthday(LocalDate.parse(customerRecords.get(i).get("date_of_birth")))
+                    .setCreatedAt(LocalDateTime.of(LocalDate.parse(customerRecords.get(i).get("join_date")),
+                            LocalTime.of(random.nextInt(24), random.nextInt(60), random.nextInt(60))))
+                    .build();
+
+            int numberOfAddresses = random.nextInt(4);
+            addresses = new ArrayList<>(numberOfAddresses);
+            boolean markAsMain = random.nextBoolean();
+
+            for (int j = 0; j < numberOfAddresses; j++) {
+                CreateAddressRequest addressRequest = addressesRequest.get(indexAddress);
+                indexAddress++;
+                addressRequest.setCreatedAt(customerRequest.getCreatedAt());
+                if (markAsMain && random.nextInt(4) == j) {
+                    addressRequest.setMain(markAsMain);
+                }
                 addresses.add(addressService.registerAddress(addressRequest));
             }
 
-            List<CSVRecord> customerRecords;
-            try (CSVParser customerParser = CSVFormat.DEFAULT
-                    .withFirstRecordAsHeader()
-                    .parse(new InputStreamReader(new ClassPathResource("seed/customers.csv").getInputStream()))) {
-                customerRecords = customerParser.getRecords();
-            }
-
-            int limit = Math.min(customerRecords.size(), addresses.size());
-            Collections.shuffle(addresses);
-
-            for (int i = 0; i < limit; i++) {
-                CSVRecord record = customerRecords.get(i);
-                Address assignedAddress = addresses.get(i);
-
-                int numberOfAddresses = random.nextInt(4);
-                List<Address> customerAddresses = new ArrayList<>();
-
-                for (int j = 0; j < numberOfAddresses; j++) {
-                    if (i + j < addresses.size()) {
-                        customerAddresses.add(addresses.get(i + j));
-                    }
-                }
-
-                CreateCustomerRequest request = CreateCustomerRequest.builder()
-                        .setAddresses(customerAddresses)
-                        .setFirstName(record.get("first_name"))
-                        .setLastName(record.get("last_name"))
-                        .setEmail(record.get("email"))
-                        .setPhone(record.get("phone_number"))
-                        .setGender(Gender.valueOf(record.get("gender").toUpperCase()))
-                        .setBirthday(LocalDate.parse(record.get("date_of_birth")))
-                        .setCreatedAt(LocalDateTime.of(LocalDate.parse(record.get("join_date")), LocalTime.now()))
-                        .build();
-                customerService.registerCustomer(request);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            customerRequest.setAddresses(addresses);
+            customerService.registerCustomer(customerRequest);
         }
     }
 }
