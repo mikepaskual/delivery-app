@@ -2,6 +2,8 @@ package com.mikepaskual.delivery.address.model;
 
 import com.mikepaskual.delivery.customer.model.Customer;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 

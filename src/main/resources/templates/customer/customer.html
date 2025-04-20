@@ -38,7 +38,7 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
                     <th-block th:with="auth=${#authentication.getPrincipal()}">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false" th:text="${auth.username ?: 'User'}">User</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false" th:text="${auth.username}">User</a>
                     </th-block>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown03">
                         <li>
@@ -91,6 +91,8 @@
                             <p class="card-text">
                                 <span th:text="#{customer.info.birthday}">Birthday:</span>
                                 <span class="fw-bold" th:text="${#temporals.format(customer.birthday, 'dd/MM/yyyy')}">19/06/1941</span>
+                                <span class="fw-bold" th:text="${#messages.msg('customer.info.age', T(java.time.Period).between(customer.birthday, T(java.time.LocalDate).now()).getYears())}">(42 years)</span>
+
                             </p>
                             <p class="card-text">
                                 <span th:text="#{customer.info.gender}">Gender:</span>
@@ -179,6 +181,7 @@
         </div>
     </div>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script th:inline="javascript">
     function deleteAddress(id) {
       var confirmMessage = /*[[#{address.confirm.delete}]]*/ 'Are you sure to delete this address?';
