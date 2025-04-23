@@ -1,5 +1,7 @@
 package com.mikepaskual.delivery.user.dto;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 public class UpdateUserRequest {
@@ -8,6 +10,7 @@ public class UpdateUserRequest {
     private String lastName;
     private String phone;
     private String gender;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthday;
 
     public UpdateUserRequest() {

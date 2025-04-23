@@ -1,7 +1,7 @@
 package com.mikepaskual.delivery.customer.dto;
 
 import com.mikepaskual.delivery.address.model.Address;
-import com.mikepaskual.delivery.customer.model.Gender;
+import com.mikepaskual.delivery.user.model.Gender;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

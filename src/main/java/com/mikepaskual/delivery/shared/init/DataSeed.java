@@ -4,7 +4,7 @@ import com.mikepaskual.delivery.address.dto.CreateAddressRequest;
 import com.mikepaskual.delivery.address.model.Address;
 import com.mikepaskual.delivery.address.service.AddressService;
 import com.mikepaskual.delivery.customer.dto.CreateCustomerRequest;
-import com.mikepaskual.delivery.customer.model.Gender;
+import com.mikepaskual.delivery.user.model.Gender;
 import com.mikepaskual.delivery.customer.service.CustomerService;
 import com.mikepaskual.delivery.user.dto.CreateUserRequest;
 import com.mikepaskual.delivery.user.dto.UpdateUserRequest;

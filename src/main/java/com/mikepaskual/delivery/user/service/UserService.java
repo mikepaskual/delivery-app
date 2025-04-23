@@ -1,6 +1,6 @@
 package com.mikepaskual.delivery.user.service;
 
-import com.mikepaskual.delivery.customer.model.Gender;
+import com.mikepaskual.delivery.user.model.Gender;
 import com.mikepaskual.delivery.user.dto.CreateUserRequest;
 import com.mikepaskual.delivery.user.dto.UpdateUserRequest;
 import com.mikepaskual.delivery.user.model.User;
@@ -18,7 +18,6 @@ public class UserService {
     @Autowired
     private final UserRepository userRepository;
 
-
     public UserService(PasswordEncoder passwordEncoder, UserRepository userRepository) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
@@ -35,14 +34,17 @@ public class UserService {
     }
 
     public User updateUser(Long userId, UpdateUserRequest request) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
+        User user = findUser(userId);
         user.setBirthday(request.getBirthday());
         user.setFirstName(request.getFirstName());
         user.setGender(Gender.valueOf(request.getGender()));
         user.setPhone(request.getPhone());
         user.setLastName(request.getLastName());
         return userRepository.save(user);
+    }
+
+    public User findUser(Long userId) {
+        return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
     }
 
     public User changeRole(User user, UserRole userRole) {
