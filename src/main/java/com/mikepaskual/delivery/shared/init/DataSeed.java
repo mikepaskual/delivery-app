@@ -7,8 +7,8 @@ import com.mikepaskual.delivery.customer.dto.CreateCustomerRequest;
 import com.mikepaskual.delivery.customer.model.Gender;
 import com.mikepaskual.delivery.customer.service.CustomerService;
 import com.mikepaskual.delivery.user.dto.CreateUserRequest;
+import com.mikepaskual.delivery.user.dto.UpdateUserRequest;
 import com.mikepaskual.delivery.user.model.User;
-import com.mikepaskual.delivery.user.model.UserRole;
 import com.mikepaskual.delivery.user.service.UserService;
 import jakarta.annotation.PostConstruct;
 import org.apache.commons.csv.CSVFormat;
@@ -23,8 +23,8 @@ import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -32,13 +32,13 @@ import java.util.Random;
 public class DataSeed {
 
     @Autowired
-    private UserService userService;
+    private final AddressService addressService;
     @Autowired
-    private CustomerService customerService;
+    private final CustomerService customerService;
     @Autowired
-    private AddressService addressService;
+    private final UserService userService;
 
-    public DataSeed(UserService userService, CustomerService customerService, AddressService addressService) {
+    public DataSeed(AddressService addressService, CustomerService customerService, UserService userService) {
         this.addressService = addressService;
         this.customerService = customerService;
         this.userService = userService;
@@ -46,27 +46,38 @@ public class DataSeed {
 
     @PostConstruct
     public void init() {
-        CreateUserRequest adminRequest = CreateUserRequest.builder()
-                .setEmail("admin@delivery.edu")
-                .setPassword("admin")
-                .setUsername("admin")
-                .setVerifyPassword("admin")
-                .build();
-        User admin = userService.registerUser(adminRequest);
-        userService.changeRole(admin, UserRole.ADMIN);
+        loadUsers();
 
-        CreateUserRequest userRequest = CreateUserRequest.builder()
-                .setEmail("user@delivery.edu")
-                .setPassword("user")
-                .setUsername("user")
-                .setVerifyPassword("user")
-                .build();
-        User user = userService.registerUser(userRequest);
-
-        loadAddressesAndCustomersFromCsv();
+        // loadAddressesAndCustomersFromCsv();
     }
 
-    public void loadAddressesAndCustomersFromCsv() {
+    private void loadUsers() {
+        CreateUserRequest createUserRequest1 = CreateUserRequest.builder()
+                .setCreatedAt(LocalDateTime.now())
+                .setEmail("user1@delivery.edu")
+                .setPassword("123456")
+                .setUsername("user1")
+                .setVerifyPassword("123456").build();
+        User user1 = userService.registerUser(createUserRequest1);
+
+        UpdateUserRequest updateUserRequest1 = UpdateUserRequest.builder()
+                .setBirthday(LocalDate.of(1987, Month.APRIL, 17))
+                .setGender(Gender.MALE.name())
+                .setFirstName("FIRST_NAME")
+                .setPhone("PHONE")
+                .setLastName("LAST_NAME").build();
+        userService.updateUser(user1.getId(), updateUserRequest1);
+
+        CreateUserRequest createUserRequest2 = CreateUserRequest.builder()
+                .setCreatedAt(LocalDateTime.now())
+                .setEmail("user2@delivery.edu")
+                .setPassword("123456")
+                .setUsername("user2")
+                .setVerifyPassword("123456").build();
+        userService.registerUser(createUserRequest2);
+    }
+
+    private void loadAddressesAndCustomersFromCsv() {
         Random random = new Random();
 
         // reading addresses from csv file
