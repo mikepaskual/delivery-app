@@ -8,7 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user_entity")
@@ -21,6 +23,8 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private UserRole role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles;
     private String firstName;
     private String lastName;
     private String phone;
@@ -30,7 +34,19 @@ public class User implements UserDetails {
     private LocalDateTime createdAt;
 
     public User() {
-        super();
+        roles = new HashSet<>();
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        if (roles == null) {
+            this.roles = new HashSet<>();
+        } else {
+            this.roles = new HashSet<>(roles);
+        }
     }
 
     public String getFirstName() {
@@ -141,6 +157,7 @@ public class User implements UserDetails {
         private String email;
         private String password;
         private UserRole role;
+        private Set<Role> roles;
         private String firstName;
         private String lastName;
         private String phone;
@@ -150,6 +167,12 @@ public class User implements UserDetails {
 
         Builder() {
             super();
+        }
+
+        @SuppressWarnings("unchecked")
+        public S setRoles(Set<Role> roles) {
+            this.roles = roles;
+            return (S) this;
         }
 
         @SuppressWarnings("unchecked")
@@ -230,6 +253,7 @@ public class User implements UserDetails {
             user.setPassword(this.password);
             user.setPhone(this.phone);
             user.setRole(this.role);
+            user.setRoles(this.roles);
             user.setUsername(this.username);
             return user;
         }

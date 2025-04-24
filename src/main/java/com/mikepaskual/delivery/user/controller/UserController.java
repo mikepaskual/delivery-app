@@ -4,6 +4,7 @@ import com.mikepaskual.delivery.user.dto.CreateUserRequest;
 import com.mikepaskual.delivery.user.dto.UpdateUserRequest;
 import com.mikepaskual.delivery.user.model.Gender;
 import com.mikepaskual.delivery.user.model.User;
+import com.mikepaskual.delivery.user.model.UserRole;
 import com.mikepaskual.delivery.user.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -41,7 +43,9 @@ public class UserController {
 
     @GetMapping("/auth/register")
     public String showRegisterForm(Model model) {
-        model.addAttribute("user", CreateUserRequest.builder().build());
+        model.addAttribute("user", CreateUserRequest.builder()
+                .setCreatedAt(LocalDateTime.now()).build());
+        model.addAttribute("roles", UserRole.getPublicRolesAsNames());
         return "register";
     }
 

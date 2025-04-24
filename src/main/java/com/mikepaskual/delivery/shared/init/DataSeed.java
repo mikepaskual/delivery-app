@@ -47,7 +47,6 @@ public class DataSeed {
     @PostConstruct
     public void init() {
         loadUsers();
-
         // loadAddressesAndCustomersFromCsv();
     }
 
@@ -56,6 +55,7 @@ public class DataSeed {
                 .setCreatedAt(LocalDateTime.now())
                 .setEmail("user1@delivery.edu")
                 .setPassword("123456")
+                .setRole("DRIVER")
                 .setUsername("user1")
                 .setVerifyPassword("123456").build();
         User user1 = userService.registerUser(createUserRequest1);
@@ -63,15 +63,16 @@ public class DataSeed {
         UpdateUserRequest updateUserRequest1 = UpdateUserRequest.builder()
                 .setBirthday(LocalDate.of(1987, Month.APRIL, 17))
                 .setGender(Gender.MALE.name())
-                .setFirstName("FIRST_NAME")
-                .setPhone("PHONE")
-                .setLastName("LAST_NAME").build();
+                .setFirstName("MIGUEL ANGEL")
+                .setPhone("666666666")
+                .setLastName("PASCUAL GOLDARAZ").build();
         userService.updateUser(user1.getId(), updateUserRequest1);
 
         CreateUserRequest createUserRequest2 = CreateUserRequest.builder()
                 .setCreatedAt(LocalDateTime.now())
                 .setEmail("user2@delivery.edu")
                 .setPassword("123456")
+                .setRole("DRIVER")
                 .setUsername("user2")
                 .setVerifyPassword("123456").build();
         userService.registerUser(createUserRequest2);

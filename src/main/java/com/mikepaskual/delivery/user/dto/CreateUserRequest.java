@@ -8,6 +8,7 @@ public class CreateUserRequest {
     private String password;
     private String verifyPassword;
     private String email;
+    private String role;
     private LocalDateTime createdAt;
 
     public CreateUserRequest() {
@@ -54,6 +55,14 @@ public class CreateUserRequest {
         this.username = username;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @SuppressWarnings("rawtypes")
     public static Builder builder() {
         return new Builder();
@@ -66,6 +75,7 @@ public class CreateUserRequest {
         private String password;
         private String verifyPassword;
         private String email;
+        private String role;
         private LocalDateTime createdAt;
 
         Builder() {
@@ -81,6 +91,12 @@ public class CreateUserRequest {
         @SuppressWarnings("unchecked")
         public S setVerifyPassword(String verifyPassword) {
             this.verifyPassword = verifyPassword;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
+        public S setRole(String role) {
+            this.role = role;
             return (S) this;
         }
 
@@ -107,6 +123,7 @@ public class CreateUserRequest {
             request.setCreatedAt(this.createdAt);
             request.setEmail(this.email);
             request.setPassword(this.password);
+            request.setRole(this.role);
             request.setUsername(this.username);
             request.setVerifyPassword(this.verifyPassword);
             return request;
