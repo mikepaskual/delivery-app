@@ -1,15 +1,28 @@
 package com.mikepaskual.delivery.user.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
 public class UpdateUserRequest {
 
+    @NotEmpty(message = "{profile.validation.firstName.empty}")
+    @Size(min = 3, max = 50, message = "{profile.validation.firstName.size}")
     private String firstName;
+    @NotEmpty(message = "{profile.validation.lastName.empty}")
+    @Size(min = 3, max = 50, message = "{profile.validation.lastName.size}")
     private String lastName;
+    @NotEmpty(message = "{profile.validation.phone.empty}")
+    @Size(min = 9, max = 12, message = "{profile.validation.phone.size}")
     private String phone;
+    @NotEmpty(message = "{profile.validation.gender.empty}")
     private String gender;
+    @NotNull(message = "{profile.validation.birthday.notNull}")
+    @Past(message = "{profile.validation.birthday.past}")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthday;
 
