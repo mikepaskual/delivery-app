@@ -1,0 +1,37 @@
+<div th:fragment="navbar">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/}">
+        <img th:src="@{/img/logo.svg}" width="38" height="30" class="me-3" alt="Logo">
+        <span th:text="#{nav.home}">Home</span>
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" sec:authorize="isAuthenticated()">
+            <a class="nav-link" th:href="@{/customers}" th:text="#{nav.customers}">Customers</a>
+          </li>
+          <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+            <a class="nav-link" th:href="@{/admin/}" th:text="#{nav.admin}">Admin</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+            <th:block th:with="auth=${#authentication.getPrincipal()}">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" th:text="${auth.username}">User</a>
+            </th:block>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" th:href="@{/profile}" th:text="#{nav.profile}">Profile</a></li>
+              <li>
+                <form th:action="@{/logout}" method="POST" id="logoutForm" style="display:none"></form>
+                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()" th:text="#{nav.logout}">Logout</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item" sec:authorize="!isAuthenticated()">
+            <a class="nav-link" th:href="@{/login}" th:text="#{nav.login}">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
