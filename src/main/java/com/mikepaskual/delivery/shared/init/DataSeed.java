@@ -27,6 +27,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 @Component
 public class DataSeed {
@@ -54,10 +55,10 @@ public class DataSeed {
         CreateUserRequest createUserRequest1 = CreateUserRequest.builder()
                 .setCreatedAt(LocalDateTime.now())
                 .setEmail("user1@delivery.edu")
-                .setPassword("123456")
-                .setRole("DRIVER")
+                .setPassword("P@ssw0rd")
+                .setRoles(Set.of("DRIVER", "CUSTOMER"))
                 .setUsername("user1")
-                .setVerifyPassword("123456").build();
+                .setVerifyPassword("P@ssw0rd").build();
         User user1 = userService.registerUser(createUserRequest1);
 
         UpdateUserRequest updateUserRequest1 = UpdateUserRequest.builder()
@@ -71,11 +72,20 @@ public class DataSeed {
         CreateUserRequest createUserRequest2 = CreateUserRequest.builder()
                 .setCreatedAt(LocalDateTime.now())
                 .setEmail("user2@delivery.edu")
-                .setPassword("123456")
-                .setRole("DRIVER")
+                .setPassword("P@ssw0rd")
+                .setRoles(Set.of("CUSTOMER"))
                 .setUsername("user2")
-                .setVerifyPassword("123456").build();
+                .setVerifyPassword("P@ssw0rd").build();
         userService.registerUser(createUserRequest2);
+
+        CreateUserRequest createUserRequest3 = CreateUserRequest.builder()
+                .setCreatedAt(LocalDateTime.now())
+                .setEmail("user3@delivery.edu")
+                .setPassword("P@ssw0rd")
+                .setRoles(Set.of("DRIVER"))
+                .setUsername("user3")
+                .setVerifyPassword("P@ssw0rd").build();
+        userService.registerUser(createUserRequest3);
     }
 
     private void loadAddressesAndCustomersFromCsv() {

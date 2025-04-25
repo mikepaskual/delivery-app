@@ -71,33 +71,48 @@
             <input type="text" class="form-control" id="inputUsername" th:field="*{username}" placeholder="Username">
             <label for="inputUsername" th:text="#{register.form.username}">Username</label>
         </div>
+        <div class="text-danger text-start mb-2" th:if="${#fields.hasErrors('username')}" th:text="${#fields.errors('username')[0]}">
+
+        </div>
 
         <div class="form-floating">
             <input type="email" class="form-control" id="inputEmail" th:field="*{email}" placeholder="name@example.com">
             <label for="inputEmail" th:text="#{register.form.email}">Email address</label>
+        </div>
+        <div class="text-danger text-start mb-2" th:if="${#fields.hasErrors('email')}" th:text="${#fields.errors('email')[0]}">
+
         </div>
 
         <div class="form-floating">
             <input type="password" class="form-control" id="inputPassword1" th:field="*{password}" placeholder="Password">
             <label for="inputPassword1" th:text="#{register.form.password}">Password</label>
         </div>
+        <div class="text-danger text-start mb-2" th:if="${#fields.hasErrors('password')}" th:text="${#fields.errors('password')[0]}">
+
+        </div>
 
         <div class="form-floating">
             <input type="password" class="form-control" id="inputPassword2" th:field="*{verifyPassword}" placeholder="Repeat Password">
             <label for="inputPassword2" th:text="#{register.form.repeatPassword}">Repeat Password</label>
         </div>
+        <div class="text-danger text-start mb-2" th:if="${#fields.hasErrors('verifyPassword')}" th:text="${#fields.errors('verifyPassword')[0]}">
+
+        </div>
 
         <div class="mb-3 text-start">
             <label class="form-label d-block" th:text="#{register.form.role}">Type of role</label>
             <div class="form-check" th:each="role : ${roles}">
-                    <input type="radio" class="form-check-input"
-                           th:field="*{role}"
+                    <input type="checkbox" class="form-check-input"
+                           th:field="*{roles}"
                            th:value="${role}"
-                           id="'role_' + ${role}" />
+                           th:id="'role_' + ${role}" />
                     <label class="form-check-label"
                            th:for="'role_' + ${role}"
                            th:text="#{${'register.form.role.' + #strings.toLowerCase(role)}}">Role</label>
             </div>
+        </div>
+        <div class="text-danger text-start mb-3" th:if="${#fields.hasErrors('roles')}" th:text="${#fields.errors('roles')[0]}">
+
         </div>
 
         <button class="w-100 btn btn-lg btn-primary" type="submit" th:text="#{button.register}">Submit</button>

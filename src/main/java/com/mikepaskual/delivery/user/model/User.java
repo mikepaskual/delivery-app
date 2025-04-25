@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "user_entity")
@@ -22,7 +23,6 @@ public class User implements UserDetails {
     private String username;
     private String email;
     private String password;
-    private UserRole role;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
     private String firstName;
@@ -131,17 +131,11 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public UserRole getRole() {
-        return role;
-    }
-
-    public void setRole(UserRole role) {
-        this.role = role;
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
+        return roles.stream()
+                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName()))
+                .collect(Collectors.toSet());
     }
 
     @SuppressWarnings("rawtypes")
@@ -156,7 +150,6 @@ public class User implements UserDetails {
         private String username;
         private String email;
         private String password;
-        private UserRole role;
         private Set<Role> roles;
         private String firstName;
         private String lastName;
@@ -235,12 +228,6 @@ public class User implements UserDetails {
             return (S) this;
         }
 
-        @SuppressWarnings("unchecked")
-        public S setRole(UserRole role) {
-            this.role = role;
-            return (S) this;
-        }
-
         public User build() {
             User user = new User();
             user.setBirthday(this.birthday);
@@ -252,7 +239,6 @@ public class User implements UserDetails {
             user.setLastName(this.lastName);
             user.setPassword(this.password);
             user.setPhone(this.phone);
-            user.setRole(this.role);
             user.setRoles(this.roles);
             user.setUsername(this.username);
             return user;

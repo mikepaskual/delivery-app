@@ -50,11 +50,15 @@ public class UserController {
     }
 
     @PostMapping("/auth/register/submit")
-    public String processRegisterForm(@ModelAttribute("user") CreateUserRequest request, BindingResult bindingResult) {
+    public String processRegisterForm(@Valid @ModelAttribute("user") CreateUserRequest request,
+                                      BindingResult bindingResult, Model model,
+                                      RedirectAttributes redirectAttributes, Locale locale) {
         if (bindingResult.hasErrors()) {
+            model.addAttribute("roles", UserRole.getPublicRolesAsNames());
             return "register";
         }
         userService.registerUser(request);
+        redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("register.success", null, locale));
         return "redirect:/login";
     }
 
@@ -68,7 +72,7 @@ public class UserController {
                 .setLastName(user.getLastName())
                 .setPhone(user.getPhone()).build();
         model.addAttribute("updateUserForm", updateUserForm);
-        model.addAttribute("genders", Arrays.stream(Gender.values()).map(Enum::name).collect(Collectors.toSet()));
+        model.addAttribute("genders", Gender.getGendersAsNames());
         return "user/profile";
     }
 
@@ -78,7 +82,7 @@ public class UserController {
                                      @AuthenticationPrincipal User user,
                                      RedirectAttributes redirectAttributes, Locale locale) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("genders", Arrays.stream(Gender.values()).map(Enum::name).collect(Collectors.toSet()));
+            model.addAttribute("genders", Gender.getGendersAsNames());
             return "user/profile";
         }
         userService.updateUser(user.getId(), request);
