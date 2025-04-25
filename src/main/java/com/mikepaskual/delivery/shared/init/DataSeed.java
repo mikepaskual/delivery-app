@@ -4,11 +4,11 @@ import com.mikepaskual.delivery.address.dto.CreateAddressRequest;
 import com.mikepaskual.delivery.address.model.Address;
 import com.mikepaskual.delivery.address.service.AddressService;
 import com.mikepaskual.delivery.customer.dto.CreateCustomerRequest;
-import com.mikepaskual.delivery.customer.model.Gender;
+import com.mikepaskual.delivery.user.model.Gender;
 import com.mikepaskual.delivery.customer.service.CustomerService;
 import com.mikepaskual.delivery.user.dto.CreateUserRequest;
+import com.mikepaskual.delivery.user.dto.UpdateUserRequest;
 import com.mikepaskual.delivery.user.model.User;
-import com.mikepaskual.delivery.user.model.UserRole;
 import com.mikepaskual.delivery.user.service.UserService;
 import jakarta.annotation.PostConstruct;
 import org.apache.commons.csv.CSVFormat;
@@ -23,22 +23,23 @@ import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 @Component
 public class DataSeed {
 
     @Autowired
-    private UserService userService;
+    private final AddressService addressService;
     @Autowired
-    private CustomerService customerService;
+    private final CustomerService customerService;
     @Autowired
-    private AddressService addressService;
+    private final UserService userService;
 
-    public DataSeed(UserService userService, CustomerService customerService, AddressService addressService) {
+    public DataSeed(AddressService addressService, CustomerService customerService, UserService userService) {
         this.addressService = addressService;
         this.customerService = customerService;
         this.userService = userService;
@@ -46,27 +47,48 @@ public class DataSeed {
 
     @PostConstruct
     public void init() {
-        CreateUserRequest adminRequest = CreateUserRequest.builder()
-                .setEmail("admin@delivery.edu")
-                .setPassword("admin")
-                .setUsername("admin")
-                .setVerifyPassword("admin")
-                .build();
-        User admin = userService.registerUser(adminRequest);
-        userService.changeRole(admin, UserRole.ADMIN);
-
-        CreateUserRequest userRequest = CreateUserRequest.builder()
-                .setEmail("user@delivery.edu")
-                .setPassword("user")
-                .setUsername("user")
-                .setVerifyPassword("user")
-                .build();
-        User user = userService.registerUser(userRequest);
-
-        loadAddressesAndCustomersFromCsv();
+        loadUsers();
+        // loadAddressesAndCustomersFromCsv();
     }
 
-    public void loadAddressesAndCustomersFromCsv() {
+    private void loadUsers() {
+        CreateUserRequest createUserRequest1 = CreateUserRequest.builder()
+                .setCreatedAt(LocalDateTime.now())
+                .setEmail("user1@delivery.edu")
+                .setPassword("P@ssw0rd")
+                .setRoles(Set.of("DRIVER", "CUSTOMER"))
+                .setUsername("user1")
+                .setVerifyPassword("P@ssw0rd").build();
+        User user1 = userService.registerUser(createUserRequest1);
+
+        UpdateUserRequest updateUserRequest1 = UpdateUserRequest.builder()
+                .setBirthday(LocalDate.of(1987, Month.APRIL, 17))
+                .setGender(Gender.MALE.name())
+                .setFirstName("MIGUEL ANGEL")
+                .setPhone("666666666")
+                .setLastName("PASCUAL GOLDARAZ").build();
+        userService.updateUser(user1.getId(), updateUserRequest1);
+
+        CreateUserRequest createUserRequest2 = CreateUserRequest.builder()
+                .setCreatedAt(LocalDateTime.now())
+                .setEmail("user2@delivery.edu")
+                .setPassword("P@ssw0rd")
+                .setRoles(Set.of("CUSTOMER"))
+                .setUsername("user2")
+                .setVerifyPassword("P@ssw0rd").build();
+        userService.registerUser(createUserRequest2);
+
+        CreateUserRequest createUserRequest3 = CreateUserRequest.builder()
+                .setCreatedAt(LocalDateTime.now())
+                .setEmail("user3@delivery.edu")
+                .setPassword("P@ssw0rd")
+                .setRoles(Set.of("DRIVER"))
+                .setUsername("user3")
+                .setVerifyPassword("P@ssw0rd").build();
+        userService.registerUser(createUserRequest3);
+    }
+
+    private void loadAddressesAndCustomersFromCsv() {
         Random random = new Random();
 
         // reading addresses from csv file

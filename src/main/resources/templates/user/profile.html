@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="#{page.title.profile}">Profile</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+    <div class="container py-5 h-100">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#" th:href="@{/}" th:text="#{breadcrumb.home}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="#{breadcrumb.profile}">My profile</li>
+            </ol>
+        </nav>
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card rounded-3">
+                    <div class="card-body p-4">
+                        <h3 th:text="#{profile.form.edit.title}">My profile</h3>
+
+                        <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
+                              action="#" th:action="@{/profile/submit}" method="POST" th:object="${updateUserForm}">
+                            <div class="col-12">
+                                <div class="form-outline">
+                                    <label class="form-label" for="first-name" th:text="#{profile.form.firstName}">First name</label>
+                                    <div class="input-group has-validation">
+                                        <input type="text" id="first-name" class="form-control"
+                                               th:classappend="${#fields.hasErrors('firstName')} ? 'is-invalid' : 'is-valid'"
+                                               th:field="*{firstName}" aria-describedby="validation-first-name" required/>
+                                        <div id="validation-first-name" class="invalid-feedback" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="last-name" th:text="#{profile.form.lastName}">Last name</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" id="last-name" class="form-control"
+                                                   th:classappend="${#fields.hasErrors('lastName')} ? 'is-invalid' : 'is-valid'"
+                                                   th:field="*{lastName}" aria-describedby="validation-last-name" required/>
+                                            <div id="validation-last-name" class="invalid-feedback" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 mt-3">
+                                    <label class="form-label" for="phone" th:text="#{profile.form.phone}">Phone</label>
+                                    <div class="input-group has-validation">
+                                        <input type="text" id="phone" class="form-control"
+                                               th:classappend="${#fields.hasErrors('phone')} ? 'is-invalid' : 'is-valid'"
+                                               th:field="*{phone}" aria-describedby="validation-phone" required/>
+                                        <div id="validation-phone" class="invalid-feedback" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 mt-3">
+                                    <label class="form-label" for="birthday" th:text="#{profile.form.birthday}">Birthday</label>
+                                    <div class="input-group has-validation">
+                                        <input type="date" id="birthday" class="form-control"
+                                               th:field="*{birthday}"
+                                               th:classappend="${#fields.hasErrors('birthday')} ? 'is-invalid' : 'is-valid'"
+                                               aria-describedby="validation-birthday" required />
+                                        <div id="validation-birthday" class="invalid-feedback" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 mt-3">
+                                    <div class="form-outline">
+                                        <label class="form-label" th:text="#{profile.form.gender}">Gender</label>
+                                        <div class="input-group has-validation">
+                                            <div class="form-check form-check-inline" th:each="g : ${genders}">
+                                                <input class="form-check-input" type="radio"
+                                                       th:field="*{gender}"
+                                                       th:value="${g}"
+                                                       th:id="${'gender_' + g}" />
+                                                <label class="form-check-label"
+                                                       th:for="${'gender_' + g}"
+                                                       th:text="#{${'profile.form.gender.' + #strings.toLowerCase(g)}}">Gender</label>
+                                            </div>
+                                            <div class="text-danger" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-3 text-end" style="margin-top: 10px;">
+                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary" th:text="#{button.save}">Save</button>
+                                <a href="#" th:href="@{/}" class="btn btn-primary" th:text="#{button.cancel}">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

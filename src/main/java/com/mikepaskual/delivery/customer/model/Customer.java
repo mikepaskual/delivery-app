@@ -1,6 +1,7 @@
 package com.mikepaskual.delivery.customer.model;
 
 import com.mikepaskual.delivery.address.model.Address;
+import com.mikepaskual.delivery.user.model.Gender;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

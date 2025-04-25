@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New user</title>
+    <title th:text="#{page.title.register}">Register form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
     <style>
@@ -62,34 +61,62 @@
 <main class="form-register">
     <form action="#" th:action="@{/auth/register/submit}" method="post" th:object="${user}">
         <img class="mb-4" src="../static/img/register.svg" th:src="@{/img/register.svg}" alt="" width="72" height="57">
-        <h1 class="h3 mb-3 fw-normal">Register new user</h1>
+        <h1 class="h3 mb-3 fw-normal" th:text="#{register.form.title}">Register new user</h1>
 
         <div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Registration error</strong> Please check your credentials
+            <strong th:text="#{register.error}">Registration error</strong>
         </div>
 
         <div class="form-floating">
             <input type="text" class="form-control" id="inputUsername" th:field="*{username}" placeholder="Username">
-            <label for="inputUsername">Username</label>
+            <label for="inputUsername" th:text="#{register.form.username}">Username</label>
+        </div>
+        <div class="text-danger text-start mb-2" th:if="${#fields.hasErrors('username')}" th:text="${#fields.errors('username')[0]}">
+
         </div>
 
         <div class="form-floating">
             <input type="email" class="form-control" id="inputEmail" th:field="*{email}" placeholder="name@example.com">
-            <label for="inputEmail">Email address</label>
+            <label for="inputEmail" th:text="#{register.form.email}">Email address</label>
+        </div>
+        <div class="text-danger text-start mb-2" th:if="${#fields.hasErrors('email')}" th:text="${#fields.errors('email')[0]}">
+
         </div>
 
         <div class="form-floating">
             <input type="password" class="form-control" id="inputPassword1" th:field="*{password}" placeholder="Password">
-            <label for="inputPassword1">Password</label>
+            <label for="inputPassword1" th:text="#{register.form.password}">Password</label>
+        </div>
+        <div class="text-danger text-start mb-2" th:if="${#fields.hasErrors('password')}" th:text="${#fields.errors('password')[0]}">
+
         </div>
 
         <div class="form-floating">
             <input type="password" class="form-control" id="inputPassword2" th:field="*{verifyPassword}" placeholder="Repeat Password">
-            <label for="inputPassword2">Repeat Password</label>
+            <label for="inputPassword2" th:text="#{register.form.repeatPassword}">Repeat Password</label>
+        </div>
+        <div class="text-danger text-start mb-2" th:if="${#fields.hasErrors('verifyPassword')}" th:text="${#fields.errors('verifyPassword')[0]}">
+
         </div>
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
-        <a class="w-100 btn btn-lg btn-secondary" style="margin-top:10px;" th:href="@{/login}">Sign in</a>
+        <div class="mb-3 text-start">
+            <label class="form-label d-block" th:text="#{register.form.role}">Type of role</label>
+            <div class="form-check" th:each="role : ${roles}">
+                    <input type="checkbox" class="form-check-input"
+                           th:field="*{roles}"
+                           th:value="${role}"
+                           th:id="'role_' + ${role}" />
+                    <label class="form-check-label"
+                           th:for="'role_' + ${role}"
+                           th:text="#{${'register.form.role.' + #strings.toLowerCase(role)}}">Role</label>
+            </div>
+        </div>
+        <div class="text-danger text-start mb-3" th:if="${#fields.hasErrors('roles')}" th:text="${#fields.errors('roles')[0]}">
+
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit" th:text="#{button.register}">Submit</button>
+        <a class="w-100 btn btn-lg btn-secondary" style="margin-top:10px;" th:href="@{/login}" th:text="#{button.signin}">Sign in</a>
     </form>
 </main>
 
