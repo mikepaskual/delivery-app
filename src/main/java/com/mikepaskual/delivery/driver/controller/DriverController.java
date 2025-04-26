@@ -4,6 +4,7 @@ import com.mikepaskual.delivery.driver.dto.UpdateDriverRequest;
 import com.mikepaskual.delivery.driver.model.Driver;
 import com.mikepaskual.delivery.driver.service.DriverService;
 import com.mikepaskual.delivery.user.model.User;
+import com.mikepaskual.delivery.user.model.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,10 @@ public class DriverController {
 
     @GetMapping("/drivers")
     public String showDriverForm(Model model, @AuthenticationPrincipal User userAuthenticated) {
+        if (userAuthenticated.getRoles().stream()
+                .noneMatch(role -> UserRole.DRIVER.name().equals(role.getName()))) {
+            return "redirect:/error/forbidden";
+        }
         Driver driver = driverService.findById(userAuthenticated.getId());
         UpdateDriverRequest updateDriverForm = UpdateDriverRequest.builder()
                 .setAvailableFrom(driver.getAvailableFrom())
