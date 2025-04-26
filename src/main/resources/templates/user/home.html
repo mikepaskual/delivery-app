@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <head>
@@ -24,7 +25,29 @@
             <div class="col">
                 <div class="card rounded-3">
                     <div class="card-body p-4">
-                        <h3>Home</h3>
+                        <div class="row g-4">
+                            <div class="col-12 col-lg-6 d-flex justify-content-center" sec:authorize="hasAuthority('ROLE_DRIVER')">
+                                <a href="#" th:href="@{/drivers}" class="text-decoration-none text-dark">
+                                    <div class="card" style="width: 18rem;">
+                                        <img th:src="@{/img/driver.svg}" class="card-img-top" alt="Driver">
+                                        <div class="card-body text-center">
+                                            <p class="card-text" th:text="#{driver.settings}">Driver settings</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-12 col-lg-6 d-flex justify-content-center" sec:authorize="hasAuthority('ROLE_CUSTOMER')">
+                                <a href="#" th:href="@{/}" class="text-decoration-none text-dark">
+                                    <div class="card" style="width: 18rem;">
+                                        <img th:src="@{/img/customer.svg}" class="card-img-top" alt="Customer">
+                                        <div class="card-body text-center">
+                                            <p class="card-text" th:text="#{customer.settings}">Customer settings</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

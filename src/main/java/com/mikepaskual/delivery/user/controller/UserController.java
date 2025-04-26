@@ -29,7 +29,7 @@ public class UserController {
     @Autowired
     private final UserService userService;
     @Autowired
-    private MessageSource messageSource;
+    private final MessageSource messageSource;
 
     public UserController(UserService userService, MessageSource messageSource) {
         this.messageSource = messageSource;
