@@ -56,7 +56,7 @@ public class DataSeed {
                 .setCreatedAt(LocalDateTime.now())
                 .setEmail("user1@delivery.edu")
                 .setPassword("P@ssw0rd")
-                .setRoles(Set.of("DRIVER", "CUSTOMER"))
+                .setRoles(Set.of("DRIVER", "CUSTOMER", "ADMIN"))
                 .setUsername("user1")
                 .setVerifyPassword("P@ssw0rd").build();
         User user1 = userService.registerUser(createUserRequest1);

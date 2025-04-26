@@ -14,7 +14,7 @@ public class AvailableHoursValidator implements ConstraintValidator<AvailableHou
         if (!isValid) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate())
-                    .addPropertyNode("availableTo")
+                    .addPropertyNode("availableFrom")
                     .addConstraintViolation();
         }
         return isValid;

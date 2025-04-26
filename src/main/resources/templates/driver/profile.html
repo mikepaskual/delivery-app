@@ -51,6 +51,7 @@
                                                        th:classappend="${#fields.hasErrors('availableFrom')} ? 'is-invalid' : 'is-valid'"
                                                        th:field="*{availableFrom}" aria-describedby="validation-available-from" required/>
                                                 <div id="validation-available-from" class="invalid-feedback" th:if="${#fields.hasErrors('availableFrom')}" th:errors="*{availableFrom}">
+
                                                 </div>
                                             </div>
                                         </div>
@@ -64,6 +65,7 @@
                                                        th:classappend="${#fields.hasErrors('availableTo')} ? 'is-invalid' : 'is-valid'"
                                                        th:field="*{availableTo}" aria-describedby="validation-available-to" required/>
                                                 <div id="validation-available-to" class="invalid-feedback" th:if="${#fields.hasErrors('availableTo')}" th:errors="*{availableTo}">
+
                                                 </div>
                                             </div>
                                         </div>
