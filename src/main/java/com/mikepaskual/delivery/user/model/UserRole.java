@@ -11,7 +11,7 @@ public enum UserRole {
     MODERATOR(false),
     USER(false);
 
-    private boolean isPublicRole;
+    private final boolean isPublicRole;
 
     UserRole(boolean isPublicRole) {
         this.isPublicRole = isPublicRole;

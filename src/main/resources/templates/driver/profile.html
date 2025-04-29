@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="#{page.title.driver}">Driver settings</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+    <div class="container py-5 h-100">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#" th:href="@{/}" th:text="#{breadcrumb.home}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="#{breadcrumb.settings}">My settings</li>
+            </ol>
+        </nav>
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card rounded-3">
+                    <div class="card-body p-4">
+                        <h3 th:text="#{driver.form.edit.title}">Edit settings</h3>
+
+                        <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
+                              action="#" th:action="@{/drivers/submit}" method="POST" th:object="${updateDriverForm}">
+                            <div class="col-12">
+                                <div class="form-outline">
+                                    <label class="form-label" for="license-number" th:text="#{driver.form.licenseNumber}">License number</label>
+                                    <div class="input-group has-validation">
+                                        <input type="text" id="license-number" class="form-control"
+                                               th:classappend="${#fields.hasErrors('licenseNumber')} ? 'is-invalid' : 'is-valid'"
+                                               th:field="*{licenseNumber}" aria-describedby="validation-license-number" required/>
+                                        <div id="validation-license-number" class="invalid-feedback" th:if="${#fields.hasErrors('licenseNumber')}" th:errors="*{licenseNumber}">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="row g-3">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="available-from" th:text="#{driver.form.availableFrom}">Available From</label>
+                                            <div class="input-group has-validation">
+                                                <input type="time" id="available-from" class="form-control"
+                                                       th:classappend="${#fields.hasErrors('availableFrom')} ? 'is-invalid' : 'is-valid'"
+                                                       th:field="*{availableFrom}" aria-describedby="validation-available-from" required/>
+                                                <div id="validation-available-from" class="invalid-feedback" th:if="${#fields.hasErrors('availableFrom')}" th:errors="*{availableFrom}">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="available-to" th:text="#{driver.form.availableTo}">Available To</label>
+                                            <div class="input-group has-validation">
+                                                <input type="time" id="available-to" class="form-control"
+                                                       th:classappend="${#fields.hasErrors('availableTo')} ? 'is-invalid' : 'is-valid'"
+                                                       th:field="*{availableTo}" aria-describedby="validation-available-to" required/>
+                                                <div id="validation-available-to" class="invalid-feedback" th:if="${#fields.hasErrors('availableTo')}" th:errors="*{availableTo}">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-3 text-end" style="margin-top: 10px;">
+                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary" th:text="#{button.save}">Save</button>
+                                <a href="#" th:href="@{/}" class="btn btn-primary" th:text="#{button.cancel}">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

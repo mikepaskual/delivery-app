@@ -4,6 +4,13 @@ import com.mikepaskual.delivery.address.dto.CreateAddressRequest;
 import com.mikepaskual.delivery.address.model.Address;
 import com.mikepaskual.delivery.address.service.AddressService;
 import com.mikepaskual.delivery.customer.dto.CreateCustomerRequest;
+import com.mikepaskual.delivery.driver.dto.UpdateDriverRequest;
+import com.mikepaskual.delivery.driver.model.Driver;
+import com.mikepaskual.delivery.driver.service.DriverService;
+import com.mikepaskual.delivery.truck.dto.CreateTruckRequest;
+import com.mikepaskual.delivery.truck.model.FuelType;
+import com.mikepaskual.delivery.truck.model.Truck;
+import com.mikepaskual.delivery.truck.service.TruckService;
 import com.mikepaskual.delivery.user.model.Gender;
 import com.mikepaskual.delivery.customer.service.CustomerService;
 import com.mikepaskual.delivery.user.dto.CreateUserRequest;
@@ -37,11 +44,18 @@ public class DataSeed {
     @Autowired
     private final CustomerService customerService;
     @Autowired
+    private final DriverService driverService;
+    @Autowired
+    private final TruckService truckService;
+    @Autowired
     private final UserService userService;
 
-    public DataSeed(AddressService addressService, CustomerService customerService, UserService userService) {
+    public DataSeed(AddressService addressService, CustomerService customerService, DriverService driverService,
+                    TruckService truckService, UserService userService) {
         this.addressService = addressService;
         this.customerService = customerService;
+        this.driverService = driverService;
+        this.truckService = truckService;
         this.userService = userService;
     }
 
@@ -51,41 +65,45 @@ public class DataSeed {
         // loadAddressesAndCustomersFromCsv();
     }
 
+    @SuppressWarnings("unchecked")
     private void loadUsers() {
-        CreateUserRequest createUserRequest1 = CreateUserRequest.builder()
+        User admin = userService.registerUser(CreateUserRequest.builder()
                 .setCreatedAt(LocalDateTime.now())
-                .setEmail("user1@delivery.edu")
+                .setEmail("admin@delivery.edu")
                 .setPassword("P@ssw0rd")
-                .setRoles(Set.of("DRIVER", "CUSTOMER"))
-                .setUsername("user1")
-                .setVerifyPassword("P@ssw0rd").build();
-        User user1 = userService.registerUser(createUserRequest1);
-
-        UpdateUserRequest updateUserRequest1 = UpdateUserRequest.builder()
+                .setRoles(Set.of("ADMIN"))
+                .setUsername("admin")
+                .setVerifyPassword("P@ssw0rd").build());
+        userService.updateUser(admin.getId(), UpdateUserRequest.builder()
                 .setBirthday(LocalDate.of(1987, Month.APRIL, 17))
                 .setGender(Gender.MALE.name())
                 .setFirstName("MIGUEL ANGEL")
                 .setPhone("666666666")
-                .setLastName("PASCUAL GOLDARAZ").build();
-        userService.updateUser(user1.getId(), updateUserRequest1);
+                .setLastName("PASCUAL GOLDARAZ").build());
 
-        CreateUserRequest createUserRequest2 = CreateUserRequest.builder()
+        userService.registerUser(CreateUserRequest.builder()
                 .setCreatedAt(LocalDateTime.now())
-                .setEmail("user2@delivery.edu")
+                .setEmail("customer@delivery.edu")
                 .setPassword("P@ssw0rd")
                 .setRoles(Set.of("CUSTOMER"))
-                .setUsername("user2")
-                .setVerifyPassword("P@ssw0rd").build();
-        userService.registerUser(createUserRequest2);
+                .setUsername("customer")
+                .setVerifyPassword("P@ssw0rd").build());
 
-        CreateUserRequest createUserRequest3 = CreateUserRequest.builder()
+        User userDriver = userService.registerUser(CreateUserRequest.builder()
                 .setCreatedAt(LocalDateTime.now())
-                .setEmail("user3@delivery.edu")
+                .setEmail("driver@delivery.edu")
                 .setPassword("P@ssw0rd")
                 .setRoles(Set.of("DRIVER"))
-                .setUsername("user3")
-                .setVerifyPassword("P@ssw0rd").build();
-        userService.registerUser(createUserRequest3);
+                .setUsername("driver")
+                .setVerifyPassword("P@ssw0rd").build());
+
+        userService.registerUser(CreateUserRequest.builder()
+                .setCreatedAt(LocalDateTime.now())
+                .setEmail("customerdriver@delivery.edu")
+                .setPassword("P@ssw0rd")
+                .setRoles(Set.of("DRIVER", "CUSTOMER"))
+                .setUsername("customerdriver")
+                .setVerifyPassword("P@ssw0rd").build());
     }
 
     private void loadAddressesAndCustomersFromCsv() {
