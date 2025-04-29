@@ -1,6 +1,5 @@
 package com.mikepaskual.delivery.user.model;
 
-import com.mikepaskual.delivery.driver.model.Driver;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

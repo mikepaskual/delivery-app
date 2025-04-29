@@ -7,8 +7,10 @@ import com.mikepaskual.delivery.user.dto.CreateUserRequest;
 import com.mikepaskual.delivery.user.dto.UpdateUserRequest;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -34,6 +36,7 @@ public class UserService {
     }
 
     @Transactional
+    @SuppressWarnings("unchecked")
     public User registerUser(CreateUserRequest request) {
         Set<Role> roles = request.getRoles().stream()
                 .map(roleName -> Role.builder()
@@ -66,7 +69,8 @@ public class UserService {
     }
 
     public User findUser(Long userId) {
-        return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "redirect:/error/not-found"));
     }
 
 }

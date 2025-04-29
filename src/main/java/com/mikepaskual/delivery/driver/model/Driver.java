@@ -1,9 +1,12 @@
 package com.mikepaskual.delivery.driver.model;
 
+import com.mikepaskual.delivery.truck.model.Truck;
 import com.mikepaskual.delivery.user.model.User;
 import jakarta.persistence.*;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "driver_entity")
@@ -21,9 +24,24 @@ public class Driver {
     private LocalTime availableFrom;
     private LocalTime availableTo;
     private String notes;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "driver_id")
+    private List<Truck> trucks;
 
     public Driver() {
-        super();
+        trucks = new ArrayList<>();
+    }
+
+    public List<Truck> getTrucks() {
+        return trucks;
+    }
+
+    public void setTrucks(List<Truck> trucks) {
+        if (trucks == null) {
+            this.trucks = new ArrayList<>();
+        } else {
+            this.trucks = new ArrayList<>(trucks);
+        }
     }
 
     public Long getId() {
@@ -97,9 +115,16 @@ public class Driver {
         private LocalTime availableFrom;
         private LocalTime availableTo;
         private String notes;
+        private List<Truck> trucks;
 
         Builder() {
             super();
+        }
+
+        @SuppressWarnings("unchecked")
+        public S setTrucks(List<Truck> trucks) {
+            this.trucks = trucks;
+            return (S) this;
         }
 
         @SuppressWarnings("unchecked")
@@ -152,6 +177,7 @@ public class Driver {
             driver.setLicenseNumber(this.licenseNumber);
             driver.setNotes(this.notes);
             driver.setStatus(this.status);
+            driver.setTrucks(this.trucks);
             driver.setUser(this.user);
             return driver;
         }

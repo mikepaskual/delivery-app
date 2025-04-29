@@ -17,6 +17,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(requests ->
                 requests.requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/drivers/**", "/trucks/**").hasRole("DRIVER")
                         .requestMatchers("/login","/logout","/auth/register", "/auth/register/submit", "/h2-console/**", "/img/**", "/css/**")
                         .permitAll()
                         .anyRequest()
@@ -42,6 +43,7 @@ public class SecurityConfig {
 
         http.headers((headers) ->
                 headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));
+
         return http.build();
     }
 }

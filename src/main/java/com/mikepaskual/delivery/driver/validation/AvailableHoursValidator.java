@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 public class AvailableHoursValidator implements ConstraintValidator<AvailableHours, UpdateDriverRequest> {
 
     @Override
-    public boolean isValid(UpdateDriverRequest driverDTO, ConstraintValidatorContext context) {
-        boolean isValid = driverDTO.getAvailableTo().isAfter(driverDTO.getAvailableFrom());
+    public boolean isValid(UpdateDriverRequest request, ConstraintValidatorContext context) {
+        boolean isValid = request.getAvailableTo().isAfter(request.getAvailableFrom());
         if (!isValid) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate())

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="#{page.title.truck.list}">My trucks</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+
+    <div class="container py-5 h-100">
+        <div th:if="${successMessage}" class="alert alert-success">
+            <span th:text="${successMessage}">Successfull</span>
+        </div>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#" th:href="@{/}" th:text="#{breadcrumb.home}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="#{breadcrumb.trucks}">My Trucks</li>
+            </ol>
+        </nav>
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card rounded-3">
+                    <div class="card-body p-4">
+                        <h3 th:text="#{truck.list.title}">My truck list</h3>
+
+                        <div class="col-12">
+                            <div class="alert alert-primary" role="alert" th:if="${trucks.isEmpty()}">
+                                <span th:text="#{truck.list.empty}">There aren't trucks yet</span>
+                            </div>
+
+                            <div class="d-flex justify-content-end gap-2 mt-3 mb-4">
+                                <a class="btn btn-primary" href="#" th:href="@{/trucks/new}" th:text="#{button.addTruck}">Add truck</a>
+                                <a class="btn btn-primary" href="#" th:href="@{/}" th:text="#{button.back}">Back</a>
+                            </div>
+
+                            <div class="list-group" th:if="${!trucks.isEmpty()}">
+                                <div th:each="truck : ${trucks}">
+                                    <a class="list-group-item list-group-item-action" href="#" th:href="@{/trucks/{id}(id=${truck.id})}">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1" th:text="${truck.make + ' ' + truck.model}">Volkswagen Jetta</h5>
+                                            <small>
+                                                <span class="badge"
+                                                      th:classappend="${truck.status.name() == 'ACTIVE'} ? ' bg-success' : ' bg-danger'"
+                                                      th:text="#{${'truck.form.status.' + truck.status.name().toLowerCase()}}">Active</span>
+                                            </small>
+                                        </div>
+                                        <p class="mb-1" th:text="${truck.plate}">ABC123</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

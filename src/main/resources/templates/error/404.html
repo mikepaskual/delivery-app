@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="#{page.title.notFound}">Not Found</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <style>
+        html, body {
+          height: 100%;
+        }
+
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-top: 40px;
+          padding-bottom: 40px;
+          background-color: #f5f5f5;
+        }
+
+        .error-container {
+          width: 100%;
+          max-width: 400px;
+          padding: 15px;
+          margin: auto;
+          text-align: center;
+        }
+
+        .error-container img {
+          margin-bottom: 20px;
+        }
+
+        .error-container h1 {
+          font-size: 2rem;
+          color: #dc3545; /* rojo Bootstrap */
+          margin-bottom: 20px;
+        }
+
+        .error-container p {
+          margin-bottom: 20px;
+        }
+
+        .error-container a.btn {
+          width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<main class="error-container">
+    <img src="../static/img/not-found.svg" th:src="@{/img/not-found.svg}" alt="Not Found" width="100" height="100">
+    <h1 th:text="#{error.title.notFound}">Not Found</h1>
+    <p th:text="#{error.notFound}">The requested resource was not found.</p>
+    <a th:href="@{/}" class="btn btn-primary" th:text="#{button.back}">Back to Home</a>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

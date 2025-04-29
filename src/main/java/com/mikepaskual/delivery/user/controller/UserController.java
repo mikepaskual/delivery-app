@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.Locale;
-import java.util.stream.Collectors;
 
 @Controller
 public class UserController {

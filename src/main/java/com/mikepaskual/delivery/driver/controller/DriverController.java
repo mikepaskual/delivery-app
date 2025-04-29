@@ -34,10 +34,6 @@ public class DriverController {
 
     @GetMapping("/drivers")
     public String showDriverForm(Model model, @AuthenticationPrincipal User userAuthenticated) {
-        if (userAuthenticated.getRoles().stream()
-                .noneMatch(role -> UserRole.DRIVER.name().equals(role.getName()))) {
-            return "redirect:/error/forbidden";
-        }
         Driver driver = driverService.findById(userAuthenticated.getId());
         UpdateDriverRequest updateDriverForm = UpdateDriverRequest.builder()
                 .setAvailableFrom(driver.getAvailableFrom())
@@ -49,7 +45,7 @@ public class DriverController {
 
     @PostMapping("/drivers/submit")
     public String processDriverForm(@Valid @ModelAttribute("updateDriverForm") UpdateDriverRequest request,
-                                    BindingResult bindingResult, Model model,
+                                    BindingResult bindingResult,
                                     @AuthenticationPrincipal User userAuthenticated,
                                     RedirectAttributes redirectAttributes, Locale locale) {
         if (bindingResult.hasErrors()) {
