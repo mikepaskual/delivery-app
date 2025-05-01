@@ -1,6 +1,7 @@
 package com.mikepaskual.delivery.user.controller;
 
 import com.mikepaskual.delivery.user.dto.CreateUserRequest;
+import com.mikepaskual.delivery.user.dto.UpdatePasswordRequest;
 import com.mikepaskual.delivery.user.dto.UpdateUserRequest;
 import com.mikepaskual.delivery.user.model.Gender;
 import com.mikepaskual.delivery.user.model.User;
@@ -10,6 +11,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,15 +30,42 @@ public class UserController {
     private final UserService userService;
     @Autowired
     private final MessageSource messageSource;
+    @Autowired
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, MessageSource messageSource) {
+    public UserController(UserService userService, PasswordEncoder passwordEncoder,
+                          MessageSource messageSource) {
         this.messageSource = messageSource;
+        this.passwordEncoder = passwordEncoder;
         this.userService = userService;
     }
 
     @GetMapping("/")
     public String showHome() {
         return "user/home";
+    }
+
+    @GetMapping("/change-password")
+    public String showChangePasswordForm(Model model) {
+        model.addAttribute("changePassForm", UpdatePasswordRequest.builder().build());
+        return "user/change-password";
+    }
+
+    @PostMapping("/change-password")
+    public String processChangePassForm(@Valid @ModelAttribute("changePassForm") UpdatePasswordRequest request,
+                                        BindingResult bindingResult, @AuthenticationPrincipal User userAuthenticated,
+                                        RedirectAttributes redirectAttributes, Locale locale) {
+        if (bindingResult.hasErrors()) {
+            return "user/change-password";
+        }
+        User user = userService.findUser(userAuthenticated.getId());
+        if (!passwordEncoder.matches(request.getCurrentPassword(), user.getPassword())) {
+            bindingResult.rejectValue("currentPassword", "password.validation.currentPassword.error");
+            return "user/change-password";
+        }
+        userService.updatePassword(user.getId(), request.getNewPassword());
+        redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("password.updated", null, locale));
+        return "redirect:/";
     }
 
     @GetMapping("/auth/register")

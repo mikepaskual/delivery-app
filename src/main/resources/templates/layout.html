@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title layout:title-pattern="$CONTENT_TITLE - DeliveryApp">DeliveryApp</title>
-
-  <!-- Bootstrap & estilos -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
   <style>
     .container {
         max-width: 900px;
@@ -23,14 +18,8 @@
     }
   </style>
 </head>
-
 <body>
-
-<div th:replace="~{fragments/navbar :: navbar}"></div>
-
-<main layout:fragment="content">
-  <!-- Acá se inyectará el contenido de cada página -->
-</main>
-
+  <div th:replace="~{fragments/navbar :: navbar}"></div>
+  <main layout:fragment="content"></main>
 </body>
 </html>

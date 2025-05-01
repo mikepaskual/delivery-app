@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@PasswordsMatch
+@PasswordsMatch(passwordField = "password", confirmPasswordField = "verifyPassword")
 public class CreateUserRequest {
 
     @NotBlank(message = "{register.validation.username.notBlank}")

@@ -58,6 +58,13 @@ public class UserService {
         return user;
     }
 
+    public User updatePassword(Long userId, String password) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException());
+        user.setPassword(passwordEncoder.encode(password));
+        return userRepository.save(user);
+    }
+
     public User updateUser(Long userId, UpdateUserRequest request) {
         User user = findUser(userId);
         user.setBirthday(request.getBirthday());

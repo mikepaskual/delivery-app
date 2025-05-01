@@ -10,6 +10,7 @@
 <body>
 <main layout:fragment="content">
     <div class="container py-5 h-100">
+
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -27,9 +28,9 @@
                 <div class="card rounded-3">
                     <div class="card-body p-4">
                         <h3 th:text="#{truck.form.add.title}">New truck</h3>
+
                         <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
                               action="#" th:action="@{/trucks/new/submit}" method="POST" th:object="${truckForm}">
-
                             <input type="hidden" id="inputDriver" th:field="*{driver}" />
 
                             <div class="col-12">
