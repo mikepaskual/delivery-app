@@ -41,10 +41,9 @@ public class UserService {
     @SuppressWarnings("unchecked")
     public User registerUser(CreateUserRequest request) {
         Set<Role> roles = request.getRoles().stream()
-                .map(roleName -> Role.builder()
-                        .setName(roleName).build())
+                .map(roleName -> roleRepository.findByName(roleName)
+                        .orElseThrow(IllegalArgumentException::new))
                 .collect(Collectors.toSet());
-        roleRepository.saveAll(roles);
 
         User user = userRepository.save(User.builder()
                 .setCreatedAt(LocalDateTime.now())
@@ -54,8 +53,7 @@ public class UserService {
                 .setUsername(request.getUsername()).build());
 
         if (roles.stream().anyMatch(role -> UserRole.DRIVER.name().equals(role.getName()))) {
-            driverRepository.save(Driver.builder()
-                    .setUser(user).build());
+            driverRepository.save(Driver.builder().setUser(user).build());
         }
         return user;
     }
@@ -64,10 +62,10 @@ public class UserService {
         return passwordEncoder.matches(currentPassword, getUserOrThrow(userId).getPassword());
     }
 
-    public User updatePassword(Long userId, String newPassword) {
+    public void updatePassword(Long userId, String newPassword) {
         User user = getUserOrThrow(userId);
         user.setPassword(passwordEncoder.encode(newPassword));
-        return userRepository.save(user);
+        userRepository.save(user);
     }
 
     private User getUserOrThrow(Long userId) {

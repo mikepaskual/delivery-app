@@ -9,11 +9,10 @@ import com.mikepaskual.delivery.driver.model.Driver;
 import com.mikepaskual.delivery.driver.service.DriverService;
 import com.mikepaskual.delivery.truck.dto.CreateTruckRequest;
 import com.mikepaskual.delivery.truck.service.TruckService;
-import com.mikepaskual.delivery.user.model.Gender;
+import com.mikepaskual.delivery.user.model.*;
 import com.mikepaskual.delivery.customer.service.CustomerService;
 import com.mikepaskual.delivery.user.dto.CreateUserRequest;
 import com.mikepaskual.delivery.user.dto.UpdateUserRequest;
-import com.mikepaskual.delivery.user.model.User;
 import com.mikepaskual.delivery.user.service.UserService;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
@@ -23,6 +22,7 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -34,10 +34,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class DataSeed {
@@ -49,24 +46,51 @@ public class DataSeed {
     @Autowired
     private final DriverService driverService;
     @Autowired
+    private final RoleRepository roleRepository;
+    @Autowired
     private final TruckService truckService;
     @Autowired
     private final UserService userService;
+    private final UserRepository userRepository;
+    @Autowired
+    private final PasswordEncoder passwordEncoder;
 
     public DataSeed(AddressService addressService, CustomerService customerService, DriverService driverService,
-                    TruckService truckService, UserService userService) {
+                    RoleRepository roleRepository, TruckService truckService, UserService userService,
+                    UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.addressService = addressService;
         this.customerService = customerService;
         this.driverService = driverService;
+        this.roleRepository = roleRepository;
         this.truckService = truckService;
         this.userService = userService;
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @PostConstruct
     public void init() {
+        loading_roles();
+        loading_admin();
         //loadUsers();
         //loading(loading_users_from_csv(), loading_user_details_from_csv(), loading_trucks_from_csv());
         // loadAddressesAndCustomersFromCsv();
+    }
+
+    private void loading_roles() {
+        Arrays.stream(UserRole.values())
+                .forEach(role -> roleRepository.save(Role.builder().setName(role.name()).build()));
+    }
+
+    private void loading_admin() {
+        Role adminRole = roleRepository.findByName(UserRole.ADMIN.name())
+                .orElseThrow(() -> new IllegalStateException("ADMIN role not found"));
+        userRepository.save(User.builder()
+                .setCreatedAt(LocalDateTime.now())
+                .setEmail("admin@deliveryapp.edu")
+                .setPassword(passwordEncoder.encode("P@ssw0rd"))
+                .setRoles(Set.of(adminRole))
+                .setUsername("admin").build());
     }
 
     private void loading(List<CreateUserRequest> pUsers, List<UpdateUserRequest> pUserDetails, List<CreateTruckRequest> pTrucks) {

@@ -60,7 +60,7 @@
 <body class="text-center">
 
 <main class="form-register">
-    <form action="#" th:action="@{/auth/register/submit}" method="post" th:object="${user}">
+    <form action="#" th:action="@{/auth/register}" method="post" th:object="${registerForm}">
         <img class="mb-4" src="" th:src="@{/img/register.svg}" alt="" width="72" height="57">
 
         <h1 class="h3 mb-3 fw-normal" th:text="#{register.form.title}">Register new user</h1>

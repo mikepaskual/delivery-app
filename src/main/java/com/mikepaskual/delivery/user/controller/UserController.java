@@ -63,14 +63,14 @@ public class UserController {
     }
 
     @GetMapping("/auth/register")
-    public String showRegisterForm(Model model) {
-        model.addAttribute("user", CreateUserRequest.builder().build());
+    public String showRegisterView(Model model) {
+        model.addAttribute("registerForm", CreateUserRequest.builder().build());
         model.addAttribute("roles", UserRole.getPublicRolesAsNames());
         return "register";
     }
 
-    @PostMapping("/auth/register/submit")
-    public String processRegisterForm(@Valid @ModelAttribute("user") CreateUserRequest request,
+    @PostMapping("/auth/register")
+    public String processRegisterForm(@Valid @ModelAttribute("registerForm") CreateUserRequest request,
                                       BindingResult bindingResult, Model model,
                                       RedirectAttributes redirectAttributes, Locale locale) {
         if (bindingResult.hasErrors()) {
