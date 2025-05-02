@@ -64,8 +64,8 @@ public class DataSeed {
 
     @PostConstruct
     public void init() {
-        loadUsers();
-        loading(loading_users_from_csv(), loading_user_details_from_csv(), loading_trucks_from_csv());
+        //loadUsers();
+        //loading(loading_users_from_csv(), loading_user_details_from_csv(), loading_trucks_from_csv());
         // loadAddressesAndCustomersFromCsv();
     }
 
@@ -152,7 +152,7 @@ public class DataSeed {
                         .setUsername(fila[3].substring(0, fila[3].indexOf('@')))
                         .setEmail(fila[3])
                         .setPassword("P@ssw0rd")
-                        .setCreatedAt(LocalDateTime.of(LocalDate.parse(fila[6], DateTimeFormatter.ofPattern("yyyy-MM-dd")), LocalTime.now()))
+//                        .setCreatedAt(LocalDateTime.of(LocalDate.parse(fila[6], DateTimeFormatter.ofPattern("yyyy-MM-dd")), LocalTime.now()))
                         .setRoles(Set.of("DRIVER")).build());
             }
         } catch (IOException | CsvValidationException e) {
@@ -223,12 +223,12 @@ public class DataSeed {
     @SuppressWarnings("unchecked")
     private void loadUsers() {
         User admin = userService.registerUser(CreateUserRequest.builder()
-                .setCreatedAt(LocalDateTime.now())
+//                .setCreatedAt(LocalDateTime.now())
                 .setEmail("admin@delivery.edu")
                 .setPassword("P@ssw0rd")
                 .setRoles(Set.of("ADMIN"))
                 .setUsername("admin")
-                .setVerifyPassword("P@ssw0rd").build());
+                .setRepeatPassword("P@ssw0rd").build());
         userService.updateUser(admin.getId(), UpdateUserRequest.builder()
                 .setBirthday(LocalDate.of(1987, Month.APRIL, 17))
                 .setGender(Gender.MALE.name())
@@ -237,28 +237,28 @@ public class DataSeed {
                 .setLastName("PASCUAL GOLDARAZ").build());
 
         userService.registerUser(CreateUserRequest.builder()
-                .setCreatedAt(LocalDateTime.now())
+//                .setCreatedAt(LocalDateTime.now())
                 .setEmail("customer@delivery.edu")
                 .setPassword("P@ssw0rd")
                 .setRoles(Set.of("CUSTOMER"))
                 .setUsername("customer")
-                .setVerifyPassword("P@ssw0rd").build());
+                .setRepeatPassword("P@ssw0rd").build());
 
         User userDriver = userService.registerUser(CreateUserRequest.builder()
-                .setCreatedAt(LocalDateTime.now())
+//                .setCreatedAt(LocalDateTime.now())
                 .setEmail("driver@delivery.edu")
                 .setPassword("P@ssw0rd")
                 .setRoles(Set.of("DRIVER"))
                 .setUsername("driver")
-                .setVerifyPassword("P@ssw0rd").build());
+                .setRepeatPassword("P@ssw0rd").build());
 
         userService.registerUser(CreateUserRequest.builder()
-                .setCreatedAt(LocalDateTime.now())
+//                .setCreatedAt(LocalDateTime.now())
                 .setEmail("customerdriver@delivery.edu")
                 .setPassword("P@ssw0rd")
                 .setRoles(Set.of("DRIVER", "CUSTOMER"))
                 .setUsername("customerdriver")
-                .setVerifyPassword("P@ssw0rd").build());
+                .setRepeatPassword("P@ssw0rd").build());
     }
 
     private void loadAddressesAndCustomersFromCsv() {

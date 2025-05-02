@@ -11,7 +11,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.time.LocalDateTime;
 import java.util.Locale;
 
 @Controller
@@ -30,13 +28,9 @@ public class UserController {
     private final UserService userService;
     @Autowired
     private final MessageSource messageSource;
-    @Autowired
-    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, PasswordEncoder passwordEncoder,
-                          MessageSource messageSource) {
+    public UserController(UserService userService, MessageSource messageSource) {
         this.messageSource = messageSource;
-        this.passwordEncoder = passwordEncoder;
         this.userService = userService;
     }
 
@@ -46,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping("/change-password")
-    public String showChangePasswordForm(Model model) {
+    public String showChangePasswordView(Model model) {
         model.addAttribute("changePassForm", UpdatePasswordRequest.builder().build());
         return "user/change-password";
     }
@@ -58,20 +52,19 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "user/change-password";
         }
-        User user = userService.findUser(userAuthenticated.getId());
-        if (!passwordEncoder.matches(request.getCurrentPassword(), user.getPassword())) {
+        boolean wrongPass = !userService.isCurrentPassword(userAuthenticated.getId(), request.getCurrentPassword());
+        if (wrongPass) {
             bindingResult.rejectValue("currentPassword", "password.validation.currentPassword.error");
             return "user/change-password";
         }
-        userService.updatePassword(user.getId(), request.getNewPassword());
-        redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("password.updated", null, locale));
+        userService.updatePassword(userAuthenticated.getId(), request.getNewPassword());
+        redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("password.updated.success", null, locale));
         return "redirect:/";
     }
 
     @GetMapping("/auth/register")
     public String showRegisterForm(Model model) {
-        model.addAttribute("user", CreateUserRequest.builder()
-                .setCreatedAt(LocalDateTime.now()).build());
+        model.addAttribute("user", CreateUserRequest.builder().build());
         model.addAttribute("roles", UserRole.getPublicRolesAsNames());
         return "register";
     }
@@ -90,8 +83,8 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String showProfileForm(Model model, @AuthenticationPrincipal User userAuthentication) {
-        User user = userService.findUser(userAuthentication.getId());
+    public String showProfileForm(Model model, @AuthenticationPrincipal User userAuthenticated) {
+        User user = userService.findUser(userAuthenticated.getId());
         UpdateUserRequest updateUserForm = UpdateUserRequest.builder()
                 .setBirthday(user.getBirthday())
                 .setFirstName(user.getFirstName())
@@ -106,13 +99,13 @@ public class UserController {
     @PostMapping("/profile/submit")
     public String processProfileForm(@Valid @ModelAttribute("updateUserForm") UpdateUserRequest request,
                                      BindingResult bindingResult, Model model,
-                                     @AuthenticationPrincipal User user,
+                                     @AuthenticationPrincipal User userAuthenticaded,
                                      RedirectAttributes redirectAttributes, Locale locale) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("genders", Gender.getGendersAsNames());
             return "user/profile";
         }
-        userService.updateUser(user.getId(), request);
+        userService.updateUser(userAuthenticaded.getId(), request);
         redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("profile.updated.success", null, locale));
         return "redirect:/";
     }

@@ -1,6 +1,5 @@
 package com.mikepaskual.delivery.user.validation;
 
-import com.mikepaskual.delivery.user.dto.CreateUserRequest;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.stereotype.Component;
@@ -24,6 +23,7 @@ public class PasswordsMatchValidator implements ConstraintValidator<PasswordsMat
         try {
             Field password = dto.getClass().getDeclaredField(passwordField);
             Field confirmPassword = dto.getClass().getDeclaredField(confirmPasswordField);
+
             password.setAccessible(true);
             confirmPassword.setAccessible(true);
 
@@ -34,7 +34,7 @@ public class PasswordsMatchValidator implements ConstraintValidator<PasswordsMat
             if (!isEquals) {
                 context.disableDefaultConstraintViolation();
                 context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate())
-                        .addPropertyNode("verifyPassword")
+                        .addPropertyNode("repeatPassword")
                         .addConstraintViolation();
             }
             return isEquals;

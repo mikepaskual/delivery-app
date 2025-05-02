@@ -2,6 +2,7 @@ package com.mikepaskual.delivery.user.service;
 
 import com.mikepaskual.delivery.driver.model.Driver;
 import com.mikepaskual.delivery.driver.model.DriverRepository;
+import com.mikepaskual.delivery.user.exception.UserNotFoundException;
 import com.mikepaskual.delivery.user.model.*;
 import com.mikepaskual.delivery.user.dto.CreateUserRequest;
 import com.mikepaskual.delivery.user.dto.UpdateUserRequest;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -45,7 +47,7 @@ public class UserService {
         roleRepository.saveAll(roles);
 
         User user = userRepository.save(User.builder()
-                .setCreatedAt(request.getCreatedAt())
+                .setCreatedAt(LocalDateTime.now())
                 .setEmail(request.getEmail())
                 .setPassword(passwordEncoder.encode(request.getPassword()))
                 .setRoles(roles)
@@ -58,11 +60,19 @@ public class UserService {
         return user;
     }
 
-    public User updatePassword(Long userId, String password) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException());
-        user.setPassword(passwordEncoder.encode(password));
+    public boolean isCurrentPassword(Long userId, String currentPassword) {
+        return passwordEncoder.matches(currentPassword, getUserOrThrow(userId).getPassword());
+    }
+
+    public User updatePassword(Long userId, String newPassword) {
+        User user = getUserOrThrow(userId);
+        user.setPassword(passwordEncoder.encode(newPassword));
         return userRepository.save(user);
+    }
+
+    private User getUserOrThrow(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException(userId));
     }
 
     public User updateUser(Long userId, UpdateUserRequest request) {

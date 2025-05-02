@@ -4,16 +4,16 @@ import com.mikepaskual.delivery.user.validation.PasswordsMatch;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-@PasswordsMatch(passwordField = "newPassword", confirmPasswordField = "verifyPassword")
+@PasswordsMatch(passwordField = "newPassword", confirmPasswordField = "repeatPassword")
 public class UpdatePasswordRequest {
 
-    @NotBlank(message = "{register.validation.password.notBlank}")
+    @NotBlank(message = "{password.validation.notBlank}")
     private String currentPassword;
-    @NotBlank(message = "{register.validation.password.notBlank}")
-    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "{register.validation.password.pattern}")
+    @NotBlank(message = "{password.validation.notBlank}")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "{password.validation.pattern}")
     private String newPassword;
-    @NotBlank(message = "{register.validation.repeatPassword.notBlank}")
-    private String verifyPassword;
+    @NotBlank(message = "{password.validation.notBlank}")
+    private String repeatPassword;
 
     public UpdatePasswordRequest() {
         super();
@@ -27,12 +27,12 @@ public class UpdatePasswordRequest {
         this.newPassword = newPassword;
     }
 
-    public String getVerifyPassword() {
-        return verifyPassword;
+    public String getRepeatPassword() {
+        return repeatPassword;
     }
 
-    public void setVerifyPassword(String verifyPassword) {
-        this.verifyPassword = verifyPassword;
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
     }
 
     public String getCurrentPassword() {
@@ -53,7 +53,7 @@ public class UpdatePasswordRequest {
 
         private String currentPassword;
         private String newPassword;
-        private String verifyPassword;
+        private String repeatPassword;
 
         Builder() {
             super();
@@ -66,8 +66,8 @@ public class UpdatePasswordRequest {
         }
 
         @SuppressWarnings("unchecked")
-        public S setVerifyPassword(String verifyPassword) {
-            this.verifyPassword = verifyPassword;
+        public S setRepeatPassword(String repeatPassword) {
+            this.repeatPassword = repeatPassword;
             return (S) this;
         }
 
@@ -81,7 +81,7 @@ public class UpdatePasswordRequest {
             UpdatePasswordRequest request = new UpdatePasswordRequest();
             request.setCurrentPassword(this.currentPassword);
             request.setNewPassword(this.newPassword);
-            request.setVerifyPassword(this.verifyPassword);
+            request.setRepeatPassword(this.repeatPassword);
             return request;
         }
     }

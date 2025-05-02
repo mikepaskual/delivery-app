@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = {PasswordsMatchValidator.class})
 public @interface PasswordsMatch {
 
-    String message() default "{register.validation.password.missMatch}";
+    String message() default "{password.validation.missMatch}";
 
     Class<?>[] groups() default {};
 
