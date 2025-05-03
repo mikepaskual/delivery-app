@@ -1,5 +1,6 @@
 package com.mikepaskual.delivery.driver.service;
 
+import com.mikepaskual.delivery.driver.exception.DriverNotFoundException;
 import com.mikepaskual.delivery.driver.dto.UpdateDriverRequest;
 import com.mikepaskual.delivery.driver.model.Driver;
 import com.mikepaskual.delivery.driver.model.DriverRepository;
@@ -16,16 +17,16 @@ public class DriverService {
         this.driverRepository = driverRepository;
     }
 
-    public Driver update(Long userId, UpdateDriverRequest request) {
-        Driver driver = findById(userId);
+    public Driver update(Long driverId, UpdateDriverRequest request) {
+        Driver driver = findById(driverId);
         driver.setAvailableFrom(request.getAvailableFrom());
         driver.setAvailableTo(request.getAvailableTo());
         driver.setLicenseNumber(request.getLicenseNumber());
         return driverRepository.save(driver);
     }
 
-    public Driver findById(Long userId) {
-        return driverRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("Driver not found with ID: " + userId));
+    public Driver findById(Long driverId) {
+        return driverRepository.findById(driverId)
+                .orElseThrow(() -> new DriverNotFoundException(driverId));
     }
 }

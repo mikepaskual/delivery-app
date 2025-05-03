@@ -54,7 +54,6 @@ public class UserService {
         if (roles.stream().anyMatch(role -> UserRole.DRIVER.name().equals(role.getName()))) {
             driverRepository.save(Driver.builder().setUser(user).build());
         }
-
         if (roles.stream().anyMatch(role -> UserRole.CUSTOMER.name().equals(role.getName()))) {
             //
         }

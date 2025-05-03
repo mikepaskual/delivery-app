@@ -17,17 +17,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(requests ->
                 requests.requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/drivers/**", "/trucks/**").hasRole("DRIVER")
+                        .requestMatchers("/driver-settings", "/trucks/**").hasRole("DRIVER")
                         .requestMatchers("/login","/logout","/auth/register", "/auth/register/submit", "/h2-console/**", "/img/**", "/css/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated());
 
-        http.formLogin(login -> {
-            login.loginPage("/login")
-                    .defaultSuccessUrl("/")
-                    .permitAll();
-        });
+        http.formLogin(login -> login.loginPage("/login")
+                .defaultSuccessUrl("/")
+                .permitAll());
 
         http.requestCache(cache -> {
             HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
@@ -37,9 +35,7 @@ public class SecurityConfig {
 
         http.logout(Customizer.withDefaults());
 
-        http.csrf((csrf) -> {
-            csrf.ignoringRequestMatchers("/h2-console/**");
-        });
+        http.csrf((csrf) -> csrf.ignoringRequestMatchers("/h2-console/**"));
 
         http.headers((headers) ->
                 headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));

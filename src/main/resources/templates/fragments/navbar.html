@@ -32,7 +32,7 @@
                 <a class="dropdown-item" href="#" th:text="#{nav.admin}">Admin</a>
               </li>
               <li sec:authorize="hasRole('ROLE_DRIVER')">
-                <a class="dropdown-item" th:href="@{/drivers}" th:text="#{nav.driver}">Driver settings</a>
+                <a class="dropdown-item" th:href="@{/driver-settings}" th:text="#{nav.driver}">Driver settings</a>
               </li>
               <li sec:authorize="hasRole('ROLE_CUSTOMER')">
                 <a class="dropdown-item" href="#" th:text="#{nav.customer}">Customer settings</a>
