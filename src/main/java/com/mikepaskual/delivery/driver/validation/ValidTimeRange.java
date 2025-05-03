@@ -8,12 +8,15 @@ import java.lang.annotation.*;
 @Documented
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {AvailableHoursValidator.class})
-public @interface AvailableHours {
+@Constraint(validatedBy = {ValidTimeRangeValidator.class})
+public @interface ValidTimeRange {
 
-    String message() default "{driver.validation.availableHours}";
+    String message() default "{driver.validation.time.range}";
 
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
+
+    String fromTime();
+    String toTime();
 }
