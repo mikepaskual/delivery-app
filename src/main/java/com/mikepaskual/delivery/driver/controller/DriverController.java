@@ -33,7 +33,7 @@ public class DriverController {
 
     @GetMapping("/driver-settings")
     public String showDriverView(Model model, @AuthenticationPrincipal User authenticatedUser) {
-        Driver driver = driverService.findById(authenticatedUser.getId());
+        Driver driver = driverService.getDriverOrThrow(authenticatedUser.getId());
         model.addAttribute("driverForm", UpdateDriverRequest.builder()
                 .setAvailableFrom(driver.getAvailableFrom())
                 .setAvailableTo(driver.getAvailableTo())

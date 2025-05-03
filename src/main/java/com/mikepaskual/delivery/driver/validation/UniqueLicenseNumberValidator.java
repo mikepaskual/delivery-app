@@ -20,14 +20,20 @@ public class UniqueLicenseNumberValidator implements ConstraintValidator<UniqueL
 
     @Override
     public boolean isValid(String licenseNumber, ConstraintValidatorContext context) {
-        Optional<Driver> driver = driverRepository.findByLicenseNumber(licenseNumber);
-        if (!driver.isPresent()) {
+        Optional<Driver> driverOpt = driverRepository.findByLicenseNumber(licenseNumber);
+        if (driverOpt.isEmpty()) {
             return true;
         }
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();
+
+        if (!(principal instanceof User)) {
+            return false;
+        }
+
         User authenticatedUser = (User) principal;
-        Long authenticatedUserId = authenticatedUser.getId();
-        return driver.get().getId().equals(authenticatedUserId);
+
+        return driverOpt.get().getUser().getId().equals(authenticatedUser.getId());
     }
 }

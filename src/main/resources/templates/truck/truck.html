@@ -30,7 +30,8 @@
                         <h3 th:text="#{truck.form.truck}">Truck</h3>
 
                         <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
-                              action="#" th:action="@{/trucks/{id}/update-status(id=${truckForm.id})}" method="POST" th:object="${truckForm}">
+                              action="#" th:action="@{/trucks/{truckId}/update-status(truckId=${truckForm.id})}"
+                              method="POST" th:object="${truckForm}">
                             <div class="col-12">
                                 <div class="row g-3">
                                     <div class="col-12 col-lg-4">

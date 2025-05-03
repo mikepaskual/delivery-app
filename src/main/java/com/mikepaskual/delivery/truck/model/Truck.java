@@ -25,7 +25,7 @@ public class Truck {
     private FuelType fuelType;
     private Integer capacity;
     private Double length;
-    private Integer width;
+    private Double width;
     private Double height;
     private LocalDate purchaseDate;
     @Enumerated(EnumType.STRING)
@@ -119,11 +119,11 @@ public class Truck {
         this.length = length;
     }
 
-    public Integer getWidth() {
+    public Double getWidth() {
         return width;
     }
 
-    public void setWidth(Integer width) {
+    public void setWidth(Double width) {
         this.width = width;
     }
 
@@ -185,7 +185,7 @@ public class Truck {
         private FuelType fuelType;
         private Integer capacity;
         private Double length;
-        private Integer width;
+        private Double width;
         private Double height;
         private LocalDate purchaseDate;
         private StatusTruck status;
@@ -257,7 +257,7 @@ public class Truck {
         }
 
         @SuppressWarnings("unchecked")
-        public S setWidth(Integer width) {
+        public S setWidth(Double width) {
             this.width = width;
             return (S) this;
         }

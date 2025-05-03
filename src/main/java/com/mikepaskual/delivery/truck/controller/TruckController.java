@@ -1,6 +1,7 @@
 package com.mikepaskual.delivery.truck.controller;
 
 import com.mikepaskual.delivery.driver.service.DriverService;
+import com.mikepaskual.delivery.shared.util.MessageUtil;
 import com.mikepaskual.delivery.truck.dto.CreateTruckRequest;
 import com.mikepaskual.delivery.truck.model.FuelType;
 import com.mikepaskual.delivery.truck.model.StatusTruck;
@@ -8,8 +9,8 @@ import com.mikepaskual.delivery.truck.model.Transmission;
 import com.mikepaskual.delivery.truck.model.Truck;
 import com.mikepaskual.delivery.truck.service.TruckService;
 import com.mikepaskual.delivery.user.model.User;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.time.LocalDateTime;
 import java.util.Locale;
 
 @Controller
@@ -29,26 +29,27 @@ public class TruckController {
     @Autowired
     private final DriverService driverService;
     @Autowired
-    private final MessageSource messageSource;
+    private final MessageUtil message;
     @Autowired
     private final TruckService truckService;
 
-    public TruckController(DriverService driverService, MessageSource messageResource, TruckService truckService) {
+    public TruckController(DriverService driverService, MessageUtil message, TruckService truckService) {
         this.driverService = driverService;
-        this.messageSource = messageResource;
+        this.message = message;
         this.truckService = truckService;
     }
 
     @GetMapping("/trucks")
-    public String showTrucks(Model model, @AuthenticationPrincipal User userAuthenticated) {
-        model.addAttribute("trucks", truckService.findTrucks(userAuthenticated.getId()));
+    public String showTrucksView(Model model, @AuthenticationPrincipal User authenticatedUser) {
+        model.addAttribute("trucks", truckService.getTrucksByDriver(authenticatedUser.getId()));
         return "truck/trucks";
     }
 
-    @GetMapping("/trucks/{id}")
-    public String showTruck(Model model, @AuthenticationPrincipal User userAuthenticated, @PathVariable Long id) {
-        Truck truck = truckService.findBy(id);
-        if (!userAuthenticated.getId().equals(truck.getDriver().getId())) {
+    @GetMapping("/trucks/{truckId}")
+    public String showTruckView(Model model, @AuthenticationPrincipal User authenticatedUser,
+                                @PathVariable Long truckId) {
+        Truck truck = truckService.getTruckOrThrow(truckId);
+        if (!authenticatedUser.getId().equals(truck.getDriver().getId())) {
             return "redirect:/error/forbidden";
         }
         model.addAttribute("truckForm", CreateTruckRequest.of(truck));
@@ -58,45 +59,37 @@ public class TruckController {
         return "truck/truck";
     }
 
-    @PostMapping("/trucks/{id}/update-status")
-    public String updateStatus(@AuthenticationPrincipal User userAuthenticated, @PathVariable Long id,
-                               RedirectAttributes redirectAttributes, Locale locale) {
-        Truck truck = truckService.findBy(id);
-        if (!userAuthenticated.getId().equals(truck.getDriver().getId())) {
-            return "redirect:/error/forbidden";
-        }
-        StatusTruck newStatus = (truck.getStatus() == StatusTruck.ACTIVE) ? StatusTruck.INACTIVE : StatusTruck.ACTIVE;
-        truck.setStatus(newStatus);
-        truckService.registerTruck(CreateTruckRequest.of(truck));
-        String messageKey = (newStatus == StatusTruck.ACTIVE) ? "truck.statusActivated.success" : "truck.statusInactivated.success";
+    @PostMapping("/trucks/{truckId}/update-status")
+    public String processUpdateStatus(@PathVariable Long truckId, RedirectAttributes redirectAttributes, Locale locale) {
+        Truck updatedTruck = truckService.updateStatus(truckId);
+        String messageKey = (updatedTruck.getStatus() == StatusTruck.ACTIVE)
+                ? "truck.statusActivated.success" : "truck.statusInactivated.success";
         redirectAttributes.addFlashAttribute("successMessage",
-                messageSource.getMessage(messageKey, new Object[]{truck.getPlate()}, locale));
+                message.get(messageKey, locale, updatedTruck.getPlate()));
         return "redirect:/trucks";
     }
 
     @GetMapping("/trucks/new")
-    public String showNewTruckForm(Model model, @AuthenticationPrincipal User userAuthenticated) {
-        CreateTruckRequest truckForm = CreateTruckRequest.builder()
-                .setDriver(driverService.findById(userAuthenticated.getId())).build();
-        model.addAttribute("truckForm", truckForm);
+    public String showNewTruckView(Model model) {
+        model.addAttribute("truckForm", CreateTruckRequest.builder().build());
         model.addAttribute("fuelTypes", FuelType.getFuelTypesAsNames());
         model.addAttribute("transmissions", Transmission.getTransmissionsAsNames());
         return "truck/truck-form";
     }
 
-    @PostMapping("/trucks/new/submit")
-    public String processNewTruck(@AuthenticationPrincipal User userAuthenticated,
-                                  @ModelAttribute("user") CreateTruckRequest request,
-                                  BindingResult bindingResult, Model model,
-                                  RedirectAttributes redirectAttributes, Locale locale) {
+    @PostMapping("/trucks/new")
+    public String processNewTruckForm(@AuthenticationPrincipal User authenticatedUser,
+                                      @Valid @ModelAttribute("truckForm") CreateTruckRequest request,
+                                      BindingResult bindingResult, Model model,
+                                      RedirectAttributes redirectAttributes, Locale locale) {
         if (bindingResult.hasErrors()) {
+            model.addAttribute("fuelTypes", FuelType.getFuelTypesAsNames());
+            model.addAttribute("transmissions", Transmission.getTransmissionsAsNames());
             return "truck/truck-form";
         }
-        request.setCreatedAt(LocalDateTime.now());
-        request.setStatus(StatusTruck.INACTIVE.name());
-        truckService.registerTruck(request);
+        truckService.registerTruck(authenticatedUser.getId(), request);
         redirectAttributes.addFlashAttribute("successMessage",
-                messageSource.getMessage("truck.created.success", new Object[]{request.getPlate()}, locale));
+                message.get("truck.created.success", locale, request.getPlate()));
         return "redirect:/trucks";
     }
 

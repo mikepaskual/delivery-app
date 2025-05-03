@@ -36,9 +36,10 @@
                                             <div class="input-group has-validation">
                                                 <input type="text" id="first-name" class="form-control"
                                                        th:classappend="${#fields.hasErrors('firstName')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{firstName}" aria-describedby="validation-first-name" required/>
+                                                       th:field="*{firstName}" aria-describedby="validation-first-name" />
                                                 <div id="validation-first-name" class="invalid-feedback"
-                                                     th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+                                                     th:if="${#fields.hasErrors('firstName')}"
+                                                     th:text="${#fields.errors('firstName')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -50,9 +51,10 @@
                                             <div class="input-group has-validation">
                                                 <input type="text" id="last-name" class="form-control"
                                                        th:classappend="${#fields.hasErrors('lastName')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{lastName}" aria-describedby="validation-last-name" required/>
+                                                       th:field="*{lastName}" aria-describedby="validation-last-name" />
                                                 <div id="validation-last-name" class="invalid-feedback"
-                                                     th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+                                                     th:if="${#fields.hasErrors('lastName')}"
+                                                     th:text="${#fields.errors('lastName')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -64,9 +66,10 @@
                                             <div class="input-group has-validation">
                                                 <input type="text" id="phone" class="form-control"
                                                        th:classappend="${#fields.hasErrors('phone')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{phone}" aria-describedby="validation-phone" required/>
+                                                       th:field="*{phone}" aria-describedby="validation-phone" />
                                                 <div id="validation-phone" class="invalid-feedback"
-                                                     th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">
+                                                     th:if="${#fields.hasErrors('phone')}"
+                                                     th:text="${#fields.errors('phone')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -79,9 +82,10 @@
                                                 <input type="date" id="birthday" class="form-control"
                                                        th:field="*{birthday}"
                                                        th:classappend="${#fields.hasErrors('birthday')} ? 'is-invalid' : 'is-valid'"
-                                                       aria-describedby="validation-birthday" required />
+                                                       aria-describedby="validation-birthday" />
                                                 <div id="validation-birthday" class="invalid-feedback"
-                                                     th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">
+                                                     th:if="${#fields.hasErrors('birthday')}"
+                                                     th:text="${#fields.errors('birthday')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -101,7 +105,7 @@
                                                            th:text="#{${'profile.form.gender.' + #strings.toLowerCase(g)}}">Gender</label>
                                                 </div>
                                                 <div class="text-danger" th:if="${#fields.hasErrors('gender')}"
-                                                     th:errors="*{gender}">
+                                                     th:text="${#fields.errors('gender')[0]}">
                                                 </div>
                                             </div>
                                         </div>

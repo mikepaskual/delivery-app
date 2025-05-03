@@ -38,10 +38,10 @@
                                                 <input type="text" id="license-number" class="form-control"
                                                        th:classappend="${#fields.hasErrors('licenseNumber')} ? 'is-invalid' : 'is-valid'"
                                                        th:field="*{licenseNumber}"
-                                                       aria-describedby="validation-license-number" required/>
+                                                       aria-describedby="validation-license-number" />
                                                 <div id="validation-license-number" class="invalid-feedback"
                                                      th:if="${#fields.hasErrors('licenseNumber')}"
-                                                     th:errors="*{licenseNumber}">
+                                                     th:text="${#fields.errors('licenseNumber')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -55,10 +55,10 @@
                                                 <input type="time" id="available-from" class="form-control"
                                                        th:classappend="${#fields.hasErrors('availableFrom')} ? 'is-invalid' : 'is-valid'"
                                                        th:field="*{availableFrom}"
-                                                       aria-describedby="validation-available-from" required/>
+                                                       aria-describedby="validation-available-from" />
                                                 <div id="validation-available-from" class="invalid-feedback"
                                                      th:if="${#fields.hasErrors('availableFrom')}"
-                                                     th:errors="*{availableFrom}">
+                                                     th:text="${#fields.errors('availableFrom')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -72,10 +72,10 @@
                                                 <input type="time" id="available-to" class="form-control"
                                                        th:classappend="${#fields.hasErrors('availableTo')} ? 'is-invalid' : 'is-valid'"
                                                        th:field="*{availableTo}"
-                                                       aria-describedby="validation-available-to" required/>
+                                                       aria-describedby="validation-available-to" />
                                                 <div id="validation-available-to" class="invalid-feedback"
                                                      th:if="${#fields.hasErrors('availableTo')}"
-                                                     th:errors="*{availableTo}">
+                                                     th:text="${#fields.errors('availableTo')[0]}">
                                                 </div>
                                             </div>
                                         </div>

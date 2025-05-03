@@ -18,14 +18,14 @@ public class DriverService {
     }
 
     public Driver update(Long driverId, UpdateDriverRequest request) {
-        Driver driver = findById(driverId);
+        Driver driver = getDriverOrThrow(driverId);
         driver.setAvailableFrom(request.getAvailableFrom());
         driver.setAvailableTo(request.getAvailableTo());
         driver.setLicenseNumber(request.getLicenseNumber());
         return driverRepository.save(driver);
     }
 
-    public Driver findById(Long driverId) {
+    public Driver getDriverOrThrow(Long driverId) {
         return driverRepository.findById(driverId)
                 .orElseThrow(() -> new DriverNotFoundException(driverId));
     }

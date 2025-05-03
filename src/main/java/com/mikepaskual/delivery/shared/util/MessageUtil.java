@@ -20,6 +20,10 @@ public class MessageUtil {
         return this.get(code, null, locale);
     }
 
+    public String get(String code, Locale locale, Object... args) {
+        return this.get(code, args, locale);
+    }
+
     public String get(String code, Object[] args, Locale locale) {
         return messageSource.getMessage(code, args, locale);
     }

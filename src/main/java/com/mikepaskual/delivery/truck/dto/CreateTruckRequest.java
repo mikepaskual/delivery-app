@@ -1,38 +1,61 @@
 package com.mikepaskual.delivery.truck.dto;
 
-import com.mikepaskual.delivery.driver.model.Driver;
+import com.mikepaskual.delivery.shared.validation.SelectionValue;
 import com.mikepaskual.delivery.truck.model.Truck;
+import com.mikepaskual.delivery.truck.validation.YearRange;
+import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class CreateTruckRequest {
 
     private Long id;
+    @NotBlank(message = "{truck.validation.make.notBlank}")
+    @Size(min = 2, max = 50, message = "{truck.validation.make.size}")
     private String make;
+    @NotBlank(message = "{truck.validation.model.notBlank}")
+    @Size(min = 2, max = 50, message = "{truck.validation.model.size}")
     private String model;
+    @NotNull(message = "{truck.validation.year.notNull}")
+    @YearRange
     private Integer year;
+    @NotBlank(message = "{truck.validation.plate.notBlank}")
+    @Pattern(regexp = "^\\d{4} [BCDFGHJKLMNPQRSTVWXYZ]{3}$", message = "{truck.validation.plate.pattern}")
     private String plate;
+    @NotBlank(message = "{truck.validation.color.notBlank}")
+    @Size(min = 2, max = 50, message = "{truck.validation.color.size}")
     private String color;
+    private String status;
+    @SelectionValue
     private String transmission;
+    @SelectionValue
     private String fuelType;
+    @NotNull(message = "{truck.validation.capacity.notNull}")
+    @Min(value = 5, message = "{truck.validation.capacity.min}")
+    @Max(value = 500, message = "{truck.validation.capacity.max}")
     private Integer capacity;
+    @NotNull(message = "{truck.validation.length.notNull}")
+    @DecimalMin(value = "2.0", message = "{truck.validation.length.min}")
+    @DecimalMax(value = "25.0", message = "{truck.validation.length.max}")
     private Double length;
-    private Integer width;
+    @NotNull(message = "{truck.validation.width.notNull}")
+    @DecimalMin(value = "1.0", message = "{truck.validation.width.min}")
+    @DecimalMax(value = "4.5", message = "{truck.validation.width.max}")
+    private Double width;
+    @NotNull(message = "{truck.validation.height.notNull}")
+    @DecimalMin(value = "1.5", message = "{truck.validation.height.min}")
+    @DecimalMax(value = "5.0", message = "{truck.validation.height.max}")
     private Double height;
+    @NotNull(message = "{truck.validation.purchaseDate.notNull}")
+    @Past(message = "{truck.validation.purchaseDate.past}")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate purchaseDate;
-    private String status;
-    private LocalDateTime createdAt;
-    private Driver driver;
 
     public static CreateTruckRequest of(Truck truck) {
         return CreateTruckRequest.builder()
                 .setCapacity(truck.getCapacity())
-                .setCreatedAt(truck.getCreatedAt())
                 .setColor(truck.getColor())
-                .setDriver(truck.getDriver())
                 .setFuelType(truck.getFuelType().name())
                 .setHeight(truck.getHeight())
                 .setId(truck.getId())
@@ -57,6 +80,14 @@ public class CreateTruckRequest {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getMake() {
@@ -131,11 +162,11 @@ public class CreateTruckRequest {
         this.length = length;
     }
 
-    public Integer getWidth() {
+    public Double getWidth() {
         return width;
     }
 
-    public void setWidth(Integer width) {
+    public void setWidth(Double width) {
         this.width = width;
     }
 
@@ -155,30 +186,6 @@ public class CreateTruckRequest {
         this.purchaseDate = purchaseDate;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Driver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
-
     @SuppressWarnings("rawtypes")
     public static Builder builder() {
         return new Builder();
@@ -193,16 +200,14 @@ public class CreateTruckRequest {
         private Integer year;
         private String plate;
         private String color;
+        private String status;
         private String transmission;
         private String fuelType;
         private Integer capacity;
         private Double length;
-        private Integer width;
+        private Double width;
         private Double height;
         private LocalDate purchaseDate;
-        private String status;
-        private LocalDateTime createdAt;
-        private Driver driver;
 
         Builder() {
             super();
@@ -269,7 +274,7 @@ public class CreateTruckRequest {
         }
 
         @SuppressWarnings("unchecked")
-        public S setWidth(Integer width) {
+        public S setWidth(Double width) {
             this.width = width;
             return (S) this;
         }
@@ -292,24 +297,10 @@ public class CreateTruckRequest {
             return (S) this;
         }
 
-        @SuppressWarnings("unchecked")
-        public S setCreatedAt(LocalDateTime createdAt) {
-            this.createdAt = createdAt;
-            return (S) this;
-        }
-
-        @SuppressWarnings("unchecked")
-        public S setDriver(Driver driver) {
-            this.driver = driver;
-            return (S) this;
-        }
-
         public CreateTruckRequest build() {
             CreateTruckRequest request = new CreateTruckRequest();
             request.setCapacity(this.capacity);
             request.setColor(this.color);
-            request.setCreatedAt(this.createdAt);
-            request.setDriver(this.driver);
             request.setFuelType(this.fuelType);
             request.setHeight(this.height);
             request.setId(this.id);
