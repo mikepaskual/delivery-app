@@ -83,21 +83,21 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String showProfileForm(Model model, @AuthenticationPrincipal User userAuthenticated) {
-        User user = userService.findUser(userAuthenticated.getId());
+    public String showProfileView(Model model, @AuthenticationPrincipal User userAuthenticated) {
+        User user = userService.getUserOrThrow(userAuthenticated.getId());
         UpdateUserRequest updateUserForm = UpdateUserRequest.builder()
                 .setBirthday(user.getBirthday())
                 .setFirstName(user.getFirstName())
                 .setGender(user.getGender() == null ? null : user.getGender().name())
                 .setLastName(user.getLastName())
                 .setPhone(user.getPhone()).build();
-        model.addAttribute("updateUserForm", updateUserForm);
+        model.addAttribute("profileForm", updateUserForm);
         model.addAttribute("genders", Gender.getGendersAsNames());
         return "user/profile";
     }
 
-    @PostMapping("/profile/submit")
-    public String processProfileForm(@Valid @ModelAttribute("updateUserForm") UpdateUserRequest request,
+    @PostMapping("/profile")
+    public String processProfileForm(@Valid @ModelAttribute("profileForm") UpdateUserRequest request,
                                      BindingResult bindingResult, Model model,
                                      @AuthenticationPrincipal User userAuthenticaded,
                                      RedirectAttributes redirectAttributes, Locale locale) {

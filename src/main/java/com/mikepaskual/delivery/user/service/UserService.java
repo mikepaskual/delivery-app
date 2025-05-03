@@ -2,16 +2,15 @@ package com.mikepaskual.delivery.user.service;
 
 import com.mikepaskual.delivery.driver.model.Driver;
 import com.mikepaskual.delivery.driver.model.DriverRepository;
+import com.mikepaskual.delivery.user.exception.RoleNotFoundException;
 import com.mikepaskual.delivery.user.exception.UserNotFoundException;
 import com.mikepaskual.delivery.user.model.*;
 import com.mikepaskual.delivery.user.dto.CreateUserRequest;
 import com.mikepaskual.delivery.user.dto.UpdateUserRequest;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -42,7 +41,7 @@ public class UserService {
     public User registerUser(CreateUserRequest request) {
         Set<Role> roles = request.getRoles().stream()
                 .map(roleName -> roleRepository.findByName(roleName)
-                        .orElseThrow(IllegalArgumentException::new))
+                        .orElseThrow(() -> new RoleNotFoundException(roleName)))
                 .collect(Collectors.toSet());
 
         User user = userRepository.save(User.builder()
@@ -55,6 +54,11 @@ public class UserService {
         if (roles.stream().anyMatch(role -> UserRole.DRIVER.name().equals(role.getName()))) {
             driverRepository.save(Driver.builder().setUser(user).build());
         }
+
+        if (roles.stream().anyMatch(role -> UserRole.CUSTOMER.name().equals(role.getName()))) {
+            //
+        }
+
         return user;
     }
 
@@ -68,24 +72,19 @@ public class UserService {
         userRepository.save(user);
     }
 
-    private User getUserOrThrow(Long userId) {
+    public User getUserOrThrow(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));
     }
 
     public User updateUser(Long userId, UpdateUserRequest request) {
-        User user = findUser(userId);
+        User user = getUserOrThrow(userId);
         user.setBirthday(request.getBirthday());
         user.setFirstName(request.getFirstName());
         user.setGender(Gender.valueOf(request.getGender()));
-        user.setPhone(request.getPhone());
         user.setLastName(request.getLastName());
+        user.setPhone(request.getPhone());
         return userRepository.save(user);
-    }
-
-    public User findUser(Long userId) {
-        return userRepository.findById(userId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "redirect:/error/not-found"));
     }
 
 }
