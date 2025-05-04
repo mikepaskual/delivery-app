@@ -1,16 +1,20 @@
 package com.mikepaskual.delivery.driver.dto;
 
-import com.mikepaskual.delivery.driver.validation.AvailableHours;
+import com.mikepaskual.delivery.driver.validation.UniqueLicenseNumber;
+import com.mikepaskual.delivery.driver.validation.ValidTimeRange;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalTime;
 
-@AvailableHours
+@ValidTimeRange(fromTime = "availableFrom", toTime = "availableTo")
 public class UpdateDriverRequest {
 
     @NotBlank(message = "{driver.validation.licenseNumber.notBlank}")
+    @Pattern(regexp = "^[A-Z]{3}[0-9]{10}$", message = "{driver.validation.licenseNumber.pattern}")
+    @UniqueLicenseNumber
     private String licenseNumber;
     @NotNull(message = "{driver.validation.availableFrom.notNull}")
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)

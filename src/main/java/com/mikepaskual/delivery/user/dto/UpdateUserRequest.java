@@ -1,5 +1,6 @@
 package com.mikepaskual.delivery.user.dto;
 
+import com.mikepaskual.delivery.user.validation.Adult;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -23,6 +24,7 @@ public class UpdateUserRequest {
     private String gender;
     @NotNull(message = "{profile.validation.birthday.notNull}")
     @Past(message = "{profile.validation.birthday.past}")
+    @Adult
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthday;
 

@@ -1,20 +1,19 @@
-<div th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<div th:fragment="navbar"
+     xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="http://www.w3.org/1999/xhtml">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" th:href="@{/}">
-        <img th:src="@{/img/logo.svg}" width="38" height="30" class="me-3" alt="Logo">
+        <img src="" th:src="@{/img/logo.svg}" width="38" height="30" class="me-3" alt="Logo">
         <span th:text="#{nav.home}">Home</span>
       </a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto">
           <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
-            <a class="nav-link" th:href="@{/admin/}" th:text="#{nav.admin}">Admin</a>
+            <a class="nav-link" href="#" th:text="#{nav.admin}">Admin</a>
           </li>
-          <li sec:authorize="hasRole('ROLE_DRIVER')">
-            <a class="nav-link" href="#" th:href="@{/drivers}" th:text="#{nav.driver}">Driver settings</a>
-          </li>
-          <li sec:authorize="hasRole('ROLE_CUSTOMER')">
-            <a class="nav-link" href="#" th:href="@{/}" th:text="#{nav.customer}">Customer settings</a>
+          <li class="nav-item" sec:authorize="hasRole('ROLE_DRIVER')">
+            <a class="nav-link" th:href="@{/trucks}" th:text="#{nav.trucks}">My trucks</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -23,7 +22,21 @@
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" th:text="${auth.username}">User</a>
             </th:block>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" th:href="@{/profile}" th:text="#{nav.profile}">Profile</a></li>
+              <li sec:authorize="hasRole('ROLE_DRIVER')">
+                <a class="dropdown-item" th:href="@{/driver-settings}" th:text="#{nav.driver}">Driver settings</a>
+              </li>
+              <li sec:authorize="hasRole('ROLE_CUSTOMER')">
+                <a class="dropdown-item" href="#" th:text="#{nav.customer}">Customer settings</a>
+              </li>
+              <li sec:authorize="hasRole('ROLE_ADMIN')">
+                <a class="dropdown-item" href="#" th:text="#{nav.admin}">Admin</a>
+              </li>
+              <li>
+                <a class="dropdown-item" th:href="@{/profile}" th:text="#{nav.profile}">My Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" th:href="@{/change-password}" th:text="#{nav.password}">Change password</a>
+              </li>
               <li>
                 <form th:action="@{/logout}" method="POST" id="logoutForm" style="display:none"></form>
                 <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()" th:text="#{nav.logout}">Logout</a>

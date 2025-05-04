@@ -23,7 +23,7 @@ public class Driver {
     private DriverStatus status;
     private LocalTime availableFrom;
     private LocalTime availableTo;
-    private String notes;
+    private String internalNotes;
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "driver_id")
     private List<Truck> trucks;
@@ -92,12 +92,12 @@ public class Driver {
         this.availableTo = availableTo;
     }
 
-    public String getNotes() {
-        return notes;
+    public String getInternalNotes() {
+        return internalNotes;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setInternalNotes(String internalNotes) {
+        this.internalNotes = internalNotes;
     }
 
     @SuppressWarnings("rawtypes")
@@ -114,7 +114,7 @@ public class Driver {
         private DriverStatus status;
         private LocalTime availableFrom;
         private LocalTime availableTo;
-        private String notes;
+        private String internalNotes;
         private List<Truck> trucks;
 
         Builder() {
@@ -164,8 +164,8 @@ public class Driver {
         }
 
         @SuppressWarnings("unchecked")
-        public S setNotes(String notes) {
-            this.notes = notes;
+        public S setInternalNotes(String internalNotes) {
+            this.internalNotes = internalNotes;
             return (S) this;
         }
 
@@ -175,7 +175,7 @@ public class Driver {
             driver.setAvailableTo(this.availableTo);
             driver.setId(this.id);
             driver.setLicenseNumber(this.licenseNumber);
-            driver.setNotes(this.notes);
+            driver.setInternalNotes(this.internalNotes);
             driver.setStatus(this.status);
             driver.setTrucks(this.trucks);
             driver.setUser(this.user);

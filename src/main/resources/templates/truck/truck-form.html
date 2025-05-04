@@ -10,6 +10,7 @@
 <body>
 <main layout:fragment="content">
     <div class="container py-5 h-100">
+
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -27,11 +28,9 @@
                 <div class="card rounded-3">
                     <div class="card-body p-4">
                         <h3 th:text="#{truck.form.add.title}">New truck</h3>
+
                         <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
-                              action="#" th:action="@{/trucks/new/submit}" method="POST" th:object="${truckForm}">
-
-                            <input type="hidden" id="inputDriver" th:field="*{driver}" />
-
+                              action="#" th:action="@{/trucks/new}" method="POST" th:object="${truckForm}">
                             <div class="col-12">
                                 <div class="row g-3">
                                     <div class="col-12 col-lg-4">
@@ -40,9 +39,9 @@
                                             <div class="input-group has-validation">
                                                 <input type="text" id="make" class="form-control"
                                                        th:classappend="${#fields.hasErrors('make')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{make}" aria-describedby="validation-make" required/>
-                                                <div id="validation-make" class="invalid-feedback" th:if="${#fields.hasErrors('make')}" th:errors="*{make}">
-
+                                                       th:field="*{make}" aria-describedby="validation-make" />
+                                                <div id="validation-make" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('make')}" th:text="${#fields.errors('make')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -54,9 +53,9 @@
                                             <div class="input-group has-validation">
                                                 <input type="text" id="model" class="form-control"
                                                        th:classappend="${#fields.hasErrors('model')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{model}" aria-describedby="validation-model" required/>
-                                                <div id="validation-model" class="invalid-feedback" th:if="${#fields.hasErrors('model')}" th:errors="*{model}">
-
+                                                       th:field="*{model}" aria-describedby="validation-model" />
+                                                <div id="validation-model" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('model')}" th:text="${#fields.errors('model')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -68,9 +67,9 @@
                                             <div class="input-group has-validation">
                                                 <input type="text" id="plate" class="form-control"
                                                        th:classappend="${#fields.hasErrors('plate')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{plate}" aria-describedby="validation-plate" required/>
-                                                <div id="validation-plate" class="invalid-feedback" th:if="${#fields.hasErrors('plate')}" th:errors="*{plate}">
-
+                                                       th:field="*{plate}" aria-describedby="validation-plate" />
+                                                <div id="validation-plate" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('plate')}" th:text="${#fields.errors('plate')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -82,9 +81,9 @@
                                             <div class="input-group has-validation">
                                                 <input type="number" id="year" class="form-control"
                                                        th:classappend="${#fields.hasErrors('year')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{year}" aria-describedby="validation-year" required/>
-                                                <div id="validation-year" class="invalid-feedback" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">
-
+                                                       th:field="*{year}" aria-describedby="validation-year" />
+                                                <div id="validation-year" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('year')}" th:text="${#fields.errors('year')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -96,9 +95,9 @@
                                             <div class="input-group has-validation">
                                                 <input type="text" id="color" class="form-control"
                                                        th:classappend="${#fields.hasErrors('color')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{color}" aria-describedby="validation-color" required/>
-                                                <div id="validation-color" class="invalid-feedback" th:if="${#fields.hasErrors('color')}" th:errors="*{color}">
-
+                                                       th:field="*{color}" aria-describedby="validation-color" />
+                                                <div id="validation-color" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('color')}" th:text="${#fields.errors('color')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -110,9 +109,9 @@
                                             <div class="input-group has-validation">
                                                 <input type="date" id="purchase-date" class="form-control"
                                                        th:classappend="${#fields.hasErrors('purchaseDate')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{purchaseDate}" aria-describedby="validation-purchase-date" required/>
-                                                <div id="validation-purchase-date" class="invalid-feedback" th:if="${#fields.hasErrors('purchaseDate')}" th:errors="*{purchaseDate}">
-
+                                                       th:field="*{purchaseDate}" aria-describedby="validation-purchase-date" />
+                                                <div id="validation-purchase-date" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('purchaseDate')}" th:text="${#fields.errors('purchaseDate')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -122,14 +121,16 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="fuel-type" th:text="#{truck.form.fuelType}">Fuel Type</label>
                                             <div class="input-group has-validation">
-                                                <select id="fuel-type" class="form-control" th:field="*{fuelType}" aria-describedby="validation-fuel-type" required>
+                                                <select id="fuel-type" class="form-control" th:field="*{fuelType}"
+                                                        th:classappend="${#fields.hasErrors('transmission')} ? ' is-invalid' : ''"
+                                                        aria-describedby="validation-fuel-type">
                                                     <option value="" th:text="#{option.select}">-- Select --</option>
                                                     <option th:each="fuel : ${fuelTypes}"
                                                             th:value="${fuel}"
                                                             th:text="#{${'truck.form.fuelType.' + fuel.toLowerCase()}}">Diesel</option>
                                                 </select>
-                                                <div id="validation-fuel-type" class="invalid-feedback" th:if="${#fields.hasErrors('fuelType')}" th:errors="*{fuelType}">
-
+                                                <div id="validation-fuel-type" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('fuelType')}" th:text="${#fields.errors('fuelType')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -139,14 +140,16 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="transmission" th:text="#{truck.form.transmission}">Transmission</label>
                                             <div class="input-group has-validation">
-                                                <select id="transmission" class="form-control" th:field="*{transmission}" aria-describedby="validation-transmission" required>
+                                                <select id="transmission" class="form-control" th:field="*{transmission}"
+                                                        th:classappend="${#fields.hasErrors('transmission')} ? ' is-invalid' : ''"
+                                                        aria-describedby="validation-transmission">
                                                     <option value="" th:text="#{option.select}">-- Select --</option>
                                                     <option th:each="transmission : ${transmissions}"
                                                             th:value="${transmission}"
                                                             th:text="#{${'truck.form.transmission.' + transmission.toLowerCase()}}">Automatic</option>
                                                 </select>
-                                                <div id="validation-transmission" class="invalid-feedback" th:if="${#fields.hasErrors('transmission')}" th:errors="*{transmission}">
-
+                                                <div id="validation-transmission" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('transmission')}" th:text="${#fields.errors('transmission')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -156,11 +159,11 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="width" th:text="#{truck.form.width}">Width</label>
                                             <div class="input-group has-validation">
-                                                <input type="number" id="width" class="form-control"
+                                                <input type="number" id="width" class="form-control" step="0.1"
                                                        th:classappend="${#fields.hasErrors('width')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{width}" aria-describedby="validation-width" required/>
-                                                <div id="validation-width" class="invalid-feedback" th:if="${#fields.hasErrors('width')}" th:errors="*{width}">
-
+                                                       th:field="*{width}" aria-describedby="validation-width" />
+                                                <div id="validation-width" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('width')}" th:text="${#fields.errors('width')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -172,9 +175,9 @@
                                             <div class="input-group has-validation">
                                                 <input type="number" id="length" class="form-control" step="0.1"
                                                        th:classappend="${#fields.hasErrors('length')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{length}" aria-describedby="validation-length" required/>
-                                                <div id="validation-length" class="invalid-feedback" th:if="${#fields.hasErrors('length')}" th:errors="*{length}">
-
+                                                       th:field="*{length}" aria-describedby="validation-length" />
+                                                <div id="validation-length" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('length')}" th:text="${#fields.errors('length')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -186,9 +189,9 @@
                                             <div class="input-group has-validation">
                                                 <input type="number" id="height" class="form-control" step="0.1"
                                                        th:classappend="${#fields.hasErrors('height')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{height}" aria-describedby="validation-height" required/>
-                                                <div id="validation-height" class="invalid-feedback" th:if="${#fields.hasErrors('height')}" th:errors="*{height}">
-
+                                                       th:field="*{height}" aria-describedby="validation-height" />
+                                                <div id="validation-height" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('height')}" th:text="${#fields.errors('height')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -198,11 +201,11 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="capacity" th:text="#{truck.form.capacity}">Capacity</label>
                                             <div class="input-group has-validation">
-                                                <input type="number" id="capacity" class="form-control"
+                                                <input type="number" id="capacity" class="form-control" step="0.1"
                                                        th:classappend="${#fields.hasErrors('capacity')} ? 'is-invalid' : 'is-valid'"
-                                                       th:field="*{capacity}" aria-describedby="validation-capacity" required/>
-                                                <div id="validation-capacity" class="invalid-feedback" th:if="${#fields.hasErrors('capacity')}" th:errors="*{capacity}">
-
+                                                       th:field="*{capacity}" aria-describedby="validation-capacity" />
+                                                <div id="validation-capacity" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('capacity')}" th:text="${#fields.errors('capacity')[0]}">
                                                 </div>
                                             </div>
                                         </div>
@@ -210,8 +213,10 @@
                                 </div>
                             </div>
                             <div class="col-12 mt-3 text-end" style="margin-top: 10px;">
-                                <button class="btn btn-primary" type="submit" data-mdb-button-init data-mdb-ripple-init th:text="#{button.save}">Save</button>
-                                <a class="btn btn-primary" href="#" th:href="@{/trucks}" th:text="#{button.cancel}">Cancel</a>
+                                <button class="btn btn-primary" type="submit" data-mdb-button-init data-mdb-ripple-init
+                                        th:text="#{button.save}">Save</button>
+                                <a class="btn btn-primary" href="#" th:href="@{/trucks}"
+                                   th:text="#{button.cancel}">Cancel</a>
                             </div>
                         </form>
                     </div>

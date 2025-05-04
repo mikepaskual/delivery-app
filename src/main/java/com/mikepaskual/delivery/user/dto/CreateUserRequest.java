@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@PasswordsMatch
+@PasswordsMatch(passwordField = "password", confirmPasswordField = "repeatPassword")
 public class CreateUserRequest {
 
     @NotBlank(message = "{register.validation.username.notBlank}")
@@ -17,29 +17,20 @@ public class CreateUserRequest {
     @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "{register.validation.username.pattern}")
     @UniqueUsername
     private String username;
-    @NotBlank(message = "{register.validation.password.notBlank}")
-    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "{register.validation.password.pattern}")
+    @NotBlank(message = "{password.validation.notBlank}")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "{password.validation.pattern}")
     private String password;
-    @NotBlank(message = "{register.validation.repeatPassword.notBlank}")
-    private String verifyPassword;
+    @NotBlank(message = "{password.validation.notBlank}")
+    private String repeatPassword;
     @NotBlank(message = "{register.validation.email.notBlank}")
     @Email(message = "{register.validation.email.pattern}")
     @UniqueEmail
     private String email;
     @NotEmpty(message = "{register.validation.role.notEmpty}")
     private Set<String> roles;
-    private LocalDateTime createdAt;
 
     public CreateUserRequest() {
         roles = new HashSet<>();
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 
     public String getPassword() {
@@ -50,12 +41,12 @@ public class CreateUserRequest {
         this.password = password;
     }
 
-    public String getVerifyPassword() {
-        return verifyPassword;
+    public String getRepeatPassword() {
+        return repeatPassword;
     }
 
-    public void setVerifyPassword(String verifyPassword) {
-        this.verifyPassword = verifyPassword;
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
     }
 
     public String getEmail() {
@@ -96,10 +87,9 @@ public class CreateUserRequest {
 
         private String username;
         private String password;
-        private String verifyPassword;
+        private String repeatPassword;
         private String email;
         private Set<String> roles;
-        private LocalDateTime createdAt;
 
         Builder() {
             super();
@@ -118,8 +108,8 @@ public class CreateUserRequest {
         }
 
         @SuppressWarnings("unchecked")
-        public S setVerifyPassword(String verifyPassword) {
-            this.verifyPassword = verifyPassword;
+        public S setRepeatPassword(String repeatPassword) {
+            this.repeatPassword = repeatPassword;
             return (S) this;
         }
 
@@ -135,20 +125,13 @@ public class CreateUserRequest {
             return (S) this;
         }
 
-        @SuppressWarnings("unchecked")
-        public S setCreatedAt(LocalDateTime createdAt) {
-            this.createdAt = createdAt;
-            return (S) this;
-        }
-
         public CreateUserRequest build() {
             CreateUserRequest request = new CreateUserRequest();
-            request.setCreatedAt(this.createdAt);
             request.setEmail(this.email);
             request.setPassword(this.password);
+            request.setRepeatPassword(this.repeatPassword);
             request.setRoles(this.roles);
             request.setUsername(this.username);
-            request.setVerifyPassword(this.verifyPassword);
             return request;
         }
     }

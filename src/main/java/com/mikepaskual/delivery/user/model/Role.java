@@ -1,9 +1,9 @@
 package com.mikepaskual.delivery.user.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "role_entity")
@@ -12,10 +12,13 @@ public class Role {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(unique = true, nullable = false)
     private String name;
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 
     public Role() {
-        super();
+        users = new HashSet<>();
     }
 
     public Long getId() {
@@ -34,6 +37,18 @@ public class Role {
         this.name = name;
     }
 
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        if (users == null) {
+            this.users = new HashSet<>();
+        } else {
+            this.users = new HashSet<>(users);
+        }
+    }
+
     @SuppressWarnings("rawtypes")
     public static Builder builder() {
         return new Builder();
@@ -44,9 +59,16 @@ public class Role {
 
         private Long id;
         private String name;
+        private Set<User> users;
 
         Builder() {
             super();
+        }
+
+        @SuppressWarnings("unchecked")
+        public S setUsers(Set<User> users) {
+            this.users = users;
+            return (S) this;
         }
 
         @SuppressWarnings("unchecked")
@@ -65,6 +87,7 @@ public class Role {
             Role role = new Role();
             role.setId(this.id);
             role.setName(this.name);
+            role.setUsers(this.users);
             return role;
         }
     }
