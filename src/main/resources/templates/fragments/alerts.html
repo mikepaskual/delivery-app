@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="alert (type, message)">
+  <div th:if="${message != null}"
+       class="alert alert-dismissible fade show"
+       th:classappend="${type == 'success'} ? ' alert-success' : (${type == 'warning'} ? ' alert-warning' : ' alert-info')"
+       role="alert">
+
+    <i class="bi me-2"
+       th:classappend="${type == 'success'} ? 'bi-check-circle-fill' : (${type == 'warning'} ? 'bi-exclamation-triangle-fill' : 'bi-info-circle-fill')">
+    </i>
+
+    <span th:text="${message}"></span>
+
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
+</body>
+</html>

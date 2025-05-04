@@ -11,9 +11,8 @@
 <main layout:fragment="content">
     <div class="container py-5 h-100">
 
-        <div th:if="${successMessage}" class="alert alert-success">
-            <span th:text="${successMessage}">Successfully</span>
-        </div>
+        <div th:replace="~{fragments/alerts :: alert('success', ${successMessage})}"></div>
+        <div th:replace="~{fragments/alerts :: alert('warning', ${warningMessage})}"></div>
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">

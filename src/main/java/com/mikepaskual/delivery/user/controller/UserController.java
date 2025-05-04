@@ -25,17 +25,20 @@ import java.util.Locale;
 public class UserController {
 
     @Autowired
-    private final MessageUtil messageUtil;
+    private final MessageUtil message;
     @Autowired
     private final UserService userService;
 
     public UserController(MessageUtil messageUtil, UserService userService) {
-        this.messageUtil = messageUtil;
+        this.message = messageUtil;
         this.userService = userService;
     }
 
     @GetMapping("/")
-    public String showHome() {
+    public String showHome(@AuthenticationPrincipal User authenticatedUser, Model model, Locale locale) {
+        if (userService.isIncomplete(authenticatedUser.getId())) {
+            model.addAttribute("warningMessage", message.get("profile.incomplete.warning", locale));
+        }
         return "user/home";
     }
 
@@ -59,7 +62,7 @@ public class UserController {
         }
         userService.updatePassword(authenticatedUser.getId(), request.getNewPassword());
         redirectAttributes.addFlashAttribute("successMessage",
-                messageUtil.get("password.updated.success", locale));
+                message.get("password.updated.success", locale));
         return "redirect:/";
     }
 
@@ -80,7 +83,7 @@ public class UserController {
         }
         userService.registerUser(request);
         redirectAttributes.addFlashAttribute("successMessage",
-                messageUtil.get("register.success", locale));
+                message.get("register.success", locale));
         return "redirect:/login";
     }
 
@@ -109,7 +112,7 @@ public class UserController {
         }
         userService.updateUser(authenticatedUser.getId(), request);
         redirectAttributes.addFlashAttribute("successMessage",
-                messageUtil.get("profile.updated.success", locale));
+                message.get("profile.updated.success", locale));
         return "redirect:/";
     }
 

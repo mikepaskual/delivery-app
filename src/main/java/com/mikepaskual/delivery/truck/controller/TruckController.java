@@ -47,14 +47,16 @@ public class TruckController {
 
     @GetMapping("/trucks/{truckId}")
     public String showTruckView(Model model, @AuthenticationPrincipal User authenticatedUser,
-                                @PathVariable Long truckId) {
+                                @PathVariable Long truckId, Locale locale) {
         Truck truck = truckService.getTruckOrThrow(truckId);
         if (!authenticatedUser.getId().equals(truck.getDriver().getId())) {
             return "redirect:/error/forbidden";
         }
+        if (truck.getStatus() == StatusTruck.INACTIVE) {
+            model.addAttribute("warningMessage", message.get("truck.inactive.warning", locale));
+        }
         model.addAttribute("truckForm", CreateTruckRequest.of(truck));
         model.addAttribute("fuelTypes", FuelType.getFuelTypesAsNames());
-        model.addAttribute("status", StatusTruck.getStatusAsNames());
         model.addAttribute("transmissions", Transmission.getTransmissionsAsNames());
         return "truck/truck";
     }

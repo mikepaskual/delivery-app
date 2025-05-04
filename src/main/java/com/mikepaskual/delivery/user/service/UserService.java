@@ -55,10 +55,16 @@ public class UserService {
             driverRepository.save(Driver.builder().setUser(user).build());
         }
         if (roles.stream().anyMatch(role -> UserRole.CUSTOMER.name().equals(role.getName()))) {
-            //
+            // TODO
         }
 
         return user;
+    }
+
+    public boolean isIncomplete(Long userId) {
+        User user = getUserOrThrow(userId);
+        return user.getFirstName() == null || user.getLastName() == null || user.getPhone() == null
+                || user.getBirthday() == null || user.getGender() == null;
     }
 
     public boolean isCurrentPassword(Long userId, String currentPassword) {
