@@ -3,19 +3,18 @@ package com.mikepaskual.delivery.address.controller;
 import com.mikepaskual.delivery.address.dto.CreateAddressRequest;
 import com.mikepaskual.delivery.address.model.Address;
 import com.mikepaskual.delivery.address.service.AddressService;
-import com.mikepaskual.delivery.customer.model.Customer;
-import com.mikepaskual.delivery.customer.service.CustomerService;
+import com.mikepaskual.delivery.shared.util.MessageUtil;
+import com.mikepaskual.delivery.user.model.User;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Comparator;
 import java.util.Locale;
 
 @Controller
@@ -24,70 +23,59 @@ public class AddressController {
     @Autowired
     private final AddressService addressService;
     @Autowired
-    private final CustomerService customerService;
-    @Autowired
-    private MessageSource messageSource;
+    private final MessageUtil message;
 
-    public AddressController(AddressService addressService, CustomerService customerService, MessageSource messageSource) {
+    public AddressController(AddressService addressService, MessageUtil message) {
         this.addressService = addressService;
-        this.customerService = customerService;
-        this.messageSource = messageSource;
+        this.message = message;
     }
 
-    @GetMapping("/customers/{id}/address/new")
-    public String showNewAddressForm(@PathVariable Long id, Model model) {
-        Customer customer = customerService.findById(id);
-        model.addAttribute("customer", customer);
-        CreateAddressRequest addressForm = CreateAddressRequest.builder()
-                .setCustomer(customer).build();
-        model.addAttribute("addressForm", addressForm);
+    @GetMapping("/addresses")
+    public String showAddressesView(Model model, @AuthenticationPrincipal User authenticatedUser) {
+        model.addAttribute("addresses", addressService.getAddressesByUser(authenticatedUser.getId())
+                .stream()
+                .sorted(Comparator.comparing(Address::isMain).reversed())
+                .toList());
+        return "address/addresses";
+    }
+
+    @GetMapping("/addresses/{addressId}")
+    public String showAddressView(Model model, @PathVariable Long addressId) {
+        Address address = addressService.getAddressOrThrow(addressId);
+        model.addAttribute("addressForm", CreateAddressRequest.of(address));
+        model.addAttribute("isMain", address.isMain());
+        model.addAttribute("addressId", addressId);
+        return "address/address";
+    }
+
+    @GetMapping("/addresses/new")
+    public String showNewAddressForm(Model model) {
+        model.addAttribute("addressForm", CreateAddressRequest.builder().build());
         return "address/address-form";
     }
 
-    @PostMapping("/customers/{id}/address/submit")
-    public String saveNewAddressToCustomer(@PathVariable Long id, Model model,
-                                           @ModelAttribute("newAddress") CreateAddressRequest request,
-                                           BindingResult bindingResult,
-                                           RedirectAttributes redirectAttributes, Locale locale) {
-        Customer customer = customerService.findById(request.getCustomer().getId());
+    @PostMapping("/addresses")
+    public String processNewAddressForm(@AuthenticationPrincipal User authenticatedUser,
+                                        @Valid @ModelAttribute("addressForm") CreateAddressRequest request,
+                                        BindingResult bindingResult,
+                                        RedirectAttributes redirectAttributes, Locale locale) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("customer", customer);
             return "address/address-form";
         }
-        request.setCustomer(customer);
-        addressService.registerAddress(request);
-        redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("address.added.success", null, locale));
-        return "redirect:/customers/" + customer.getId();
+        addressService.registerAddress(authenticatedUser.getId(), request);
+        redirectAttributes.addFlashAttribute("successMessage",
+                message.get("address.added.success", locale));
+        return "redirect:/addresses";
     }
 
-    @PostMapping("/addresses/{id}/delete")
-    public String deleteAddressOfCustomer(@PathVariable Long id, RedirectAttributes redirectAttributes, Locale locale) {
-        // TODO: validate who can delete address
-        Address address = addressService.markAsHidden(id);
-        redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("address.deleted.success", null, locale));
-        return "redirect:/customers/" + address.getCustomer().getId();
-    }
-
-    @PostMapping("/customers/{customerId}/addresses/{addressId}/mark-as-main")
-    public String markAddressAsMainOfCustomer(@PathVariable Long customerId, @PathVariable Long addressId, Model model, RedirectAttributes redirectAttributes, Locale locale) {
-        Address address = addressService.findById(addressId);
-        if (!address.getCustomer().getId().equals(customerId)) {
-            throw new IllegalArgumentException("La dirección no pertenece al cliente especificado");
-        }
-        addressService.markAsMain(addressId);
-        redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("address.markMain.success", null, locale));
-        return "redirect:/customers/" + address.getCustomer().getId();
-    }
-
-    @PostMapping("/customers/{customerId}/addresses/{addressId}/unmark-as-main")
-    public String unmarkAddressAsMainOfCustomer(@PathVariable Long customerId, @PathVariable Long addressId, RedirectAttributes redirectAttributes, Locale locale) {
-        Address address = addressService.findById(addressId);
-        if (!address.getCustomer().getId().equals(customerId)) {
-            throw new IllegalArgumentException("La dirección no pertenece al cliente especificado");
-        }
-        addressService.unmarkAsMain(addressId);
-        redirectAttributes.addFlashAttribute("successMessage", messageSource.getMessage("address.unmarkMain.success", null, locale));
-        return "redirect:/customers/" + address.getCustomer().getId();
+    @PostMapping("/addresses/{addressId}")
+    public String processUpdate(@PathVariable Long addressId, @AuthenticationPrincipal User authenticatedUser,
+                                RedirectAttributes redirectAttributes, Locale locale) {
+        String messageCode = addressService.getAddressOrThrow(addressId).isMain()
+                ? "address.unmarkMain.success" : "address.markMain.success";
+        addressService.update(addressId, authenticatedUser.getId());
+        redirectAttributes.addFlashAttribute("successMessage", message.get(messageCode, locale));
+        return "redirect:/addresses";
     }
 
 }

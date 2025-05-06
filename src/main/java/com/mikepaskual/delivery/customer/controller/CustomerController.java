@@ -57,7 +57,7 @@ public class CustomerController {
     public String editOrViewCustomer(@PathVariable Long id, Model model) {
         Customer customer = customerService.findById(id);
         model.addAttribute("customer", customer);
-        model.addAttribute("addresses", addressService.findNotHiddenByCustomer(customer));
+        //model.addAttribute("addresses", addressService.findNotHiddenByCustomer(customer));
         return "customer/customer";
     }
 

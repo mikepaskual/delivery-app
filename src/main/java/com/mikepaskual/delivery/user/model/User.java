@@ -1,5 +1,6 @@
 package com.mikepaskual.delivery.user.model;
 
+import com.mikepaskual.delivery.address.model.Address;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -7,9 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
@@ -40,9 +39,25 @@ public class User implements UserDetails {
     private Gender gender;
     private LocalDate birthday;
     private LocalDateTime createdAt;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private List<Address> addresses;
 
     public User() {
         roles = new HashSet<>();
+        addresses = new ArrayList<>();
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        if (addresses == null) {
+            this.addresses = new ArrayList<>();
+        } else {
+            this.addresses = new ArrayList<>(addresses);
+        }
     }
 
     public Set<Role> getRoles() {
@@ -165,9 +180,16 @@ public class User implements UserDetails {
         private Gender gender;
         private LocalDate birthday;
         private LocalDateTime createdAt;
+        private List<Address> addresses;
 
         Builder() {
             super();
+        }
+
+        @SuppressWarnings("unchecked")
+        public S setAddresses(List<Address> addresses) {
+            this.addresses = addresses;
+            return (S) this;
         }
 
         @SuppressWarnings("unchecked")
@@ -238,6 +260,7 @@ public class User implements UserDetails {
 
         public User build() {
             User user = new User();
+            user.setAddresses(this.addresses);
             user.setBirthday(this.birthday);
             user.setCreatedAt(this.createdAt);
             user.setEmail(this.email);

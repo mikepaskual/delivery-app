@@ -1,40 +1,41 @@
 package com.mikepaskual.delivery.address.dto;
 
-import com.mikepaskual.delivery.customer.model.Customer;
-
-import java.time.LocalDateTime;
+import com.mikepaskual.delivery.address.model.Address;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 public class CreateAddressRequest {
 
-    private Long id;
+    @NotBlank(message = "{address.validation.street.notBlank}")
+    @Size(max = 100, message = "{address.validation.street.maxSize}")
     private String street;
+    @NotBlank(message = "{address.validation.postalCode.notBlank}")
+    @Pattern(regexp = "^[A-Za-z0-9][A-Za-z0-9\\- ]{1,8}[A-Za-z0-9]$", message = "{address.validation.postalCode.pattern}")
     private String postalCode;
+    @NotBlank(message = "{address.validation.city.notBlank}")
+    @Size(max = 50, message = "{address.validation.city.maxSize}")
+    @Pattern(regexp = "^[A-Za-zÀ-ÿ'\\- ]+$", message = "{address.validation.city.pattern}")
     private String city;
+    @Size(max = 50, message = "{address.validation.state.maxSize}")
+    @Pattern(regexp = "^[A-Za-zÀ-ÿ'\\- ]*$", message = "{address.validation.state.pattern}")
     private String state;
+    @NotBlank(message = "{address.validation.country.notBlank}")
+    @Size(max = 56, message = "{address.validation.country.maxSize}")
+    @Pattern(regexp = "^[A-Za-zÀ-ÿ'\\- ]+$", message = "{address.validation.country.pattern}")
     private String country;
-    private boolean hidden;
-    private boolean main;
-    private LocalDateTime createdAt;
-    private Customer customer;
+
+    public static CreateAddressRequest of(Address address) {
+        return CreateAddressRequest.builder()
+                .setCity(address.getCity())
+                .setCountry(address.getCountry())
+                .setPostalCode(address.getPostalCode())
+                .setState(address.getState())
+                .setStreet(address.getStreet()).build();
+    }
 
     public CreateAddressRequest() {
         super();
-    }
-
-    public boolean isMain() {
-        return main;
-    }
-
-    public void setMain(boolean main) {
-        this.main = main;
-    }
-
-    public boolean isHidden() {
-        return hidden;
-    }
-
-    public void setHidden(boolean hidden) {
-        this.hidden = hidden;
     }
 
     public String getStreet() {
@@ -51,14 +52,6 @@ public class CreateAddressRequest {
 
     public void setState(String state) {
         this.state = state;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getPostalCode() {
@@ -85,22 +78,6 @@ public class CreateAddressRequest {
         this.country = country;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     @SuppressWarnings("rawtypes")
     public static Builder builder() {
         return new Builder();
@@ -109,16 +86,11 @@ public class CreateAddressRequest {
     @SuppressWarnings("rawtypes")
     public static class Builder<S extends Builder> {
 
-        private Long id;
         private String street;
         private String postalCode;
         private String city;
         private String state;
         private String country;
-        private boolean hidden;
-        private boolean main;
-        private LocalDateTime createdAt;
-        private Customer customer;
 
         public Builder() {
             super();
@@ -131,26 +103,8 @@ public class CreateAddressRequest {
         }
 
         @SuppressWarnings("unchecked")
-        public S setMain(boolean main) {
-            this.main = main;
-            return (S) this;
-        }
-
-        @SuppressWarnings("unchecked")
-        public S setHidden(boolean hidden) {
-            this.hidden = hidden;
-            return (S) this;
-        }
-
-        @SuppressWarnings("unchecked")
         public S setState(String state) {
             this.state = state;
-            return (S) this;
-        }
-
-        @SuppressWarnings("unchecked")
-        public S setId(Long id) {
-            this.id = id;
             return (S) this;
         }
 
@@ -172,30 +126,13 @@ public class CreateAddressRequest {
             return (S) this;
         }
 
-        @SuppressWarnings("unchecked")
-        public S setCreatedAt(LocalDateTime createdAt) {
-            this.createdAt = createdAt;
-            return (S) this;
-        }
-
-        @SuppressWarnings("unchecked")
-        public S setCustomer(Customer customer) {
-            this.customer = customer;
-            return (S) this;
-        }
-
         public CreateAddressRequest build() {
             CreateAddressRequest request = new CreateAddressRequest();
             request.setCity(this.city);
             request.setCountry(this.country);
-            request.setCustomer(this.customer);
-            request.setCreatedAt(this.createdAt);
-            request.setHidden(this.hidden);
-            request.setId(this.id);
-            request.setMain(this.main);
+            request.setPostalCode(this.postalCode);
             request.setState(this.state);
             request.setStreet(this.street);
-            request.setPostalCode(this.postalCode);
             return request;
         }
     }
