@@ -9,11 +9,14 @@
       </a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+          <li class="nav-item" sec:authorize="hasRole('ADMIN')">
             <a class="nav-link" href="#" th:text="#{nav.admin}">Admin</a>
           </li>
-          <li class="nav-item" sec:authorize="hasRole('ROLE_DRIVER')">
+          <li class="nav-item" sec:authorize="hasRole('DRIVER')">
             <a class="nav-link" th:href="@{/trucks}" th:text="#{nav.trucks}">My trucks</a>
+          </li>
+          <li class="nav-item" sec:authorize="hasAnyRole('CUSTOMER', 'DRIVER')">
+            <a class="nav-link" th:href="@{/addresses}" th:text="#{nav.addresses}">My addresses</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -22,13 +25,13 @@
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" th:text="${auth.username}">User</a>
             </th:block>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li sec:authorize="hasRole('ROLE_DRIVER')">
+              <li sec:authorize="hasRole('DRIVER')">
                 <a class="dropdown-item" th:href="@{/driver-settings}" th:text="#{nav.driver}">Driver settings</a>
               </li>
-              <li sec:authorize="hasRole('ROLE_CUSTOMER')">
+              <li sec:authorize="hasRole('CUSTOMER')">
                 <a class="dropdown-item" href="#" th:text="#{nav.customer}">Customer settings</a>
               </li>
-              <li sec:authorize="hasRole('ROLE_ADMIN')">
+              <li sec:authorize="hasRole('ADMIN')">
                 <a class="dropdown-item" href="#" th:text="#{nav.admin}">Admin</a>
               </li>
               <li>
@@ -39,7 +42,8 @@
               </li>
               <li>
                 <form th:action="@{/logout}" method="POST" id="logoutForm" style="display:none"></form>
-                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()" th:text="#{nav.logout}">Logout</a>
+                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()"
+                   th:text="#{nav.logout}">Logout</a>
               </li>
             </ul>
           </li>

@@ -1,9 +1,8 @@
 package com.mikepaskual.delivery.address.model;
 
 import com.mikepaskual.delivery.customer.model.Customer;
+import com.mikepaskual.delivery.user.model.User;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 
@@ -19,15 +18,26 @@ public class Address {
     private String city;
     private String state;
     private String country;
-    private boolean hidden;
+    private boolean deleted;
     private boolean main;
     private LocalDateTime createdAt;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Address() {
         super();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getState() {
@@ -86,12 +96,12 @@ public class Address {
         this.street = street;
     }
 
-    public boolean isHidden() {
-        return hidden;
+    public boolean isDeleted() {
+        return deleted;
     }
 
-    public void setHidden(boolean hidden) {
-        this.hidden = hidden;
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 
     public boolean isMain() {
@@ -124,10 +134,11 @@ public class Address {
         private String city;
         private String state;
         private String country;
-        private boolean hidden;
+        private boolean deleted;
         private boolean main;
         private LocalDateTime createdAt;
         private Customer customer;
+        private User user;
 
         Builder() {
             super();
@@ -140,14 +151,20 @@ public class Address {
         }
 
         @SuppressWarnings("unchecked")
+        public S setUser(User user) {
+            this.user = user;
+            return (S) this;
+        }
+
+        @SuppressWarnings("unchecked")
         public S setMain(boolean main) {
             this.main = main;
             return (S) this;
         }
 
         @SuppressWarnings("unchecked")
-        public S setHidden(boolean hidden) {
-            this.hidden = hidden;
+        public S setDeleted(boolean deleted) {
+            this.deleted = deleted;
             return (S) this;
         }
 
@@ -199,12 +216,13 @@ public class Address {
             address.setCountry(this.country);
             address.setCreatedAt(this.createdAt);
             address.setCustomer(this.customer);
-            address.setHidden(this.hidden);
+            address.setDeleted(this.deleted);
             address.setId(this.id);
             address.setMain(this.main);
+            address.setPostalCode(this.postalCode);
             address.setState(this.state);
             address.setStreet(this.street);
-            address.setPostalCode(this.postalCode);
+            address.setUser(this.user);
             return address;
         }
     }

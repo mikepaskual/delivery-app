@@ -1,155 +1,119 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title th:text="#{page.title.address.add}">Add address</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="../../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
-    <style>
-        .container {
-          max-width: 900px;
-        }
-
-        .form-select {
-          margin-top: 8px;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <title th:text="#{page.title.address}">Address</title>
 </head>
 <body>
-<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
-    <div class="container-fluid">
-        <h1 class="d-flex align-items-center fs-4 text-white mb-0">
-            <a href="#" th:href="@{/}">
-                <img src="../../static/img/logo.svg" th:src="@{/img/logo.svg}" width="38" height="30" class="me-3" alt="Bootstrap">
-                <span th:text="#{nav.home}">Home</span>
-            </a>
-        </h1>
-        <div class="collapse navbar-collapse navbar-options">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link active" href="#" aria-current="page" th:href="@{/customers}" th:text="#{nav.customers}">Customers</a>
-                </li>
-                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
-                    <a class="nav-link" href="#" th:href="@{/admin/}" th:text="#{nav.admin}">Admin</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
-                    <th-block th:with="auth=${#authentication.getPrincipal()}">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false" th:text="${auth.username}">User</a>
-                    </th-block>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown03">
-                        <li>
-                            <form style="display:none" th:action="@{/logout}" method="POST" id="logoutForm"></form>
-                            <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()" th:text="#{nav.logout}">Logout</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item" sec:authorize="!isAuthenticated()">
-                    <a class="nav-link" href="#" th:href="@{/login}" th:text="#{nav.login}">Login</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<main>
-    <div class="container py-5 h-100">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#" th:text="#{breadcrumb.home}">Home</a></li>
-                <li class="breadcrumb-item"><a href="#" th:text="#{breadcrumb.customers}" th:href="@{/customers}">Customers</a></li>
-                <li class="breadcrumb-item"><a href="#" th:href="@{/customers/{id}(id=${customer.id})}" th:text="${customer.firstName + ' ' + customer.lastName}">Bengt Oxberry</a></li>
-                <li class="breadcrumb-item active" aria-current="page" th:text="#{breadcrumb.newAddress}">New address</li>
-            </ol>
-        </nav>
+<main layout:fragment="content">
+  <div class="container py-5 h-100">
 
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col">
-                <div class="card rounded-3">
-                    <div class="card-body p-4">
-                        <h3 th:text="#{address.form.add.title}">Add address</h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#" th:href="@{/}" th:text="#{breadcrumb.home}">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#" th:href="@{/addresses}" th:text="#{breadcrumb.addresses}">My addresses</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page" th:text="#{breadcrumb.newAddress}">New address</li>
+      </ol>
+    </nav>
 
-                        <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
-                              action="#" th:action="@{/customers/{id}/address/submit(id=${customer.id})}"
-                              method="POST" th:object="${addressForm}">
-
-                            <input type="hidden" th:field="*{customer.id}" />
-
-                            <div class="col-12">
-                                <div class="form-outline">
-                                    <label class="form-label" for="address-street" th:text="#{address.form.street}">Street</label>
-                                    <div class="input-group has-validation">
-                                        <input type="text" id="address-street" class="form-control"
-                                               th:classappend="${#fields.hasErrors('street')} ? 'is-invalid' : 'is-valid'"
-                                               th:field="*{street}" aria-describedby="validation-street" required/>
-                                        <div id="validation-street" class="invalid-feedback" th:if="${#fields.hasErrors('street')}" th:errors="*{street}">
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <label class="form-label" for="address-postal-code" th:text="#{address.form.postalCode}">Postal code</label>
-                                    <div class="input-group has-validation">
-                                        <input type="text" id="address-postal-code" class="form-control"
-                                               th:classappend="${#fields.hasErrors('postalCode')} ? 'is-invalid' : 'is-valid'"
-                                               th:field="*{postalCode}" aria-describedby="validation-postal-code" required/>
-                                        <div id="validation-postal-code" class="invalid-feedback" th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}">
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <label class="form-label" for="address-city" th:text="#{address.form.city}">City</label>
-                                    <div class="input-group has-validation">
-                                        <input type="text" id="address-city" class="form-control"
-                                               th:classappend="${#fields.hasErrors('city')} ? 'is-invalid' : 'is-valid'"
-                                               th:field="*{city}" aria-describedby="validation-city" required/>
-                                        <div id="validation-city" class="invalid-feedback" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <label class="form-label" for="address-state" th:text="#{address.form.state}">State</label>
-                                    <div class="input-group has-validation">
-                                        <input type="text" id="address-state" class="form-control"
-                                               th:classappend="${#fields.hasErrors('state')} ? 'is-invalid' : 'is-valid'"
-                                               th:field="*{state}" aria-describedby="validation-state" required/>
-                                        <div id="validation-state" class="invalid-feedback" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <label class="form-label" for="address-country" th:text="#{address.form.country}">Country</label>
-                                    <div class="input-group has-validation">
-                                        <input type="text" id="address-country" class="form-control"
-                                               th:classappend="${#fields.hasErrors('country')} ? 'is-invalid' : 'is-valid'"
-                                               th:field="*{country}" aria-describedby="validation-country" required/>
-                                        <div id="validation-country" class="invalid-feedback" th:if="${#fields.hasErrors('country')}" th:errors="*{country}">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 mt-3 text-end" style="margin-top: 10px;">
-                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary" th:text="#{button.save}">Save</button>
-                                <a href="#" th:href="@{/customers/{id}(id=${customer.id})}" class="btn btn-primary" th:text="#{button.cancel}">Cancel</a>
-                            </div>
-                        </form>
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+            <h3 th:text="#{address.form.add.title}">Address</h3>
+            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
+                  action="#" th:action="@{/addresses}" method="POST" th:object="${addressForm}">
+              <div class="col-12">
+                <div class="row g-3">
+                  <div class="col-12 col-lg-8">
+                    <div class="form-outline">
+                      <label class="form-label" for="street" th:text="#{address.form.street}">Street</label>
+                      <div class="input-group has-validation">
+                        <input type="text" id="street" class="form-control"
+                               th:classappend="${#fields.hasErrors('street')} ? 'is-invalid' : 'is-valid'"
+                               th:field="*{street}" aria-describedby="validation-street" />
+                        <div id="validation-street" class="invalid-feedback"
+                             th:if="${#fields.hasErrors('street')}" th:text="${#fields.errors('street')[0]}">
+                        </div>
+                      </div>
                     </div>
+                  </div>
+
+                  <div class="col-12 col-lg-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="postal-code" th:text="#{address.form.postalCode}">Postal code</label>
+                      <div class="input-group has-validation">
+                        <input type="text" id="postal-code" class="form-control"
+                               th:classappend="${#fields.hasErrors('postalCode')} ? 'is-invalid' : 'is-valid'"
+                               th:field="*{postalCode}" aria-describedby="validation-postal-code" />
+                        <div id="validation-postal-code" class="invalid-feedback"
+                             th:if="${#fields.hasErrors('postalCode')}" th:text="${#fields.errors('postalCode')[0]}">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-lg-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="city" th:text="#{address.form.city}">City</label>
+                      <div class="input-group has-validation">
+                        <input type="text" id="city" class="form-control"
+                               th:classappend="${#fields.hasErrors('city')} ? 'is-invalid' : 'is-valid'"
+                               th:field="*{city}" aria-describedby="validation-city" />
+                        <div id="validation-city" class="invalid-feedback"
+                             th:if="${#fields.hasErrors('city')}" th:text="${#fields.errors('city')[0]}">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-lg-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="state" th:text="#{address.form.state}">State</label>
+                      <div class="input-group has-validation">
+                        <input type="text" id="state" class="form-control"
+                               th:classappend="${#fields.hasErrors('state')} ? 'is-invalid' : 'is-valid'"
+                               th:field="*{state}" aria-describedby="validation-state" />
+                        <div id="validation-state" class="invalid-feedback"
+                             th:if="${#fields.hasErrors('state')}" th:text="${#fields.errors('state')[0]}">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-lg-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="country" th:text="#{address.form.country}">Country</label>
+                      <div class="input-group has-validation">
+                        <input type="text" id="country" class="form-control"
+                               th:classappend="${#fields.hasErrors('country')} ? 'is-invalid' : 'is-valid'"
+                               th:field="*{country}" aria-describedby="validation-country" />
+                        <div id="validation-country" class="invalid-feedback"
+                             th:if="${#fields.hasErrors('country')}" th:text="${#fields.errors('country')[0]}">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 mt-3 text-end" style="margin-top: 10px;">
+                    <button class="btn btn-primary" type="submit" data-mdb-button-init data-mdb-ripple-init
+                            th:text="#{button.save}">Save</button>
+                    <a class="btn btn-primary" href="#" th:href="@{/addresses}" th:text="#{button.cancel}">Cancel</a>
+                  </div>
                 </div>
-            </div>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -4,11 +4,11 @@ import com.mikepaskual.delivery.address.dto.CreateAddressRequest;
 import com.mikepaskual.delivery.address.exception.AddressNotFoundException;
 import com.mikepaskual.delivery.address.model.Address;
 import com.mikepaskual.delivery.address.model.AddressRepository;
-import com.mikepaskual.delivery.customer.model.Customer;
+import com.mikepaskual.delivery.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,70 +16,49 @@ public class AddressService {
 
     @Autowired
     private final AddressRepository addressRepository;
+    @Autowired
+    private final UserService userService;
 
-    public AddressService(AddressRepository addressRepository) {
+    public AddressService(AddressRepository addressRepository, UserService userService) {
         this.addressRepository = addressRepository;
+        this.userService = userService;
     }
 
-    public Address registerAddress(CreateAddressRequest request) {
-        Address address = Address.builder()
+    public Address registerAddress(Long userId, CreateAddressRequest request) {
+        return addressRepository.save(Address.builder()
                 .setCity(request.getCity())
                 .setCountry(request.getCountry())
-                .setCreatedAt(request.getCreatedAt())
-                .setCustomer(request.getCustomer())
-                .setHidden(request.isHidden())
-                .setMain(request.isMain())
+                .setCreatedAt(LocalDateTime.now())
                 .setState(request.getState())
                 .setStreet(request.getStreet())
                 .setPostalCode(request.getPostalCode())
-                .build();
-        return addressRepository.save(address);
+                .setUser(userService.getUserOrThrow(userId)).build());
     }
 
-    public Address findById(Long id) {
-        return addressRepository.findById(id).orElseThrow(() -> new AddressNotFoundException(id));
+    public Address getAddressOrThrow(Long addressId) {
+        return addressRepository.findById(addressId)
+                .orElseThrow(() -> new AddressNotFoundException(addressId));
     }
 
-    public Address markAsHidden(Long id) {
-        Address address = findById(id);
-        address.setMain(false);
-        address.setHidden(true);
-        return addressRepository.save(address);
+    public List<Address> getAddressesByUser(Long userId) {
+        return addressRepository.findByUser(userService.getUserOrThrow(userId));
     }
 
-    public Address update(Address address) {
-        return addressRepository.save(address);
-    }
-
-    public List<Address> findNotHiddenByCustomer(Customer customer) {
-        List<Address> addresses = new ArrayList<>();
-        addressRepository.findByCustomer(customer).forEach(a -> {
-            if (!a.isHidden()) {
-                addresses.add(a);
+    public void update(Long addressId, Long userId) {
+        Address target = getAddressOrThrow(addressId);
+        if (!target.getUser().getId().equals(userId)) {
+            throw new IllegalArgumentException("Address does not belong to user");
+        }
+        if (target.isMain()) {
+            target.setMain(false);
+            addressRepository.save(target);
+        } else {
+            List<Address> addresses = addressRepository.findByUserAndDeletedFalse(userService.getUserOrThrow(userId));
+            for (Address address : addresses) {
+                address.setMain(address.getId().equals(addressId));
             }
-        });
-        return addresses;
-    }
-
-    public Address markAsMain(Long id) {
-        Address address = findById(id);
-        List<Address> addresses = findNotHiddenByCustomer(address.getCustomer());
-        addresses.forEach(a -> {
-            if (a.getId().equals(id)) {
-                a.setMain(true);
-            } else {
-                a.setMain(false);
-            }
-        });
-        addressRepository.saveAll(addresses);
-        return address;
-    }
-
-    public Address unmarkAsMain(Long id) {
-        Address address = findById(id);
-        address.setMain(false);
-        addressRepository.save(address);
-        return address;
+            addressRepository.saveAll(addresses);
+        }
     }
 
 }

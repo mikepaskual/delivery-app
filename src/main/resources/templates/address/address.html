@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title th:text="#{page.title.address}">Address</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+  <div class="container py-5 h-100">
+
+    <div th:replace="~{fragments/alerts :: alert('success', ${successMessage})}"></div>
+    <div th:replace="~{fragments/alerts :: alert('warning', ${warningMessage})}"></div>
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#" th:href="@{/}" th:text="#{breadcrumb.home}">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="#" th:href="@{/addresses}" th:text="#{breadcrumb.addresses}">My addresses</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page" th:text="${addressForm.street}">73 Aberg Place</li>
+      </ol>
+    </nav>
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+            <h3 th:text="#{address.form.address}">Address</h3>
+            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
+                  action="#" th:action="@{/addresses/{id}(id=${addressId})}" method="POST" th:object="${addressForm}">
+              <div class="col-12">
+                <div class="row g-3">
+                  <div class="col-12 col-lg-8">
+                    <div class="form-outline">
+                      <label class="form-label" for="street" th:text="#{address.form.street}">Street</label>
+                      <input type="text" id="street" class="form-control" th:field="*{street}" disabled />
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="postal-code" th:text="#{address.form.postalCode}">Postal code</label>
+                      <input type="text" id="postal-code" class="form-control" th:field="*{postalCode}" disabled />
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="city" th:text="#{address.form.city}">City</label>
+                      <input type="text" id="city" class="form-control" th:field="*{city}" disabled />
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="state" th:text="#{address.form.state}">State</label>
+                      <input type="text" id="state" class="form-control" th:field="*{state}" disabled />
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="country" th:text="#{address.form.country}">Country</label>
+                      <input type="text" id="country" class="form-control" th:field="*{country}" disabled />
+                    </div>
+                  </div>
+                  <div class="col-12 mt-3 text-end" style="margin-top: 10px;">
+                    <button class="btn " th:classappend="${isMain} ? ' btn-primary' : ' btn-success'"
+                            type="submit" data-mdb-button-init data-mdb-ripple-init
+                            th:text="${isMain} ? #{button.unmarkAsMain} : #{button.markAsMain}">Mark as main</button>
+                    <a class="btn btn-primary" href="#" th:href="@{/addresses}" th:text="#{button.back}">Back</a>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

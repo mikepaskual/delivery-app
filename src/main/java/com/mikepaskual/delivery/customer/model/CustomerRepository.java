@@ -9,7 +9,4 @@ import java.util.Optional;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-    Optional<Customer> findByAddresses(Address address);
-
-    Page<Customer> findAll(Pageable pageable);
 }
