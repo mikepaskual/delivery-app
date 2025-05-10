@@ -4,6 +4,7 @@ import com.mikepaskual.delivery.truck.model.Truck;
 import com.mikepaskual.delivery.user.model.User;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class Driver {
     private DriverStatus status;
     private LocalTime availableFrom;
     private LocalTime availableTo;
+    private LocalDateTime createdAt;
     private String internalNotes;
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "driver_id")
@@ -42,6 +44,14 @@ public class Driver {
         } else {
             this.trucks = new ArrayList<>(trucks);
         }
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
@@ -114,6 +124,7 @@ public class Driver {
         private DriverStatus status;
         private LocalTime availableFrom;
         private LocalTime availableTo;
+        private LocalDateTime createdAt;
         private String internalNotes;
         private List<Truck> trucks;
 
@@ -169,10 +180,17 @@ public class Driver {
             return (S) this;
         }
 
+        @SuppressWarnings("unchecked")
+        public S setCreatedAt(LocalDateTime createdAt) {
+            this.createdAt = createdAt;
+            return (S) this;
+        }
+
         public Driver build() {
             Driver driver = new Driver();
             driver.setAvailableFrom(this.availableFrom);
             driver.setAvailableTo(this.availableTo);
+            driver.setCreatedAt(this.createdAt);
             driver.setId(this.id);
             driver.setLicenseNumber(this.licenseNumber);
             driver.setInternalNotes(this.internalNotes);

@@ -18,6 +18,9 @@
           <li class="nav-item" sec:authorize="hasAnyRole('CUSTOMER', 'DRIVER')">
             <a class="nav-link" th:href="@{/addresses}" th:text="#{nav.addresses}">My addresses</a>
           </li>
+          <li class="nav-item" sec:authorize="hasRole('CUSTOMER')">
+            <a class="nav-link" th:href="@{/packs}" th:text="#{nav.packs}">My packs</a>
+          </li>
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item dropdown" sec:authorize="isAuthenticated()">

@@ -39,50 +39,64 @@
                                 <div class="row g-3">
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="make" th:text="#{truck.form.make}">Make</label>
-                                            <input type="text" id="make" class="form-control" th:field="*{make}" disabled />
+                                            <label class="form-label" for="make"
+                                                   th:text="#{truck.form.make}">Make</label>
+                                            <input type="text" id="make" class="form-control"
+                                                   th:field="*{make}" disabled />
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="model" th:text="#{truck.form.model}">Model</label>
-                                            <input type="text" id="model" class="form-control" th:field="*{model}" disabled />
+                                            <label class="form-label" for="model"
+                                                   th:text="#{truck.form.model}">Model</label>
+                                            <input type="text" id="model" class="form-control"
+                                                   th:field="*{model}" disabled />
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="plate" th:text="#{truck.form.plate}">Plate</label>
-                                            <input type="text" id="plate" class="form-control" th:field="*{plate}" disabled />
+                                            <label class="form-label" for="plate"
+                                                   th:text="#{truck.form.plate}">Plate</label>
+                                            <input type="text" id="plate" class="form-control"
+                                                   th:field="*{plate}" disabled />
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="year" th:text="#{truck.form.year}">Year</label>
-                                            <input type="number" id="year" class="form-control" th:field="*{year}" disabled />
+                                            <label class="form-label" for="year"
+                                                   th:text="#{truck.form.year}">Year</label>
+                                            <input type="number" id="year" class="form-control"
+                                                   th:field="*{year}" disabled />
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="color" th:text="#{truck.form.color}">Color</label>
-                                            <input type="text" id="color" class="form-control" th:field="*{color}" disabled />
+                                            <label class="form-label" for="color"
+                                                   th:text="#{truck.form.color}">Color</label>
+                                            <input type="text" id="color" class="form-control"
+                                                   th:field="*{color}" disabled />
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="purchase-date" th:text="#{truck.form.purchaseDate}">Purchase date</label>
-                                            <input type="date" id="purchase-date" class="form-control" th:field="*{purchaseDate}" disabled />
+                                            <label class="form-label" for="purchase-date"
+                                                   th:text="#{truck.form.purchaseDate}">Purchase date</label>
+                                            <input type="date" id="purchase-date" class="form-control"
+                                                   th:field="*{purchaseDate}" disabled />
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="fuel-type" th:text="#{truck.form.fuelType}">Fuel Type</label>
-                                            <select id="fuel-type" class="form-control" th:field="*{fuelType}" disabled>
+                                            <label class="form-label" for="fuel-type"
+                                                   th:text="#{truck.form.fuelType}">Fuel Type</label>
+                                            <select id="fuel-type" class="form-control"
+                                                    th:field="*{fuelType}" disabled>
                                                 <option th:each="fuel : ${fuelTypes}" th:value="${fuel}"
                                                         th:text="#{${'truck.form.fuelType.' + fuel.toLowerCase()}}">Diesel</option>
                                             </select>
@@ -91,9 +105,12 @@
 
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="transmission" th:text="#{truck.form.transmission}">Transmission</label>
-                                            <select id="transmission" class="form-control" th:field="*{transmission}" disabled>
-                                                <option th:each="transmission : ${transmissions}" th:value="${transmission}"
+                                            <label class="form-label" for="transmission"
+                                                   th:text="#{truck.form.transmission}">Transmission</label>
+                                            <select id="transmission" class="form-control"
+                                                    th:field="*{transmission}" disabled>
+                                                <option th:each="transmission : ${transmissions}"
+                                                        th:value="${transmission}"
                                                         th:text="#{${'truck.form.transmission.' + transmission.toLowerCase()}}">Automatic</option>
                                             </select>
                                         </div>
@@ -102,28 +119,32 @@
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="width" th:text="#{truck.form.width}">Width</label>
-                                            <input type="number" id="width" class="form-control" th:field="*{width}" disabled />
+                                            <input type="number" id="width" class="form-control"
+                                                   th:field="*{width}" disabled />
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="length" th:text="#{truck.form.length}">Length</label>
-                                            <input type="number" id="length" class="form-control" th:field="*{length}" step="0.1" disabled />
+                                            <input type="number" id="length" class="form-control"
+                                                   th:field="*{length}" step="0.1" disabled />
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="height" th:text="#{truck.form.height}">Height</label>
-                                            <input type="number" id="height" class="form-control" th:field="*{height}" step="0.1" disabled />
+                                            <input type="number" id="height" class="form-control"
+                                                   th:field="*{height}" step="0.1" disabled />
                                         </div>
                                     </div>
 
                                     <div class="col-12 col-lg-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="capacity" th:text="#{truck.form.capacity}">Capacity</label>
-                                            <input type="number" id="capacity" class="form-control" th:field="*{capacity}" disabled />
+                                            <input type="number" id="capacity" class="form-control"
+                                                   th:field="*{capacity}" disabled />
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +154,8 @@
                                         th:classappend="${truckForm.status == 'ACTIVE'} ? ' btn-danger' : ' btn-success'"
                                         type="submit" data-mdb-button-init data-mdb-ripple-init
                                         th:text="${truckForm.status == 'ACTIVE'} ? #{button.deactivate} : #{button.activate}">Activate</button>
-                                <a class="btn btn-primary" href="#" th:href="@{/trucks}" th:text="#{button.back}">Back</a>
+                                <a class="btn btn-primary" href="#"
+                                   th:href="@{/trucks}" th:text="#{button.back}">Back</a>
                             </div>
                         </form>
                     </div>

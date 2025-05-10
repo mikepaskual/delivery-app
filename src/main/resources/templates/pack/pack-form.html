@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="#{page.title.pack.add}">Add pack</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+    <div class="container py-5 h-100">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#" th:href="@{/}" th:text="#{breadcrumb.home}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#" th:href="@{/packs}" th:text="#{breadcrumb.packs}">My packs</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="#{breadcrumb.newPack}">New pack</li>
+            </ol>
+        </nav>
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card rounded-3">
+                    <div class="card-body p-4">
+                        <h3 th:text="#{pack.form.add.title}">New pack</h3>
+
+                        <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
+                              action="#" th:action="@{/packs/new}" method="POST" th:object="${packForm}">
+                            <div class="col-12">
+                                <div class="row g-3">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="title"
+                                                   th:text="#{pack.form.title}">Title</label>
+                                            <div class="input-group has-validation">
+                                                <input type="text" id="title" class="form-control"
+                                                       th:classappend="${#fields.hasErrors('title')} ? 'is-invalid' : 'is-valid'"
+                                                       th:field="*{title}" aria-describedby="validation-title" />
+                                                <div id="validation-title" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('title')}"
+                                                     th:text="${#fields.errors('title')[0]}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="weight"
+                                                   th:text="#{pack.form.weight}">Weight</label>
+                                            <div class="input-group has-validation">
+                                                <input type="number" id="weight" class="form-control" step="0.1"
+                                                       th:classappend="${#fields.hasErrors('weight')} ? 'is-invalid' : 'is-valid'"
+                                                       th:field="*{weight}" aria-describedby="validation-weight" />
+                                                <div id="validation-weight" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('weight')}"
+                                                     th:text="${#fields.errors('weight')[0]}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-8">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="receiver"
+                                                   th:text="#{pack.form.receiver}">Receiver</label>
+                                            <div class="input-group has-validation">
+                                                <select id="receiver" class="form-control" th:field="*{receiver}"
+                                                        th:classappend="${#fields.hasErrors('receiver')} ? ' is-invalid' : ''"
+                                                        aria-describedby="validation-receiver">
+                                                    <option value="" th:text="#{option.select}">-- Select --</option>
+                                                    <option th:each="receiver : ${receivers}"
+                                                            th:value="${receiver.id}"
+                                                            th:text="${receiver.firstName + ' ' + receiver.lastName}">Receiver 1</option>
+                                                </select>
+                                                <div id="validation-receiver" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('receiver')}"
+                                                     th:text="${#fields.errors('receiver')[0]}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-12">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="description"
+                                                   th:text="#{pack.form.description}">Description</label>
+                                            <div class="input-group has-validation">
+                                                <textarea id="description" class="form-control" rows="5"
+                                                       th:classappend="${#fields.hasErrors('description')} ? 'is-invalid' : 'is-valid'"
+                                                       th:field="*{description}" aria-describedby="validation-description" >
+                                                </textarea>
+                                                <div id="validation-description" class="invalid-feedback"
+                                                     th:if="${#fields.hasErrors('description')}"
+                                                     th:text="${#fields.errors('description')[0]}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-3 text-end" style="margin-top: 10px;">
+                                <button class="btn btn-primary" type="submit"
+                                        data-mdb-button-init data-mdb-ripple-init
+                                        th:text="#{button.save}">Save</button>
+                                <a class="btn btn-primary" href="#" th:href="@{/packs}"
+                                   th:text="#{button.cancel}">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+</body>
+</html>
