@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title th:text="#{page.title.pack}">Pack</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+    <div class="container py-5 h-100">
+
+        <div th:replace="~{fragments/alerts :: alert('success', ${successMessage})}"></div>
+        <div th:replace="~{fragments/alerts :: alert('warning', ${warningMessage})}"></div>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#" th:href="@{/}" th:text="#{breadcrumb.home}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#" th:href="@{/packs}" th:text="#{breadcrumb.packs}">My packs</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="#{breadcrumb.pack}">My pack</li>
+            </ol>
+        </nav>
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card rounded-3">
+                    <div class="card-body p-4">
+                        <h3 th:text="#{pack.form.pack}">Packs</h3>
+
+                        <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"
+                              action="#" th:action="@{/packs/{packId}(packId=${packForm.id})}"
+                              method="POST" th:object="${packForm}">
+                            <div class="col-12">
+                                <div class="row g-3">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="title"
+                                                   th:text="#{pack.form.title}">Title</label>
+                                            <input type="text" id="title" class="form-control"
+                                                   th:field="*{title}" disabled />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="weight"
+                                                   th:text="#{pack.form.weight}">Weight</label>
+                                            <input type="number" id="weight" step="0.1" class="form-control"
+                                                   th:field="*{weight}" disabled />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-8">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="receiver"
+                                                   th:text="#{pack.form.receiver}">Receiver</label>
+                                            <input type="text" id="receiver" class="form-control"
+                                                   th:field="*{receiver}" disabled />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-12">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="description"
+                                                   th:text="#{pack.form.description}">Description</label>
+                                            <textarea id="description" class="form-control"
+                                                      th:field="*{description}" rows="5" disabled >
+                                            </textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="createdAt"
+                                                   th:text="#{pack.form.createdAt}">Created at</label>
+                                            <input type="text" id="createdAt" class="form-control"
+                                                   th:value="${#temporals.format(packForm.createdAt, 'dd/MM/yyyy')}"
+                                                   disabled />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mt-3 text-end" style="margin-top: 10px;">
+                                        <button class="btn btn-danger"
+                                                type="submit" data-mdb-button-init data-mdb-ripple-init
+                                                th:if="${!packForm.discarded}"
+                                                th:text="#{button.discard}">Discard</button>
+                                        <a class="btn btn-primary" href="#" th:href="@{/packs}"
+                                           th:text="#{button.back}">Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

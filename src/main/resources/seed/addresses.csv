@@ -1,6 +1,6 @@
 country,state,city,postal_code,street_address
 Spain,Andalucia,Dos Hermanas,41703,2 Marcy Place
-Spain,Castilla - Leon,Zamora,49008,9071 Sutteridge Street
+Spain,Castilla y Leon,Zamora,49008,9071 Sutteridge Street
 Spain,Galicia,Pontevedra,36005,69776 Dennis Hill
 Spain,Navarra,Pamplona/Iruña,31010,70 Lindbergh Hill
 Spain,Canarias,Las Palmas de Gran Canaria,35005,921 Morrow Way
@@ -10,7 +10,7 @@ Spain,Cataluna,Girona,17080,966 Fuller Terrace
 Spain,Galicia,Santiago De Compostela,15705,36 Mitchell Hill
 Spain,Canarias,Las Palmas de Gran Canaria,35005,1831 Quincy Center
 Spain,Madrid,Madrid,28055,220 Village Point
-Spain,Castilla - Leon,Valladolid,47071,2205 Summer Ridge Parkway
+Spain,Castilla y Leon,Valladolid,47071,2205 Summer Ridge Parkway
 Spain,Madrid,Madrid,28045,43 Fremont Place
 Spain,Galicia,Vigo,36205,25 Sunbrook Lane
 Spain,Murcia,Murcia,30005,6 Eliot Circle
@@ -18,7 +18,7 @@ Spain,Andalucia,Granada,18015,57631 Mitchell Park
 Spain,Comunidad Valenciana,Valencia,46025,99 Oriole Street
 Spain,Canarias,Las Palmas de Gran Canaria,35010,80381 Dapin Pass
 Spain,Murcia,Murcia,30010,92 Mariners Cove Parkway
-Spain,Castilla - Leon,Zamora,49003,08 Marquette Crossing
+Spain,Castilla y Leon,Zamora,49003,08 Marquette Crossing
 Spain,Comunidad Valenciana,Valencia,46025,3 Russell Plaza
 Spain,Cataluna,Lleida,25193,27950 Southridge Crossing
 Spain,La Rioja,Logroño,26070,76 Rusk Way
@@ -31,22 +31,22 @@ Spain,Pais Vasco,Donostia-San Sebastian,20010,1888 Stone Corner Lane
 Spain,Cataluna,Sant Cugat Del Valles,08190,710 Claremont Alley
 Spain,Extremadura,Badajoz,06005,46 Southridge Terrace
 Spain,Andalucia,Malaga,29015,2729 Arrowood Plaza
-Spain,Castilla - Leon,Palencia,34005,64734 Quincy Avenue
+Spain,Castilla y Leon,Palencia,34005,64734 Quincy Avenue
 Spain,Castilla - La Mancha,Toledo,45071,40 Hoffman Parkway
 Spain,Pais Vasco,Donostia-San Sebastian,20010,423 Golf Way
 Spain,Andalucia,Malaga,29071,93 Forest Run Trail
 Spain,Comunidad Valenciana,Torrevieja,03184,30299 Brown Junction
 Spain,Andalucia,Dos Hermanas,41703,63 Almo Trail
 Spain,Cantabria,Santander,39010,6786 Toban Center
-Spain,Castilla - Leon,Leon,24010,2563 Kings Hill
+Spain,Castilla y Leon,Leon,24010,2563 Kings Hill
 Spain,Murcia,Murcia,30010,4517 Basil Park
 Spain,Baleares,Palma De Mallorca,07010,0244 Luster Way
 Spain,Cataluna,Barcelona,08075,24124 Grayhawk Point
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,105 Ludington Crossing
-Spain,Castilla - Leon,Valladolid,47015,57962 Prairieview Trail
+Spain,Castilla y Leon,Valladolid,47015,57962 Prairieview Trail
 Spain,Navarra,Pamplona/Iruña,31015,73 Aberg Place
 Spain,Galicia,Ferrol,15490,341 Sutteridge Street
-Spain,Castilla - Leon,Palencia,34005,716 Derek Crossing
+Spain,Castilla y Leon,Palencia,34005,716 Derek Crossing
 Spain,Extremadura,Badajoz,06010,377 Warner Hill
 Spain,Galicia,Vigo,36210,154 Katie Point
 Spain,Castilla - La Mancha,Albacete,02005,9329 Redwing Drive
@@ -74,7 +74,7 @@ Spain,Canarias,Las Palmas de Gran Canaria,35070,39 Sycamore Pass
 Spain,La Rioja,Logroño,26070,0 Dakota Plaza
 Spain,Andalucia,Malaga,29010,19491 Lillian Trail
 Spain,Madrid,Madrid,28015,1 Ludington Place
-Spain,Castilla - Leon,Valladolid,47010,640 Orin Street
+Spain,Castilla y Leon,Valladolid,47010,640 Orin Street
 Spain,Andalucia,Granada,18010,4715 David Crossing
 Spain,Asturias,Gijon,33209,563 Kropf Point
 Spain,Madrid,Madrid,28020,26 Pond Trail
@@ -83,24 +83,24 @@ Spain,Canarias,Santa Cruz De Tenerife,38110,2 Aberg Pass
 Spain,Andalucia,Jaen,23005,15240 Hollow Ridge Circle
 Spain,Murcia,Cartagena,30204,08 Leroy Court
 Spain,Galicia,Pontevedra,36164,197 Mesta Way
-Spain,Castilla - Leon,Valladolid,47071,5 Scofield Hill
-Spain,Castilla - Leon,Valladolid,47010,29829 Dottie Way
+Spain,Castilla y Leon,Valladolid,47071,5 Scofield Hill
+Spain,Castilla y Leon,Valladolid,47010,29829 Dottie Way
 Spain,Madrid,Getafe,28904,959 Vera Road
 Spain,Baleares,Palma De Mallorca,07010,45595 Corry Park
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,4707 Everett Lane
 Spain,Comunidad Valenciana,Torrevieja,03184,1691 Calypso Street
-Spain,Castilla - Leon,Palencia,34005,72967 Namekagon Drive
+Spain,Castilla y Leon,Palencia,34005,72967 Namekagon Drive
 Spain,Andalucia,Cadiz,11005,8 Linden Junction
 Spain,Andalucia,Granada,18015,6359 Charing Cross Road
 Spain,Canarias,Las Palmas de Gran Canaria,35010,7 Moland Pass
 Spain,Galicia,A Coruña,15190,609 Sage Junction
 Spain,Baleares,Palma De Mallorca,07015,46 Center Road
-Spain,Castilla - Leon,Valladolid,47010,9853 John Wall Park
+Spain,Castilla y Leon,Valladolid,47010,9853 John Wall Park
 Spain,Cataluna,Lleida,25198,0 Mesta Avenue
-Spain,Castilla - Leon,Valladolid,47071,7 Fairview Street
+Spain,Castilla y Leon,Valladolid,47071,7 Fairview Street
 Spain,Cataluna,Barcelona,08075,4 Westridge Point
 Spain,Madrid,Madrid,28025,987 Warbler Lane
-Spain,Castilla - Leon,Palencia,34005,89761 Farwell Junction
+Spain,Castilla y Leon,Palencia,34005,89761 Farwell Junction
 Spain,Pais Vasco,Donostia-San Sebastian,20005,9272 Sutherland Alley
 Spain,Andalucia,Malaga,29010,40572 Schiller Center
 Spain,Asturias,Gijon,33209,84157 Sloan Junction
@@ -108,14 +108,14 @@ Spain,Madrid,Madrid,28015,37 Lawn Hill
 Spain,Navarra,Pamplona/Iruña,31015,384 East Point
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,1374 Heath Trail
 Spain,Andalucia,Jaen,23005,80 Linden Crossing
-Spain,Castilla - Leon,Valladolid,47071,26 Pond Alley
+Spain,Castilla y Leon,Valladolid,47071,26 Pond Alley
 Spain,Galicia,Pontevedra,36005,02 Amoth Place
 Spain,Comunidad Valenciana,Valencia,46005,07 Nobel Avenue
 Spain,Castilla - La Mancha,Albacete,02070,86097 Declaration Street
 Spain,Galicia,A Coruña,15190,6 Coolidge Hill
 Spain,Galicia,Pontevedra,36005,6712 Linden Parkway
-Spain,Castilla - Leon,Palencia,34005,6752 Fair Oaks Parkway
-Spain,Castilla - Leon,Valladolid,47015,19631 Del Mar Parkway
+Spain,Castilla y Leon,Palencia,34005,6752 Fair Oaks Parkway
+Spain,Castilla y Leon,Valladolid,47015,19631 Del Mar Parkway
 Spain,Canarias,Las Palmas de Gran Canaria,35070,091 Hollow Ridge Court
 Spain,Pais Vasco,Donostia-San Sebastian,20005,1 Orin Crossing
 Spain,Madrid,Madrid,28020,427 Ludington Park
@@ -131,7 +131,7 @@ Spain,Madrid,Madrid,28025,13 Homewood Street
 Spain,Galicia,Pontevedra,36005,499 Bluejay Plaza
 Spain,Asturias,Gijon,33209,3510 Oakridge Street
 Spain,Ceuta,Ceuta,51005,4628 Algoma Court
-Spain,Castilla - Leon,Valladolid,47010,14237 Beilfuss Parkway
+Spain,Castilla y Leon,Valladolid,47010,14237 Beilfuss Parkway
 Spain,Extremadura,Badajoz,06010,3890 Crest Line Circle
 Spain,Andalucia,Jaen,23005,583 Clyde Gallagher Trail
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,225 Schurz Way
@@ -144,7 +144,7 @@ Spain,Aragon,Huesca,22005,81854 Lakewood Point
 Spain,Andalucia,Malaga,29015,51 Esker Trail
 Spain,Comunidad Valenciana,Valencia,46005,288 Mosinee Park
 Spain,Andalucia,Cadiz,11005,334 Mccormick Way
-Spain,Castilla - Leon,Valladolid,47015,9333 Sommers Avenue
+Spain,Castilla y Leon,Valladolid,47015,9333 Sommers Avenue
 Spain,Extremadura,Badajoz,06005,63 Graedel Road
 Spain,Madrid,Madrid,28045,0 Helena Way
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,9 Westridge Crossing
@@ -155,7 +155,7 @@ Spain,Baleares,Palma De Mallorca,07121,07 Anniversary Avenue
 Spain,Pais Vasco,Donostia-San Sebastian,20015,10018 Myrtle Center
 Spain,Galicia,Vigo,36205,30130 Northview Circle
 Spain,Asturias,Aviles,33404,03065 Fuller Hill
-Spain,Castilla - Leon,Zamora,49008,93850 Schiller Place
+Spain,Castilla y Leon,Zamora,49008,93850 Schiller Place
 Spain,Cantabria,Santander,39080,9 Spohn Point
 Spain,Asturias,Gijon,33209,7 Elka Plaza
 Spain,Galicia,Pontevedra,36005,28 Jackson Road
@@ -164,7 +164,7 @@ Spain,Cataluna,L'Hospitalet de Llobregat,08904,3 Kinsman Circle
 Spain,Galicia,Lugo,27294,1 Dennis Street
 Spain,Galicia,Ferrol,15490,6 Lakewood Gardens Road
 Spain,Galicia,Ferrol,15490,933 Westport Street
-Spain,Castilla - Leon,Valladolid,47071,3426 Kedzie Alley
+Spain,Castilla y Leon,Valladolid,47071,3426 Kedzie Alley
 Spain,Galicia,Ourense,32005,2 Bobwhite Avenue
 Spain,Canarias,Las Palmas de Gran Canaria,35015,159 Holmberg Place
 Spain,La Rioja,Logroño,26070,811 Bashford Park
@@ -183,18 +183,18 @@ Spain,Andalucia,Malaga,29071,07659 Blue Bill Park Terrace
 Spain,Castilla - La Mancha,Toledo,45071,9 Anhalt Trail
 Spain,Pais Vasco,Donostia-San Sebastian,20005,164 Buena Vista Hill
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,7 Eliot Junction
-Spain,Castilla - Leon,Salamanca,37005,33 Sherman Crossing
-Spain,Castilla - Leon,Zamora,49003,93839 Dorton Drive
+Spain,Castilla y Leon,Salamanca,37005,33 Sherman Crossing
+Spain,Castilla y Leon,Zamora,49003,93839 Dorton Drive
 Spain,Cantabria,Santander,39010,42 Mockingbird Court
 Spain,Galicia,Pontevedra,36164,6182 Dorton Trail
 Spain,Cataluna,Sant Cugat Del Valles,08190,737 Birchwood Lane
-Spain,Castilla - Leon,Valladolid,47015,6887 Ryan Avenue
+Spain,Castilla y Leon,Valladolid,47015,6887 Ryan Avenue
 Spain,Andalucia,Sevilla,41020,566 Forest Dale Alley
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12100,902 Green Place
 Spain,Ceuta,Ceuta,51005,0 Atwood Lane
 Spain,Andalucia,Granada,18005,200 Duke Plaza
 Spain,Castilla - La Mancha,Toledo,45071,95193 Springview Trail
-Spain,Castilla - Leon,Valladolid,47015,3604 Northland Way
+Spain,Castilla y Leon,Valladolid,47015,3604 Northland Way
 Spain,Aragon,Zaragoza,50080,51677 Derek Junction
 Spain,Pais Vasco,Vitoria-Gasteiz,01005,8241 Randy Avenue
 Spain,Madrid,Madrid,28055,9378 Spaight Crossing
@@ -208,7 +208,7 @@ Spain,La Rioja,Logroño,26070,34781 Bowman Plaza
 Spain,Comunidad Valenciana,Valencia,46005,1 Bultman Pass
 Spain,Castilla - La Mancha,Toledo,45071,1002 Walton Pass
 Spain,Andalucia,Granada,18015,0 Kim Road
-Spain,Castilla - Leon,Zamora,49003,853 Laurel Road
+Spain,Castilla y Leon,Zamora,49003,853 Laurel Road
 Spain,Cataluna,Sant Cugat Del Valles,08190,2 Reinke Crossing
 Spain,Andalucia,Malaga,29010,09094 Anzinger Drive
 Spain,Aragon,Huesca,22005,29 Eliot Plaza
@@ -221,11 +221,11 @@ Spain,Galicia,Lugo,27294,1240 Goodland Hill
 Spain,Cataluna,Sant Cugat Del Valles,08190,16582 Myrtle Point
 Spain,Baleares,Palma De Mallorca,07121,53 Sutherland Center
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,2 Fisk Place
-Spain,Castilla - Leon,Salamanca,37005,74500 Emmet Alley
+Spain,Castilla y Leon,Salamanca,37005,74500 Emmet Alley
 Spain,Murcia,Cartagena,30394,75 Northfield Crossing
 Spain,Comunidad Valenciana,Valencia,46015,7064 Novick Point
 Spain,Baleares,Palma De Mallorca,07121,6 Toban Park
-Spain,Castilla - Leon,Valladolid,47010,8 Hauk Plaza
+Spain,Castilla y Leon,Valladolid,47010,8 Hauk Plaza
 Spain,Canarias,Las Palmas de Gran Canaria,35005,89587 Pleasure Lane
 Spain,Andalucia,Almeria,04070,99 Arrowood Crossing
 Spain,Madrid,Leganes,28914,9 Badeau Avenue
@@ -234,7 +234,7 @@ Spain,Aragon,Zaragoza,50080,555 Old Shore Center
 Spain,Pais Vasco,Donostia-San Sebastian,20010,89 Walton Parkway
 Spain,Madrid,Madrid,28015,344 Southridge Terrace
 Spain,Navarra,Pamplona/Iruña,31005,7 Golf Course Plaza
-Spain,Castilla - Leon,Zamora,49003,5591 Muir Crossing
+Spain,Castilla y Leon,Zamora,49003,5591 Muir Crossing
 Spain,Extremadura,Badajoz,06005,94 Hovde Terrace
 Spain,Galicia,Lugo,27294,49 Eliot Circle
 Spain,Canarias,Santa Cruz De Tenerife,38110,4 Lindbergh Circle
@@ -245,17 +245,17 @@ Spain,Comunidad Valenciana,Valencia,46005,565 Summer Ridge Parkway
 Spain,Madrid,Fuenlabrada,28944,6784 Pierstorff Circle
 Spain,Navarra,Pamplona/Iruña,31010,94 Loomis Center
 Spain,Galicia,Vigo,36215,8715 Duke Crossing
-Spain,Castilla - Leon,Valladolid,47071,98 Ruskin Park
+Spain,Castilla y Leon,Valladolid,47071,98 Ruskin Park
 Spain,Galicia,Ferrol,15490,20 Mayer Street
 Spain,Galicia,Ourense,32005,2 Muir Plaza
 Spain,Ceuta,Ceuta,51005,6676 Ronald Regan Center
 Spain,Baleares,Palma De Mallorca,07015,24037 Bluejay Lane
 Spain,Andalucia,Cadiz,11005,5378 Stuart Place
 Spain,Cataluna,Lleida,25198,7 Mandrake Circle
-Spain,Castilla - Leon,Salamanca,37005,55107 Forest Circle
+Spain,Castilla y Leon,Salamanca,37005,55107 Forest Circle
 Spain,Cantabria,Santander,39080,35 Golf Drive
-Spain,Castilla - Leon,Valladolid,47071,41 Charing Cross Place
-Spain,Castilla - Leon,Valladolid,47010,59838 Petterle Place
+Spain,Castilla y Leon,Valladolid,47071,41 Charing Cross Place
+Spain,Castilla y Leon,Valladolid,47010,59838 Petterle Place
 Spain,Castilla - La Mancha,Albacete,02070,513 Esker Point
 Spain,Baleares,Palma De Mallorca,07121,980 Shopko Trail
 Spain,Comunidad Valenciana,Valencia,46015,52717 Becker Lane
@@ -266,7 +266,7 @@ Spain,Canarias,Las Palmas de Gran Canaria,35005,6491 Dwight Avenue
 Spain,Andalucia,Granada,18005,341 Waubesa Center
 Spain,Madrid,Getafe,28904,59 Victoria Pass
 Spain,Andalucia,Malaga,29015,11244 Kim Circle
-Spain,Castilla - Leon,Leon,24193,27507 Mallory Street
+Spain,Castilla y Leon,Leon,24193,27507 Mallory Street
 Spain,Cataluna,Lleida,25005,97900 Susan Court
 Spain,Andalucia,Malaga,29071,0754 Crescent Oaks Terrace
 Spain,Galicia,Pontevedra,36156,93920 Goodland Terrace
@@ -276,7 +276,7 @@ Spain,Madrid,Madrid,28025,01789 Duke Terrace
 Spain,Cantabria,Santander,39080,46888 Ludington Junction
 Spain,Andalucia,Cadiz,11005,9 Londonderry Way
 Spain,Madrid,Leganes,28914,2 Mendota Terrace
-Spain,Castilla - Leon,Salamanca,37005,1074 Fieldstone Place
+Spain,Castilla y Leon,Salamanca,37005,1074 Fieldstone Place
 Spain,Baleares,Palma De Mallorca,07121,5 Corry Pass
 Spain,Pais Vasco,Vitoria-Gasteiz,01005,52 Beilfuss Circle
 Spain,Aragon,Zaragoza,50080,3424 Gateway Trail
@@ -286,7 +286,7 @@ Spain,Comunidad Valenciana,Alicante/Alacant,03005,96 Upham Pass
 Spain,Asturias,Gijon,33209,17355 Browning Center
 Spain,Madrid,Madrid,28015,8 Brickson Park Center
 Spain,Madrid,Madrid,28045,0 Glendale Point
-Spain,Castilla - Leon,Valladolid,47071,4545 Wayridge Terrace
+Spain,Castilla y Leon,Valladolid,47071,4545 Wayridge Terrace
 Spain,Andalucia,Cadiz,11005,8 Carberry Trail
 Spain,Navarra,Pamplona/Iruña,31010,0 David Street
 Spain,Madrid,Madrid,28025,239 Mccormick Lane
@@ -300,14 +300,14 @@ Spain,Ceuta,Ceuta,51005,4613 Esch Plaza
 Spain,Galicia,Lugo,27294,338 Elmside Point
 Spain,Pais Vasco,Donostia-San Sebastian,20015,161 Hoffman Crossing
 Spain,Madrid,Madrid,28020,7 New Castle Way
-Spain,Castilla - Leon,Zamora,49008,1238 La Follette Trail
-Spain,Castilla - Leon,Zamora,49003,9 Katie Road
+Spain,Castilla y Leon,Zamora,49008,1238 La Follette Trail
+Spain,Castilla y Leon,Zamora,49003,9 Katie Road
 Spain,Andalucia,Granada,18015,5437 Manley Crossing
 Spain,Asturias,Gijon,33204,70545 Westport Circle
 Spain,Galicia,A Coruña,15190,745 Prairieview Road
 Spain,Madrid,Fuenlabrada,28944,8949 Summit Terrace
 Spain,Andalucia,Jaen,23005,91 Fallview Court
-Spain,Castilla - Leon,Zamora,49008,4187 Straubel Point
+Spain,Castilla y Leon,Zamora,49008,4187 Straubel Point
 Spain,Castilla - La Mancha,Albacete,02005,36 Spenser Parkway
 Spain,Comunidad Valenciana,Valencia,46025,306 Scofield Point
 Spain,Murcia,Cartagena,30204,76271 Mallard Avenue
@@ -323,7 +323,7 @@ Spain,Canarias,Las Palmas de Gran Canaria,35015,3 Kenwood Crossing
 Spain,La Rioja,Logroño,26070,3 Longview Park
 Spain,Murcia,Murcia,30005,88 Eagle Crest Drive
 Spain,Murcia,Murcia,30005,698 Monica Plaza
-Spain,Castilla - Leon,Zamora,49003,4 Ryan Pass
+Spain,Castilla y Leon,Zamora,49003,4 Ryan Pass
 Spain,Murcia,Murcia,30010,6 Veith Road
 Spain,Canarias,Las Palmas de Gran Canaria,35070,4692 Warbler Pass
 Spain,Andalucia,Cadiz,11010,5952 Hanover Trail
@@ -348,7 +348,7 @@ Spain,Galicia,Vigo,36215,5095 Birchwood Way
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12100,491 Anhalt Pass
 Spain,Murcia,Cartagena,30394,163 Heffernan Alley
 Spain,Madrid,Madrid,28055,6 High Crossing Terrace
-Spain,Castilla - Leon,Valladolid,47015,7 Columbus Pass
+Spain,Castilla y Leon,Valladolid,47015,7 Columbus Pass
 Spain,Cataluna,L'Hospitalet de Llobregat,08904,5489 5th Lane
 Spain,Pais Vasco,Donostia-San Sebastian,20005,72 Hermina Drive
 Spain,Pais Vasco,Donostia-San Sebastian,20010,88824 Dennis Park
@@ -358,12 +358,12 @@ Spain,Cataluna,Lleida,25005,6 East Circle
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,7350 Main Terrace
 Spain,Madrid,Madrid,28045,46970 Dunning Point
 Spain,Baleares,Palma De Mallorca,07121,04002 Graceland Parkway
-Spain,Castilla - Leon,Zamora,49008,00 Sloan Center
-Spain,Castilla - Leon,Leon,24193,2937 Sommers Terrace
+Spain,Castilla y Leon,Zamora,49008,00 Sloan Center
+Spain,Castilla y Leon,Leon,24193,2937 Sommers Terrace
 Spain,Andalucia,Malaga,29005,1 Spenser Parkway
 Spain,Canarias,Telde,35213,4816 Milwaukee Way
 Spain,Cataluna,Lleida,25198,05986 Merrick Point
-Spain,Castilla - Leon,Zamora,49003,276 Garrison Crossing
+Spain,Castilla y Leon,Zamora,49003,276 Garrison Crossing
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,0 Welch Street
 Spain,Canarias,Las Palmas de Gran Canaria,35015,0594 Manitowish Alley
 Spain,Comunidad Valenciana,Valencia,46025,772 Welch Alley
@@ -385,7 +385,7 @@ Spain,Asturias,Gijon,33209,33510 Amoth Center
 Spain,Castilla - La Mancha,Albacete,02070,72 Anzinger Hill
 Spain,Andalucia,Malaga,29010,8330 Judy Park
 Spain,Navarra,Pamplona/Iruña,31015,80683 Melvin Crossing
-Spain,Castilla - Leon,Valladolid,47071,8552 Coolidge Court
+Spain,Castilla y Leon,Valladolid,47071,8552 Coolidge Court
 Spain,Pais Vasco,Donostia-San Sebastian,20010,9 Granby Circle
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,9 Roxbury Alley
 Spain,Galicia,Santiago De Compostela,15705,754 Chinook Pass
@@ -396,7 +396,7 @@ Spain,Navarra,Pamplona/Iruña,31015,8 7th Place
 Spain,Canarias,Las Palmas de Gran Canaria,35005,476 Kensington Junction
 Spain,Galicia,Pontevedra,36164,86698 Lighthouse Bay Parkway
 Spain,Canarias,Santa Cruz De Tenerife,38110,1050 Mitchell Way
-Spain,Castilla - Leon,Valladolid,47071,2138 Springview Lane
+Spain,Castilla y Leon,Valladolid,47071,2138 Springview Lane
 Spain,Andalucia,Malaga,29015,5 Melvin Place
 Spain,Navarra,Pamplona/Iruña,31015,28535 Buhler Way
 Spain,Extremadura,Badajoz,06005,13 Stang Lane
@@ -416,7 +416,7 @@ Spain,Comunidad Valenciana,Valencia,46015,8 Susan Trail
 Spain,Galicia,Vigo,36215,563 American Hill
 Spain,Castilla - La Mancha,Albacete,02005,07 Mitchell Place
 Spain,Cantabria,Santander,39080,008 Rusk Avenue
-Spain,Castilla - Leon,Zamora,49008,8709 Springview Terrace
+Spain,Castilla y Leon,Zamora,49008,8709 Springview Terrace
 Spain,Andalucia,Granada,18010,9 Fallview Avenue
 Spain,Madrid,Getafe,28904,1 Laurel Terrace
 Spain,Murcia,Cartagena,30204,7453 Dovetail Alley
@@ -428,7 +428,7 @@ Spain,Cataluna,Barcelona,08075,4 Wayridge Junction
 Spain,Aragon,Zaragoza,50080,586 Kenwood Pass
 Spain,Aragon,Huesca,22005,939 Knutson Circle
 Spain,Galicia,Vigo,36205,611 Northland Road
-Spain,Castilla - Leon,Valladolid,47015,1 Meadow Ridge Road
+Spain,Castilla y Leon,Valladolid,47015,1 Meadow Ridge Road
 Spain,Canarias,Las Palmas de Gran Canaria,35070,614 Hovde Circle
 Spain,Comunidad Valenciana,Elx/Elche,03203,126 Bonner Avenue
 Spain,Cataluna,Barcelona,08075,526 Village Drive
@@ -446,7 +446,7 @@ Spain,Galicia,Santiago De Compostela,15705,32 Mendota Road
 Spain,Galicia,Lugo,27294,163 Transport Drive
 Spain,Madrid,Fuenlabrada,28944,093 Swallow Avenue
 Spain,Galicia,Vigo,36210,55 Cascade Park
-Spain,Castilla - Leon,Zamora,49003,5 Bobwhite Circle
+Spain,Castilla y Leon,Zamora,49003,5 Bobwhite Circle
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,0226 Grover Lane
 Spain,Andalucia,Granada,18010,0218 Harper Point
 Spain,La Rioja,Logroño,26005,22 Monica Plaza
@@ -458,7 +458,7 @@ Spain,Andalucia,Almeria,04005,9048 Kingsford Lane
 Spain,Murcia,Murcia,30010,197 Oakridge Parkway
 Spain,Andalucia,Sevilla,41015,1 Thackeray Lane
 Spain,Madrid,Getafe,28904,080 Cherokee Plaza
-Spain,Castilla - Leon,Zamora,49008,335 Elmside Junction
+Spain,Castilla y Leon,Zamora,49008,335 Elmside Junction
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,67942 Dayton Trail
 Spain,Comunidad Valenciana,Valencia,46015,20 Sunfield Terrace
 Spain,Murcia,Murcia,30005,01 Bluestem Park
@@ -551,15 +551,15 @@ Spain,Cantabria,Santander,39010,542 Manufacturers Lane
 Spain,Andalucia,Almeria,04070,14539 Fieldstone Junction
 Spain,Murcia,Murcia,30005,31 Darwin Circle
 Spain,Andalucia,Cadiz,11005,5076 Fair Oaks Road
-Spain,Castilla - Leon,Leon,24010,747 Elgar Pass
+Spain,Castilla y Leon,Leon,24010,747 Elgar Pass
 Spain,Andalucia,Almeria,04070,89 Onsgard Parkway
 Spain,Galicia,Vigo,36205,2957 Westend Street
-Spain,Castilla - Leon,Valladolid,47015,18959 Sutherland Avenue
+Spain,Castilla y Leon,Valladolid,47015,18959 Sutherland Avenue
 Spain,Cantabria,Santander,39080,0214 Warbler Crossing
 Spain,Extremadura,Badajoz,06010,94 La Follette Plaza
 Spain,Cataluna,Sant Cugat Del Valles,08190,59383 Ilene Plaza
 Spain,Galicia,A Coruña,15190,81462 Bowman Road
-Spain,Castilla - Leon,Leon,24193,289 Granby Trail
+Spain,Castilla y Leon,Leon,24193,289 Granby Trail
 Spain,Madrid,Leganes,28914,51 Southridge Hill
 Spain,Canarias,Santa Cruz De Tenerife,38110,563 Namekagon Avenue
 Spain,Galicia,Vigo,36210,83 Old Shore Circle
@@ -569,7 +569,7 @@ Spain,Cataluna,Lleida,25005,8 Express Trail
 Spain,Aragon,Huesca,22005,2 Oak Valley Circle
 Spain,Extremadura,Badajoz,06010,9 Utah Plaza
 Spain,Galicia,Santiago De Compostela,15705,16 Knutson Place
-Spain,Castilla - Leon,Valladolid,47071,55 Amoth Trail
+Spain,Castilla y Leon,Valladolid,47071,55 Amoth Trail
 Spain,Aragon,Huesca,22005,30972 Calypso Avenue
 Spain,Canarias,Santa Cruz De Tenerife,38110,73 Meadow Valley Terrace
 Spain,Cataluna,Girona,17080,71 Arkansas Center
@@ -605,10 +605,10 @@ Spain,Madrid,Madrid,28015,50502 Vahlen Place
 Spain,Comunidad Valenciana,Valencia,46015,629 Forster Drive
 Spain,La Rioja,Logroño,26070,11 Namekagon Road
 Spain,Cataluna,Sabadell,08204,84040 Glendale Lane
-Spain,Castilla - Leon,Valladolid,47010,6710 Old Gate Park
+Spain,Castilla y Leon,Valladolid,47010,6710 Old Gate Park
 Spain,Comunidad Valenciana,Valencia,46005,1 Lighthouse Bay Point
 Spain,Extremadura,Badajoz,06005,04895 Warner Drive
-Spain,Castilla - Leon,Palencia,34005,787 Mitchell Avenue
+Spain,Castilla y Leon,Palencia,34005,787 Mitchell Avenue
 Spain,Cataluna,Barcelona,08030,511 Declaration Place
 Spain,Andalucia,Sevilla,41020,828 New Castle Hill
 Spain,Asturias,Gijon,33209,87587 Tennyson Lane
@@ -616,7 +616,7 @@ Spain,Andalucia,Almeria,04005,835 Parkside Park
 Spain,Cataluna,Tarragona,43071,62095 Acker Parkway
 Spain,Baleares,Palma De Mallorca,07010,3 Westridge Street
 Spain,Cataluna,Tarragona,43071,990 Birchwood Alley
-Spain,Castilla - Leon,Valladolid,47010,29035 Rusk Way
+Spain,Castilla y Leon,Valladolid,47010,29035 Rusk Way
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,0 Jenna Park
 Spain,Murcia,Cartagena,30204,5 Bunting Road
 Spain,La Rioja,Logroño,26070,6018 4th Point
@@ -635,16 +635,16 @@ Spain,Pais Vasco,Vitoria-Gasteiz,01005,46575 Shasta Court
 Spain,Galicia,Pontevedra,36156,7 Westport Hill
 Spain,Andalucia,Dos Hermanas,41703,92 Kinsman Street
 Spain,Aragon,Huesca,22005,9898 Fordem Drive
-Spain,Castilla - Leon,Leon,24193,1 Fremont Center
+Spain,Castilla y Leon,Leon,24193,1 Fremont Center
 Spain,Pais Vasco,Vitoria-Gasteiz,01080,10332 Dryden Circle
 Spain,Murcia,Cartagena,30394,81600 Carberry Place
 Spain,Comunidad Valenciana,Elx/Elche,03203,7 Tennessee Plaza
 Spain,Andalucia,Sevilla,41015,7 Katie Street
-Spain,Castilla - Leon,Zamora,49003,2 Barby Alley
+Spain,Castilla y Leon,Zamora,49003,2 Barby Alley
 Spain,Comunidad Valenciana,Torrevieja,03184,2 Everett Road
 Spain,Canarias,Las Palmas de Gran Canaria,35070,70 Manley Point
 Spain,Navarra,Pamplona/Iruña,31005,22 Holmberg Crossing
-Spain,Castilla - Leon,Valladolid,47015,2 Carioca Center
+Spain,Castilla y Leon,Valladolid,47015,2 Carioca Center
 Spain,Aragon,Huesca,22005,326 Hansons Lane
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,9426 Hanover Crossing
 Spain,Cataluna,L'Hospitalet de Llobregat,08904,601 Annamark Plaza
@@ -663,7 +663,7 @@ Spain,Asturias,Gijon,33204,1 Clove Hill
 Spain,Madrid,Madrid,28015,71942 Hayes Lane
 Spain,Cataluna,L'Hospitalet de Llobregat,08904,906 Knutson Center
 Spain,Baleares,Palma De Mallorca,07121,78 Sunfield Trail
-Spain,Castilla - Leon,Zamora,49008,73 Mcbride Parkway
+Spain,Castilla y Leon,Zamora,49008,73 Mcbride Parkway
 Spain,Cataluna,Lleida,25005,71 Rockefeller Road
 Spain,Asturias,Gijon,33204,23 Namekagon Circle
 Spain,Aragon,Huesca,22005,1 Luster Circle
@@ -674,7 +674,7 @@ Spain,Andalucia,Dos Hermanas,41703,8 Ludington Place
 Spain,Comunidad Valenciana,Elx/Elche,03203,352 Melvin Way
 Spain,Cataluna,Girona,17080,46865 Scofield Crossing
 Spain,Andalucia,Dos Hermanas,41703,4 Susan Trail
-Spain,Castilla - Leon,Palencia,34005,5719 Fuller Junction
+Spain,Castilla y Leon,Palencia,34005,5719 Fuller Junction
 Spain,Comunidad Valenciana,Valencia,46015,30315 Bluejay Terrace
 Spain,Comunidad Valenciana,Valencia,46025,0481 Del Sol Pass
 Spain,Galicia,Santiago De Compostela,15705,2939 Buhler Hill
@@ -690,7 +690,7 @@ Spain,Andalucia,Malaga,29005,66233 Meadow Ridge Center
 Spain,Pais Vasco,Vitoria-Gasteiz,01080,9233 Steensland Alley
 Spain,Navarra,Pamplona/Iruña,31005,8056 Stuart Alley
 Spain,Ceuta,Ceuta,51005,34731 Pepper Wood Pass
-Spain,Castilla - Leon,Salamanca,37005,952 Marcy Lane
+Spain,Castilla y Leon,Salamanca,37005,952 Marcy Lane
 Spain,Baleares,Palma De Mallorca,07015,15 Northfield Street
 Spain,Andalucia,Sevilla,41020,69638 Stoughton Court
 Spain,Galicia,Pontevedra,36156,4116 3rd Drive
@@ -729,14 +729,14 @@ Spain,Galicia,Vigo,36205,14694 Kedzie Place
 Spain,Baleares,Palma De Mallorca,07010,8416 Schiller Place
 Spain,Navarra,Pamplona/Iruña,31005,90019 Nancy Park
 Spain,Navarra,Pamplona/Iruña,31005,5249 Warner Parkway
-Spain,Castilla - Leon,Leon,24010,76302 Grasskamp Center
+Spain,Castilla y Leon,Leon,24010,76302 Grasskamp Center
 Spain,Canarias,Las Palmas de Gran Canaria,35070,3111 Everett Drive
 Spain,Andalucia,Malaga,29015,70 Thompson Point
 Spain,Andalucia,Jaen,23005,9 Moose Terrace
 Spain,Pais Vasco,Vitoria-Gasteiz,01005,5656 American Park
 Spain,Galicia,Santiago De Compostela,15705,4448 Reinke Avenue
 Spain,Pais Vasco,Donostia-San Sebastian,20005,6 Loomis Lane
-Spain,Castilla - Leon,Valladolid,47071,79 Village Circle
+Spain,Castilla y Leon,Valladolid,47071,79 Village Circle
 Spain,Castilla - La Mancha,Albacete,02005,5994 Luster Pass
 Spain,Canarias,Las Palmas de Gran Canaria,35005,188 Montana Street
 Spain,Baleares,Palma De Mallorca,07121,72 Blaine Trail
@@ -770,7 +770,7 @@ Spain,Aragon,Huesca,22005,718 North Court
 Spain,Cantabria,Santander,39005,5 Union Terrace
 Spain,Baleares,Palma De Mallorca,07010,8 Lakeland Parkway
 Spain,Galicia,Vigo,36215,534 Northridge Pass
-Spain,Castilla - Leon,Leon,24010,3 Tomscot Crossing
+Spain,Castilla y Leon,Leon,24010,3 Tomscot Crossing
 Spain,La Rioja,Logroño,26005,95197 David Terrace
 Spain,Cataluna,L'Hospitalet de Llobregat,08904,0 Pankratz Crossing
 Spain,Comunidad Valenciana,Torrevieja,03184,59 Butternut Circle
@@ -786,7 +786,7 @@ Spain,Cataluna,Lleida,25198,44235 Banding Circle
 Spain,Andalucia,Malaga,29071,33 Rockefeller Pass
 Spain,Asturias,Gijon,33204,9040 Randy Drive
 Spain,Cantabria,Santander,39005,357 Shasta Street
-Spain,Castilla - Leon,Leon,24193,944 Bobwhite Park
+Spain,Castilla y Leon,Leon,24193,944 Bobwhite Park
 Spain,Andalucia,Jaen,23005,66 Fremont Court
 Spain,Ceuta,Ceuta,51005,24157 American Ash Trail
 Spain,Murcia,Cartagena,30204,86 Westend Lane
@@ -808,33 +808,33 @@ Spain,Murcia,Murcia,30005,3216 Surrey Junction
 Spain,Canarias,Santa Cruz De Tenerife,38110,7 Vera Alley
 Spain,Cataluna,Lleida,25193,0 Veith Road
 Spain,Castilla - La Mancha,Albacete,02005,09 South Alley
-Spain,Castilla - Leon,Leon,24010,8 International Avenue
-Spain,Castilla - Leon,Palencia,34005,66949 Canary Drive
+Spain,Castilla y Leon,Leon,24010,8 International Avenue
+Spain,Castilla y Leon,Palencia,34005,66949 Canary Drive
 Spain,Cataluna,Lleida,25005,6941 Tomscot Pass
 Spain,Galicia,Vigo,36205,1090 Helena Road
 Spain,Cataluna,Lleida,25193,9 Lindbergh Center
-Spain,Castilla - Leon,Salamanca,37005,1428 Cherokee Terrace
+Spain,Castilla y Leon,Salamanca,37005,1428 Cherokee Terrace
 Spain,Madrid,Madrid,28055,3109 Loeprich Circle
 Spain,Madrid,Fuenlabrada,28944,00 Monterey Street
-Spain,Castilla - Leon,Valladolid,47010,76 Fallview Street
+Spain,Castilla y Leon,Valladolid,47010,76 Fallview Street
 Spain,Canarias,Las Palmas de Gran Canaria,35070,8323 Morningstar Alley
 Spain,Madrid,Madrid,28050,48470 Hanover Parkway
 Spain,Cataluna,Lleida,25005,4750 Daystar Lane
 Spain,Madrid,Fuenlabrada,28944,5 Redwing Place
 Spain,Andalucia,Granada,18015,4 Hintze Avenue
-Spain,Castilla - Leon,Zamora,49003,68060 Katie Crossing
+Spain,Castilla y Leon,Zamora,49003,68060 Katie Crossing
 Spain,Cataluna,Girona,17080,2 Springview Junction
 Spain,Castilla - La Mancha,Albacete,02070,44883 Monument Pass
 Spain,Pais Vasco,Donostia-San Sebastian,20005,8815 Mccormick Parkway
 Spain,Comunidad Valenciana,Elx/Elche,03203,1 Rigney Center
 Spain,Asturias,Aviles,33404,08 Pine View Hill
-Spain,Castilla - Leon,Valladolid,47010,8 Marquette Road
+Spain,Castilla y Leon,Valladolid,47010,8 Marquette Road
 Spain,Ceuta,Ceuta,51005,15480 Havey Road
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12100,8303 Oak Parkway
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,7997 Service Hill
 Spain,Galicia,Vigo,36210,72 Anzinger Center
 Spain,Andalucia,Cadiz,11005,76 Merry Plaza
-Spain,Castilla - Leon,Valladolid,47010,05144 Hooker Alley
+Spain,Castilla y Leon,Valladolid,47010,05144 Hooker Alley
 Spain,Galicia,Vigo,36205,09 Marcy Crossing
 Spain,Extremadura,Badajoz,06005,84 Scott Circle
 Spain,Pais Vasco,Donostia-San Sebastian,20005,37 Pierstorff Drive
@@ -846,7 +846,7 @@ Spain,Pais Vasco,Vitoria-Gasteiz,01080,129 Shoshone Junction
 Spain,Cataluna,Barcelona,08030,808 Caliangt Plaza
 Spain,Cataluna,Barcelona,08075,06 Elgar Plaza
 Spain,Cataluna,Barcelona,08075,5568 Sycamore Road
-Spain,Castilla - Leon,Valladolid,47015,9 Kinsman Center
+Spain,Castilla y Leon,Valladolid,47015,9 Kinsman Center
 Spain,Comunidad Valenciana,Elx/Elche,03203,97 Farwell Terrace
 Spain,Extremadura,Badajoz,06010,467 Mifflin Avenue
 Spain,Andalucia,Malaga,29005,011 Riverside Place
@@ -858,7 +858,7 @@ Spain,Aragon,Zaragoza,50080,20764 Monument Circle
 Spain,Galicia,Ourense,32005,2 Portage Way
 Spain,Comunidad Valenciana,Elx/Elche,03203,00310 Eastlawn Point
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12100,8914 Golden Leaf Lane
-Spain,Castilla - Leon,Leon,24193,10541 Schlimgen Center
+Spain,Castilla y Leon,Leon,24193,10541 Schlimgen Center
 Spain,Andalucia,Dos Hermanas,41703,360 Washington Circle
 Spain,Madrid,Getafe,28904,3 Roth Road
 Spain,Madrid,Madrid,28015,854 Thackeray Terrace
@@ -869,14 +869,14 @@ Spain,Canarias,Santa Cruz De Tenerife,38110,7816 Blaine Drive
 Spain,Extremadura,Badajoz,06005,4 Memorial Center
 Spain,Cantabria,Santander,39010,24195 Starling Road
 Spain,Andalucia,Malaga,29005,56 Del Mar Street
-Spain,Castilla - Leon,Zamora,49008,285 Cardinal Plaza
+Spain,Castilla y Leon,Zamora,49008,285 Cardinal Plaza
 Spain,Comunidad Valenciana,Elx/Elche,03203,75472 Kim Court
 Spain,Castilla - La Mancha,Albacete,02070,132 Green Ridge Parkway
 Spain,Comunidad Valenciana,Elx/Elche,03203,087 Carpenter Circle
 Spain,Extremadura,Badajoz,06010,62 Old Shore Place
 Spain,Galicia,Pontevedra,36156,77742 Doe Crossing Trail
 Spain,Baleares,Palma De Mallorca,07015,45399 Heffernan Point
-Spain,Castilla - Leon,Salamanca,37005,511 Burrows Place
+Spain,Castilla y Leon,Salamanca,37005,511 Burrows Place
 Spain,Cataluna,L'Hospitalet de Llobregat,08904,44 Southridge Way
 Spain,Madrid,Madrid,28045,9694 Maple Pass
 Spain,Andalucia,Sevilla,41020,1021 Cardinal Parkway
@@ -887,7 +887,7 @@ Spain,Galicia,Santiago De Compostela,15899,54 Golf Hill
 Spain,Madrid,Madrid,28020,545 Cordelia Pass
 Spain,Navarra,Pamplona/Iruña,31005,17 Morning Avenue
 Spain,Comunidad Valenciana,Elx/Elche,03203,6 Butterfield Center
-Spain,Castilla - Leon,Leon,24010,2 Nobel Center
+Spain,Castilla y Leon,Leon,24010,2 Nobel Center
 Spain,Aragon,Huesca,22005,172 Hudson Terrace
 Spain,Madrid,Madrid,28020,28136 Vera Drive
 Spain,Comunidad Valenciana,Valencia,46005,63585 Michigan Point
@@ -930,12 +930,12 @@ Spain,Murcia,Cartagena,30204,4 Ramsey Center
 Spain,Baleares,Palma De Mallorca,07010,178 Talmadge Avenue
 Spain,Baleares,Palma De Mallorca,07121,32535 Oxford Crossing
 Spain,Galicia,A Coruña,15190,523 Twin Pines Park
-Spain,Castilla - Leon,Valladolid,47071,7 Sundown Trail
+Spain,Castilla y Leon,Valladolid,47071,7 Sundown Trail
 Spain,Canarias,Las Palmas de Gran Canaria,35005,989 Pine View Lane
 Spain,Cataluna,Lleida,25198,67620 Anniversary Junction
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,067 Old Shore Junction
 Spain,Asturias,Gijon,33204,2 Crescent Oaks Street
-Spain,Castilla - Leon,Leon,24010,51048 Forest Run Hill
+Spain,Castilla y Leon,Leon,24010,51048 Forest Run Hill
 Spain,Andalucia,Malaga,29005,632 Scoville Circle
 Spain,Andalucia,Almeria,04005,85 Eastwood Parkway
 Spain,Asturias,Aviles,33404,2 Tennyson Alley
@@ -943,7 +943,7 @@ Spain,Comunidad Valenciana,Elx/Elche,03203,46601 Texas Lane
 Spain,Cataluna,Tarragona,43071,01 Bowman Pass
 Spain,Cataluna,Lleida,25198,69 Oak Road
 Spain,Navarra,Pamplona/Iruña,31005,0 Eastlawn Junction
-Spain,Castilla - Leon,Leon,24010,98 Leroy Point
+Spain,Castilla y Leon,Leon,24010,98 Leroy Point
 Spain,Extremadura,Badajoz,06010,4 Bellgrove Crossing
 Spain,Cantabria,Santander,39010,3 Milwaukee Crossing
 Spain,Andalucia,Granada,18005,2763 Lerdahl Drive
@@ -970,14 +970,14 @@ Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,8888 E
 Spain,Aragon,Zaragoza,50080,87790 Ludington Junction
 Spain,Madrid,Fuenlabrada,28944,730 Mallory Parkway
 Spain,Galicia,Pontevedra,36164,4 Anhalt Center
-Spain,Castilla - Leon,Zamora,49008,7 Hanover Point
-Spain,Castilla - Leon,Zamora,49008,09 Bultman Avenue
+Spain,Castilla y Leon,Zamora,49008,7 Hanover Point
+Spain,Castilla y Leon,Zamora,49008,09 Bultman Avenue
 Spain,Navarra,Pamplona/Iruña,31015,07746 Eastlawn Center
 Spain,Comunidad Valenciana,Valencia,46005,8 Spohn Avenue
 Spain,Madrid,Madrid,28055,58 Meadow Ridge Parkway
 Spain,Galicia,Santiago De Compostela,15899,4757 Bultman Hill
 Spain,Pais Vasco,Vitoria-Gasteiz,01080,8 Starling Crossing
-Spain,Castilla - Leon,Valladolid,47015,855 Kim Street
+Spain,Castilla y Leon,Valladolid,47015,855 Kim Street
 Spain,Comunidad Valenciana,Valencia,46005,91 Superior Park
 Spain,Pais Vasco,Donostia-San Sebastian,20005,823 Melby Pass
 Spain,Cantabria,Santander,39005,76 Northport Plaza
@@ -990,7 +990,7 @@ Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,8281 M
 Spain,Cantabria,Santander,39005,0784 Lerdahl Lane
 Spain,Cataluna,Tarragona,43071,89555 Hanson Park
 Spain,Andalucia,Cadiz,11005,413 Becker Place
-Spain,Castilla - Leon,Palencia,34005,9919 Norway Maple Circle
+Spain,Castilla y Leon,Palencia,34005,9919 Norway Maple Circle
 Spain,Asturias,Gijon,33209,96 Larry Center
 Spain,Galicia,Pontevedra,36164,24 Meadow Ridge Plaza
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,00 Randy Drive
@@ -1000,7 +1000,7 @@ Spain,Comunidad Valenciana,Valencia,46005,4 Utah Alley
 Spain,Castilla - La Mancha,Toledo,45071,80 Helena Terrace
 Spain,Madrid,Fuenlabrada,28944,4 Jay Avenue
 Spain,Andalucia,Dos Hermanas,41703,2 Marcy Place
-Spain,Castilla - Leon,Zamora,49008,9071 Sutteridge Street
+Spain,Castilla y Leon,Zamora,49008,9071 Sutteridge Street
 Spain,Galicia,Pontevedra,36005,69776 Dennis Hill
 Spain,Navarra,Pamplona/Iruña,31010,70 Lindbergh Hill
 Spain,Canarias,Las Palmas de Gran Canaria,35005,921 Morrow Way
@@ -1010,7 +1010,7 @@ Spain,Cataluna,Girona,17080,966 Fuller Terrace
 Spain,Galicia,Santiago De Compostela,15705,36 Mitchell Hill
 Spain,Canarias,Las Palmas de Gran Canaria,35005,1831 Quincy Center
 Spain,Madrid,Madrid,28055,220 Village Point
-Spain,Castilla - Leon,Valladolid,47071,2205 Summer Ridge Parkway
+Spain,Castilla y Leon,Valladolid,47071,2205 Summer Ridge Parkway
 Spain,Madrid,Madrid,28045,43 Fremont Place
 Spain,Galicia,Vigo,36205,25 Sunbrook Lane
 Spain,Murcia,Murcia,30005,6 Eliot Circle
@@ -1018,7 +1018,7 @@ Spain,Andalucia,Granada,18015,57631 Mitchell Park
 Spain,Comunidad Valenciana,Valencia,46025,99 Oriole Street
 Spain,Canarias,Las Palmas de Gran Canaria,35010,80381 Dapin Pass
 Spain,Murcia,Murcia,30010,92 Mariners Cove Parkway
-Spain,Castilla - Leon,Zamora,49003,08 Marquette Crossing
+Spain,Castilla y Leon,Zamora,49003,08 Marquette Crossing
 Spain,Comunidad Valenciana,Valencia,46025,3 Russell Plaza
 Spain,Cataluna,Lleida,25193,27950 Southridge Crossing
 Spain,La Rioja,Logroño,26070,76 Rusk Way
@@ -1031,22 +1031,22 @@ Spain,Pais Vasco,Donostia-San Sebastian,20010,1888 Stone Corner Lane
 Spain,Cataluna,Sant Cugat Del Valles,08190,710 Claremont Alley
 Spain,Extremadura,Badajoz,06005,46 Southridge Terrace
 Spain,Andalucia,Malaga,29015,2729 Arrowood Plaza
-Spain,Castilla - Leon,Palencia,34005,64734 Quincy Avenue
+Spain,Castilla y Leon,Palencia,34005,64734 Quincy Avenue
 Spain,Castilla - La Mancha,Toledo,45071,40 Hoffman Parkway
 Spain,Pais Vasco,Donostia-San Sebastian,20010,423 Golf Way
 Spain,Andalucia,Malaga,29071,93 Forest Run Trail
 Spain,Comunidad Valenciana,Torrevieja,03184,30299 Brown Junction
 Spain,Andalucia,Dos Hermanas,41703,63 Almo Trail
 Spain,Cantabria,Santander,39010,6786 Toban Center
-Spain,Castilla - Leon,Leon,24010,2563 Kings Hill
+Spain,Castilla y Leon,Leon,24010,2563 Kings Hill
 Spain,Murcia,Murcia,30010,4517 Basil Park
 Spain,Baleares,Palma De Mallorca,07010,0244 Luster Way
 Spain,Cataluna,Barcelona,08075,24124 Grayhawk Point
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,105 Ludington Crossing
-Spain,Castilla - Leon,Valladolid,47015,57962 Prairieview Trail
+Spain,Castilla y Leon,Valladolid,47015,57962 Prairieview Trail
 Spain,Navarra,Pamplona/Iruña,31015,73 Aberg Place
 Spain,Galicia,Ferrol,15490,341 Sutteridge Street
-Spain,Castilla - Leon,Palencia,34005,716 Derek Crossing
+Spain,Castilla y Leon,Palencia,34005,716 Derek Crossing
 Spain,Extremadura,Badajoz,06010,377 Warner Hill
 Spain,Galicia,Vigo,36210,154 Katie Point
 Spain,Castilla - La Mancha,Albacete,02005,9329 Redwing Drive
@@ -1074,7 +1074,7 @@ Spain,Canarias,Las Palmas de Gran Canaria,35070,39 Sycamore Pass
 Spain,La Rioja,Logroño,26070,0 Dakota Plaza
 Spain,Andalucia,Malaga,29010,19491 Lillian Trail
 Spain,Madrid,Madrid,28015,1 Ludington Place
-Spain,Castilla - Leon,Valladolid,47010,640 Orin Street
+Spain,Castilla y Leon,Valladolid,47010,640 Orin Street
 Spain,Andalucia,Granada,18010,4715 David Crossing
 Spain,Asturias,Gijon,33209,563 Kropf Point
 Spain,Madrid,Madrid,28020,26 Pond Trail
@@ -1083,24 +1083,24 @@ Spain,Canarias,Santa Cruz De Tenerife,38110,2 Aberg Pass
 Spain,Andalucia,Jaen,23005,15240 Hollow Ridge Circle
 Spain,Murcia,Cartagena,30204,08 Leroy Court
 Spain,Galicia,Pontevedra,36164,197 Mesta Way
-Spain,Castilla - Leon,Valladolid,47071,5 Scofield Hill
-Spain,Castilla - Leon,Valladolid,47010,29829 Dottie Way
+Spain,Castilla y Leon,Valladolid,47071,5 Scofield Hill
+Spain,Castilla y Leon,Valladolid,47010,29829 Dottie Way
 Spain,Madrid,Getafe,28904,959 Vera Road
 Spain,Baleares,Palma De Mallorca,07010,45595 Corry Park
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,4707 Everett Lane
 Spain,Comunidad Valenciana,Torrevieja,03184,1691 Calypso Street
-Spain,Castilla - Leon,Palencia,34005,72967 Namekagon Drive
+Spain,Castilla y Leon,Palencia,34005,72967 Namekagon Drive
 Spain,Andalucia,Cadiz,11005,8 Linden Junction
 Spain,Andalucia,Granada,18015,6359 Charing Cross Road
 Spain,Canarias,Las Palmas de Gran Canaria,35010,7 Moland Pass
 Spain,Galicia,A Coruña,15190,609 Sage Junction
 Spain,Baleares,Palma De Mallorca,07015,46 Center Road
-Spain,Castilla - Leon,Valladolid,47010,9853 John Wall Park
+Spain,Castilla y Leon,Valladolid,47010,9853 John Wall Park
 Spain,Cataluna,Lleida,25198,0 Mesta Avenue
-Spain,Castilla - Leon,Valladolid,47071,7 Fairview Street
+Spain,Castilla y Leon,Valladolid,47071,7 Fairview Street
 Spain,Cataluna,Barcelona,08075,4 Westridge Point
 Spain,Madrid,Madrid,28025,987 Warbler Lane
-Spain,Castilla - Leon,Palencia,34005,89761 Farwell Junction
+Spain,Castilla y Leon,Palencia,34005,89761 Farwell Junction
 Spain,Pais Vasco,Donostia-San Sebastian,20005,9272 Sutherland Alley
 Spain,Andalucia,Malaga,29010,40572 Schiller Center
 Spain,Asturias,Gijon,33209,84157 Sloan Junction
@@ -1108,14 +1108,14 @@ Spain,Madrid,Madrid,28015,37 Lawn Hill
 Spain,Navarra,Pamplona/Iruña,31015,384 East Point
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,1374 Heath Trail
 Spain,Andalucia,Jaen,23005,80 Linden Crossing
-Spain,Castilla - Leon,Valladolid,47071,26 Pond Alley
+Spain,Castilla y Leon,Valladolid,47071,26 Pond Alley
 Spain,Galicia,Pontevedra,36005,02 Amoth Place
 Spain,Comunidad Valenciana,Valencia,46005,07 Nobel Avenue
 Spain,Castilla - La Mancha,Albacete,02070,86097 Declaration Street
 Spain,Galicia,A Coruña,15190,6 Coolidge Hill
 Spain,Galicia,Pontevedra,36005,6712 Linden Parkway
-Spain,Castilla - Leon,Palencia,34005,6752 Fair Oaks Parkway
-Spain,Castilla - Leon,Valladolid,47015,19631 Del Mar Parkway
+Spain,Castilla y Leon,Palencia,34005,6752 Fair Oaks Parkway
+Spain,Castilla y Leon,Valladolid,47015,19631 Del Mar Parkway
 Spain,Canarias,Las Palmas de Gran Canaria,35070,091 Hollow Ridge Court
 Spain,Pais Vasco,Donostia-San Sebastian,20005,1 Orin Crossing
 Spain,Madrid,Madrid,28020,427 Ludington Park
@@ -1131,7 +1131,7 @@ Spain,Madrid,Madrid,28025,13 Homewood Street
 Spain,Galicia,Pontevedra,36005,499 Bluejay Plaza
 Spain,Asturias,Gijon,33209,3510 Oakridge Street
 Spain,Ceuta,Ceuta,51005,4628 Algoma Court
-Spain,Castilla - Leon,Valladolid,47010,14237 Beilfuss Parkway
+Spain,Castilla y Leon,Valladolid,47010,14237 Beilfuss Parkway
 Spain,Extremadura,Badajoz,06010,3890 Crest Line Circle
 Spain,Andalucia,Jaen,23005,583 Clyde Gallagher Trail
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,225 Schurz Way
@@ -1144,7 +1144,7 @@ Spain,Aragon,Huesca,22005,81854 Lakewood Point
 Spain,Andalucia,Malaga,29015,51 Esker Trail
 Spain,Comunidad Valenciana,Valencia,46005,288 Mosinee Park
 Spain,Andalucia,Cadiz,11005,334 Mccormick Way
-Spain,Castilla - Leon,Valladolid,47015,9333 Sommers Avenue
+Spain,Castilla y Leon,Valladolid,47015,9333 Sommers Avenue
 Spain,Extremadura,Badajoz,06005,63 Graedel Road
 Spain,Madrid,Madrid,28045,0 Helena Way
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,9 Westridge Crossing
@@ -1155,7 +1155,7 @@ Spain,Baleares,Palma De Mallorca,07121,07 Anniversary Avenue
 Spain,Pais Vasco,Donostia-San Sebastian,20015,10018 Myrtle Center
 Spain,Galicia,Vigo,36205,30130 Northview Circle
 Spain,Asturias,Aviles,33404,03065 Fuller Hill
-Spain,Castilla - Leon,Zamora,49008,93850 Schiller Place
+Spain,Castilla y Leon,Zamora,49008,93850 Schiller Place
 Spain,Cantabria,Santander,39080,9 Spohn Point
 Spain,Asturias,Gijon,33209,7 Elka Plaza
 Spain,Galicia,Pontevedra,36005,28 Jackson Road
@@ -1164,7 +1164,7 @@ Spain,Cataluna,L'Hospitalet de Llobregat,08904,3 Kinsman Circle
 Spain,Galicia,Lugo,27294,1 Dennis Street
 Spain,Galicia,Ferrol,15490,6 Lakewood Gardens Road
 Spain,Galicia,Ferrol,15490,933 Westport Street
-Spain,Castilla - Leon,Valladolid,47071,3426 Kedzie Alley
+Spain,Castilla y Leon,Valladolid,47071,3426 Kedzie Alley
 Spain,Galicia,Ourense,32005,2 Bobwhite Avenue
 Spain,Canarias,Las Palmas de Gran Canaria,35015,159 Holmberg Place
 Spain,La Rioja,Logroño,26070,811 Bashford Park
@@ -1183,18 +1183,18 @@ Spain,Andalucia,Malaga,29071,07659 Blue Bill Park Terrace
 Spain,Castilla - La Mancha,Toledo,45071,9 Anhalt Trail
 Spain,Pais Vasco,Donostia-San Sebastian,20005,164 Buena Vista Hill
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,7 Eliot Junction
-Spain,Castilla - Leon,Salamanca,37005,33 Sherman Crossing
-Spain,Castilla - Leon,Zamora,49003,93839 Dorton Drive
+Spain,Castilla y Leon,Salamanca,37005,33 Sherman Crossing
+Spain,Castilla y Leon,Zamora,49003,93839 Dorton Drive
 Spain,Cantabria,Santander,39010,42 Mockingbird Court
 Spain,Galicia,Pontevedra,36164,6182 Dorton Trail
 Spain,Cataluna,Sant Cugat Del Valles,08190,737 Birchwood Lane
-Spain,Castilla - Leon,Valladolid,47015,6887 Ryan Avenue
+Spain,Castilla y Leon,Valladolid,47015,6887 Ryan Avenue
 Spain,Andalucia,Sevilla,41020,566 Forest Dale Alley
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12100,902 Green Place
 Spain,Ceuta,Ceuta,51005,0 Atwood Lane
 Spain,Andalucia,Granada,18005,200 Duke Plaza
 Spain,Castilla - La Mancha,Toledo,45071,95193 Springview Trail
-Spain,Castilla - Leon,Valladolid,47015,3604 Northland Way
+Spain,Castilla y Leon,Valladolid,47015,3604 Northland Way
 Spain,Aragon,Zaragoza,50080,51677 Derek Junction
 Spain,Pais Vasco,Vitoria-Gasteiz,01005,8241 Randy Avenue
 Spain,Madrid,Madrid,28055,9378 Spaight Crossing
@@ -1208,7 +1208,7 @@ Spain,La Rioja,Logroño,26070,34781 Bowman Plaza
 Spain,Comunidad Valenciana,Valencia,46005,1 Bultman Pass
 Spain,Castilla - La Mancha,Toledo,45071,1002 Walton Pass
 Spain,Andalucia,Granada,18015,0 Kim Road
-Spain,Castilla - Leon,Zamora,49003,853 Laurel Road
+Spain,Castilla y Leon,Zamora,49003,853 Laurel Road
 Spain,Cataluna,Sant Cugat Del Valles,08190,2 Reinke Crossing
 Spain,Andalucia,Malaga,29010,09094 Anzinger Drive
 Spain,Aragon,Huesca,22005,29 Eliot Plaza
@@ -1221,11 +1221,11 @@ Spain,Galicia,Lugo,27294,1240 Goodland Hill
 Spain,Cataluna,Sant Cugat Del Valles,08190,16582 Myrtle Point
 Spain,Baleares,Palma De Mallorca,07121,53 Sutherland Center
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,2 Fisk Place
-Spain,Castilla - Leon,Salamanca,37005,74500 Emmet Alley
+Spain,Castilla y Leon,Salamanca,37005,74500 Emmet Alley
 Spain,Murcia,Cartagena,30394,75 Northfield Crossing
 Spain,Comunidad Valenciana,Valencia,46015,7064 Novick Point
 Spain,Baleares,Palma De Mallorca,07121,6 Toban Park
-Spain,Castilla - Leon,Valladolid,47010,8 Hauk Plaza
+Spain,Castilla y Leon,Valladolid,47010,8 Hauk Plaza
 Spain,Canarias,Las Palmas de Gran Canaria,35005,89587 Pleasure Lane
 Spain,Andalucia,Almeria,04070,99 Arrowood Crossing
 Spain,Madrid,Leganes,28914,9 Badeau Avenue
@@ -1234,7 +1234,7 @@ Spain,Aragon,Zaragoza,50080,555 Old Shore Center
 Spain,Pais Vasco,Donostia-San Sebastian,20010,89 Walton Parkway
 Spain,Madrid,Madrid,28015,344 Southridge Terrace
 Spain,Navarra,Pamplona/Iruña,31005,7 Golf Course Plaza
-Spain,Castilla - Leon,Zamora,49003,5591 Muir Crossing
+Spain,Castilla y Leon,Zamora,49003,5591 Muir Crossing
 Spain,Extremadura,Badajoz,06005,94 Hovde Terrace
 Spain,Galicia,Lugo,27294,49 Eliot Circle
 Spain,Canarias,Santa Cruz De Tenerife,38110,4 Lindbergh Circle
@@ -1245,17 +1245,17 @@ Spain,Comunidad Valenciana,Valencia,46005,565 Summer Ridge Parkway
 Spain,Madrid,Fuenlabrada,28944,6784 Pierstorff Circle
 Spain,Navarra,Pamplona/Iruña,31010,94 Loomis Center
 Spain,Galicia,Vigo,36215,8715 Duke Crossing
-Spain,Castilla - Leon,Valladolid,47071,98 Ruskin Park
+Spain,Castilla y Leon,Valladolid,47071,98 Ruskin Park
 Spain,Galicia,Ferrol,15490,20 Mayer Street
 Spain,Galicia,Ourense,32005,2 Muir Plaza
 Spain,Ceuta,Ceuta,51005,6676 Ronald Regan Center
 Spain,Baleares,Palma De Mallorca,07015,24037 Bluejay Lane
 Spain,Andalucia,Cadiz,11005,5378 Stuart Place
 Spain,Cataluna,Lleida,25198,7 Mandrake Circle
-Spain,Castilla - Leon,Salamanca,37005,55107 Forest Circle
+Spain,Castilla y Leon,Salamanca,37005,55107 Forest Circle
 Spain,Cantabria,Santander,39080,35 Golf Drive
-Spain,Castilla - Leon,Valladolid,47071,41 Charing Cross Place
-Spain,Castilla - Leon,Valladolid,47010,59838 Petterle Place
+Spain,Castilla y Leon,Valladolid,47071,41 Charing Cross Place
+Spain,Castilla y Leon,Valladolid,47010,59838 Petterle Place
 Spain,Castilla - La Mancha,Albacete,02070,513 Esker Point
 Spain,Baleares,Palma De Mallorca,07121,980 Shopko Trail
 Spain,Comunidad Valenciana,Valencia,46015,52717 Becker Lane
@@ -1266,7 +1266,7 @@ Spain,Canarias,Las Palmas de Gran Canaria,35005,6491 Dwight Avenue
 Spain,Andalucia,Granada,18005,341 Waubesa Center
 Spain,Madrid,Getafe,28904,59 Victoria Pass
 Spain,Andalucia,Malaga,29015,11244 Kim Circle
-Spain,Castilla - Leon,Leon,24193,27507 Mallory Street
+Spain,Castilla y Leon,Leon,24193,27507 Mallory Street
 Spain,Cataluna,Lleida,25005,97900 Susan Court
 Spain,Andalucia,Malaga,29071,0754 Crescent Oaks Terrace
 Spain,Galicia,Pontevedra,36156,93920 Goodland Terrace
@@ -1276,7 +1276,7 @@ Spain,Madrid,Madrid,28025,01789 Duke Terrace
 Spain,Cantabria,Santander,39080,46888 Ludington Junction
 Spain,Andalucia,Cadiz,11005,9 Londonderry Way
 Spain,Madrid,Leganes,28914,2 Mendota Terrace
-Spain,Castilla - Leon,Salamanca,37005,1074 Fieldstone Place
+Spain,Castilla y Leon,Salamanca,37005,1074 Fieldstone Place
 Spain,Baleares,Palma De Mallorca,07121,5 Corry Pass
 Spain,Pais Vasco,Vitoria-Gasteiz,01005,52 Beilfuss Circle
 Spain,Aragon,Zaragoza,50080,3424 Gateway Trail
@@ -1286,7 +1286,7 @@ Spain,Comunidad Valenciana,Alicante/Alacant,03005,96 Upham Pass
 Spain,Asturias,Gijon,33209,17355 Browning Center
 Spain,Madrid,Madrid,28015,8 Brickson Park Center
 Spain,Madrid,Madrid,28045,0 Glendale Point
-Spain,Castilla - Leon,Valladolid,47071,4545 Wayridge Terrace
+Spain,Castilla y Leon,Valladolid,47071,4545 Wayridge Terrace
 Spain,Andalucia,Cadiz,11005,8 Carberry Trail
 Spain,Navarra,Pamplona/Iruña,31010,0 David Street
 Spain,Madrid,Madrid,28025,239 Mccormick Lane
@@ -1300,14 +1300,14 @@ Spain,Ceuta,Ceuta,51005,4613 Esch Plaza
 Spain,Galicia,Lugo,27294,338 Elmside Point
 Spain,Pais Vasco,Donostia-San Sebastian,20015,161 Hoffman Crossing
 Spain,Madrid,Madrid,28020,7 New Castle Way
-Spain,Castilla - Leon,Zamora,49008,1238 La Follette Trail
-Spain,Castilla - Leon,Zamora,49003,9 Katie Road
+Spain,Castilla y Leon,Zamora,49008,1238 La Follette Trail
+Spain,Castilla y Leon,Zamora,49003,9 Katie Road
 Spain,Andalucia,Granada,18015,5437 Manley Crossing
 Spain,Asturias,Gijon,33204,70545 Westport Circle
 Spain,Galicia,A Coruña,15190,745 Prairieview Road
 Spain,Madrid,Fuenlabrada,28944,8949 Summit Terrace
 Spain,Andalucia,Jaen,23005,91 Fallview Court
-Spain,Castilla - Leon,Zamora,49008,4187 Straubel Point
+Spain,Castilla y Leon,Zamora,49008,4187 Straubel Point
 Spain,Castilla - La Mancha,Albacete,02005,36 Spenser Parkway
 Spain,Comunidad Valenciana,Valencia,46025,306 Scofield Point
 Spain,Murcia,Cartagena,30204,76271 Mallard Avenue
@@ -1323,7 +1323,7 @@ Spain,Canarias,Las Palmas de Gran Canaria,35015,3 Kenwood Crossing
 Spain,La Rioja,Logroño,26070,3 Longview Park
 Spain,Murcia,Murcia,30005,88 Eagle Crest Drive
 Spain,Murcia,Murcia,30005,698 Monica Plaza
-Spain,Castilla - Leon,Zamora,49003,4 Ryan Pass
+Spain,Castilla y Leon,Zamora,49003,4 Ryan Pass
 Spain,Murcia,Murcia,30010,6 Veith Road
 Spain,Canarias,Las Palmas de Gran Canaria,35070,4692 Warbler Pass
 Spain,Andalucia,Cadiz,11010,5952 Hanover Trail
@@ -1348,7 +1348,7 @@ Spain,Galicia,Vigo,36215,5095 Birchwood Way
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12100,491 Anhalt Pass
 Spain,Murcia,Cartagena,30394,163 Heffernan Alley
 Spain,Madrid,Madrid,28055,6 High Crossing Terrace
-Spain,Castilla - Leon,Valladolid,47015,7 Columbus Pass
+Spain,Castilla y Leon,Valladolid,47015,7 Columbus Pass
 Spain,Cataluna,L'Hospitalet de Llobregat,08904,5489 5th Lane
 Spain,Pais Vasco,Donostia-San Sebastian,20005,72 Hermina Drive
 Spain,Pais Vasco,Donostia-San Sebastian,20010,88824 Dennis Park
@@ -1358,12 +1358,12 @@ Spain,Cataluna,Lleida,25005,6 East Circle
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,7350 Main Terrace
 Spain,Madrid,Madrid,28045,46970 Dunning Point
 Spain,Baleares,Palma De Mallorca,07121,04002 Graceland Parkway
-Spain,Castilla - Leon,Zamora,49008,00 Sloan Center
-Spain,Castilla - Leon,Leon,24193,2937 Sommers Terrace
+Spain,Castilla y Leon,Zamora,49008,00 Sloan Center
+Spain,Castilla y Leon,Leon,24193,2937 Sommers Terrace
 Spain,Andalucia,Malaga,29005,1 Spenser Parkway
 Spain,Canarias,Telde,35213,4816 Milwaukee Way
 Spain,Cataluna,Lleida,25198,05986 Merrick Point
-Spain,Castilla - Leon,Zamora,49003,276 Garrison Crossing
+Spain,Castilla y Leon,Zamora,49003,276 Garrison Crossing
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,0 Welch Street
 Spain,Canarias,Las Palmas de Gran Canaria,35015,0594 Manitowish Alley
 Spain,Comunidad Valenciana,Valencia,46025,772 Welch Alley
@@ -1385,7 +1385,7 @@ Spain,Asturias,Gijon,33209,33510 Amoth Center
 Spain,Castilla - La Mancha,Albacete,02070,72 Anzinger Hill
 Spain,Andalucia,Malaga,29010,8330 Judy Park
 Spain,Navarra,Pamplona/Iruña,31015,80683 Melvin Crossing
-Spain,Castilla - Leon,Valladolid,47071,8552 Coolidge Court
+Spain,Castilla y Leon,Valladolid,47071,8552 Coolidge Court
 Spain,Pais Vasco,Donostia-San Sebastian,20010,9 Granby Circle
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,9 Roxbury Alley
 Spain,Galicia,Santiago De Compostela,15705,754 Chinook Pass
@@ -1396,7 +1396,7 @@ Spain,Navarra,Pamplona/Iruña,31015,8 7th Place
 Spain,Canarias,Las Palmas de Gran Canaria,35005,476 Kensington Junction
 Spain,Galicia,Pontevedra,36164,86698 Lighthouse Bay Parkway
 Spain,Canarias,Santa Cruz De Tenerife,38110,1050 Mitchell Way
-Spain,Castilla - Leon,Valladolid,47071,2138 Springview Lane
+Spain,Castilla y Leon,Valladolid,47071,2138 Springview Lane
 Spain,Andalucia,Malaga,29015,5 Melvin Place
 Spain,Navarra,Pamplona/Iruña,31015,28535 Buhler Way
 Spain,Extremadura,Badajoz,06005,13 Stang Lane
@@ -1416,7 +1416,7 @@ Spain,Comunidad Valenciana,Valencia,46015,8 Susan Trail
 Spain,Galicia,Vigo,36215,563 American Hill
 Spain,Castilla - La Mancha,Albacete,02005,07 Mitchell Place
 Spain,Cantabria,Santander,39080,008 Rusk Avenue
-Spain,Castilla - Leon,Zamora,49008,8709 Springview Terrace
+Spain,Castilla y Leon,Zamora,49008,8709 Springview Terrace
 Spain,Andalucia,Granada,18010,9 Fallview Avenue
 Spain,Madrid,Getafe,28904,1 Laurel Terrace
 Spain,Murcia,Cartagena,30204,7453 Dovetail Alley
@@ -1428,7 +1428,7 @@ Spain,Cataluna,Barcelona,08075,4 Wayridge Junction
 Spain,Aragon,Zaragoza,50080,586 Kenwood Pass
 Spain,Aragon,Huesca,22005,939 Knutson Circle
 Spain,Galicia,Vigo,36205,611 Northland Road
-Spain,Castilla - Leon,Valladolid,47015,1 Meadow Ridge Road
+Spain,Castilla y Leon,Valladolid,47015,1 Meadow Ridge Road
 Spain,Canarias,Las Palmas de Gran Canaria,35070,614 Hovde Circle
 Spain,Comunidad Valenciana,Elx/Elche,03203,126 Bonner Avenue
 Spain,Cataluna,Barcelona,08075,526 Village Drive
@@ -1446,7 +1446,7 @@ Spain,Galicia,Santiago De Compostela,15705,32 Mendota Road
 Spain,Galicia,Lugo,27294,163 Transport Drive
 Spain,Madrid,Fuenlabrada,28944,093 Swallow Avenue
 Spain,Galicia,Vigo,36210,55 Cascade Park
-Spain,Castilla - Leon,Zamora,49003,5 Bobwhite Circle
+Spain,Castilla y Leon,Zamora,49003,5 Bobwhite Circle
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,0226 Grover Lane
 Spain,Andalucia,Granada,18010,0218 Harper Point
 Spain,La Rioja,Logroño,26005,22 Monica Plaza
@@ -1458,7 +1458,7 @@ Spain,Andalucia,Almeria,04005,9048 Kingsford Lane
 Spain,Murcia,Murcia,30010,197 Oakridge Parkway
 Spain,Andalucia,Sevilla,41015,1 Thackeray Lane
 Spain,Madrid,Getafe,28904,080 Cherokee Plaza
-Spain,Castilla - Leon,Zamora,49008,335 Elmside Junction
+Spain,Castilla y Leon,Zamora,49008,335 Elmside Junction
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,67942 Dayton Trail
 Spain,Comunidad Valenciana,Valencia,46015,20 Sunfield Terrace
 Spain,Murcia,Murcia,30005,01 Bluestem Park
@@ -1551,15 +1551,15 @@ Spain,Cantabria,Santander,39010,542 Manufacturers Lane
 Spain,Andalucia,Almeria,04070,14539 Fieldstone Junction
 Spain,Murcia,Murcia,30005,31 Darwin Circle
 Spain,Andalucia,Cadiz,11005,5076 Fair Oaks Road
-Spain,Castilla - Leon,Leon,24010,747 Elgar Pass
+Spain,Castilla y Leon,Leon,24010,747 Elgar Pass
 Spain,Andalucia,Almeria,04070,89 Onsgard Parkway
 Spain,Galicia,Vigo,36205,2957 Westend Street
-Spain,Castilla - Leon,Valladolid,47015,18959 Sutherland Avenue
+Spain,Castilla y Leon,Valladolid,47015,18959 Sutherland Avenue
 Spain,Cantabria,Santander,39080,0214 Warbler Crossing
 Spain,Extremadura,Badajoz,06010,94 La Follette Plaza
 Spain,Cataluna,Sant Cugat Del Valles,08190,59383 Ilene Plaza
 Spain,Galicia,A Coruña,15190,81462 Bowman Road
-Spain,Castilla - Leon,Leon,24193,289 Granby Trail
+Spain,Castilla y Leon,Leon,24193,289 Granby Trail
 Spain,Madrid,Leganes,28914,51 Southridge Hill
 Spain,Canarias,Santa Cruz De Tenerife,38110,563 Namekagon Avenue
 Spain,Galicia,Vigo,36210,83 Old Shore Circle
@@ -1569,7 +1569,7 @@ Spain,Cataluna,Lleida,25005,8 Express Trail
 Spain,Aragon,Huesca,22005,2 Oak Valley Circle
 Spain,Extremadura,Badajoz,06010,9 Utah Plaza
 Spain,Galicia,Santiago De Compostela,15705,16 Knutson Place
-Spain,Castilla - Leon,Valladolid,47071,55 Amoth Trail
+Spain,Castilla y Leon,Valladolid,47071,55 Amoth Trail
 Spain,Aragon,Huesca,22005,30972 Calypso Avenue
 Spain,Canarias,Santa Cruz De Tenerife,38110,73 Meadow Valley Terrace
 Spain,Cataluna,Girona,17080,71 Arkansas Center
@@ -1605,10 +1605,10 @@ Spain,Madrid,Madrid,28015,50502 Vahlen Place
 Spain,Comunidad Valenciana,Valencia,46015,629 Forster Drive
 Spain,La Rioja,Logroño,26070,11 Namekagon Road
 Spain,Cataluna,Sabadell,08204,84040 Glendale Lane
-Spain,Castilla - Leon,Valladolid,47010,6710 Old Gate Park
+Spain,Castilla y Leon,Valladolid,47010,6710 Old Gate Park
 Spain,Comunidad Valenciana,Valencia,46005,1 Lighthouse Bay Point
 Spain,Extremadura,Badajoz,06005,04895 Warner Drive
-Spain,Castilla - Leon,Palencia,34005,787 Mitchell Avenue
+Spain,Castilla y Leon,Palencia,34005,787 Mitchell Avenue
 Spain,Cataluna,Barcelona,08030,511 Declaration Place
 Spain,Andalucia,Sevilla,41020,828 New Castle Hill
 Spain,Asturias,Gijon,33209,87587 Tennyson Lane
@@ -1616,7 +1616,7 @@ Spain,Andalucia,Almeria,04005,835 Parkside Park
 Spain,Cataluna,Tarragona,43071,62095 Acker Parkway
 Spain,Baleares,Palma De Mallorca,07010,3 Westridge Street
 Spain,Cataluna,Tarragona,43071,990 Birchwood Alley
-Spain,Castilla - Leon,Valladolid,47010,29035 Rusk Way
+Spain,Castilla y Leon,Valladolid,47010,29035 Rusk Way
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,0 Jenna Park
 Spain,Murcia,Cartagena,30204,5 Bunting Road
 Spain,La Rioja,Logroño,26070,6018 4th Point
@@ -1635,16 +1635,16 @@ Spain,Pais Vasco,Vitoria-Gasteiz,01005,46575 Shasta Court
 Spain,Galicia,Pontevedra,36156,7 Westport Hill
 Spain,Andalucia,Dos Hermanas,41703,92 Kinsman Street
 Spain,Aragon,Huesca,22005,9898 Fordem Drive
-Spain,Castilla - Leon,Leon,24193,1 Fremont Center
+Spain,Castilla y Leon,Leon,24193,1 Fremont Center
 Spain,Pais Vasco,Vitoria-Gasteiz,01080,10332 Dryden Circle
 Spain,Murcia,Cartagena,30394,81600 Carberry Place
 Spain,Comunidad Valenciana,Elx/Elche,03203,7 Tennessee Plaza
 Spain,Andalucia,Sevilla,41015,7 Katie Street
-Spain,Castilla - Leon,Zamora,49003,2 Barby Alley
+Spain,Castilla y Leon,Zamora,49003,2 Barby Alley
 Spain,Comunidad Valenciana,Torrevieja,03184,2 Everett Road
 Spain,Canarias,Las Palmas de Gran Canaria,35070,70 Manley Point
 Spain,Navarra,Pamplona/Iruña,31005,22 Holmberg Crossing
-Spain,Castilla - Leon,Valladolid,47015,2 Carioca Center
+Spain,Castilla y Leon,Valladolid,47015,2 Carioca Center
 Spain,Aragon,Huesca,22005,326 Hansons Lane
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,9426 Hanover Crossing
 Spain,Cataluna,L'Hospitalet de Llobregat,08904,601 Annamark Plaza
@@ -1663,7 +1663,7 @@ Spain,Asturias,Gijon,33204,1 Clove Hill
 Spain,Madrid,Madrid,28015,71942 Hayes Lane
 Spain,Cataluna,L'Hospitalet de Llobregat,08904,906 Knutson Center
 Spain,Baleares,Palma De Mallorca,07121,78 Sunfield Trail
-Spain,Castilla - Leon,Zamora,49008,73 Mcbride Parkway
+Spain,Castilla y Leon,Zamora,49008,73 Mcbride Parkway
 Spain,Cataluna,Lleida,25005,71 Rockefeller Road
 Spain,Asturias,Gijon,33204,23 Namekagon Circle
 Spain,Aragon,Huesca,22005,1 Luster Circle
@@ -1674,7 +1674,7 @@ Spain,Andalucia,Dos Hermanas,41703,8 Ludington Place
 Spain,Comunidad Valenciana,Elx/Elche,03203,352 Melvin Way
 Spain,Cataluna,Girona,17080,46865 Scofield Crossing
 Spain,Andalucia,Dos Hermanas,41703,4 Susan Trail
-Spain,Castilla - Leon,Palencia,34005,5719 Fuller Junction
+Spain,Castilla y Leon,Palencia,34005,5719 Fuller Junction
 Spain,Comunidad Valenciana,Valencia,46015,30315 Bluejay Terrace
 Spain,Comunidad Valenciana,Valencia,46025,0481 Del Sol Pass
 Spain,Galicia,Santiago De Compostela,15705,2939 Buhler Hill
@@ -1690,7 +1690,7 @@ Spain,Andalucia,Malaga,29005,66233 Meadow Ridge Center
 Spain,Pais Vasco,Vitoria-Gasteiz,01080,9233 Steensland Alley
 Spain,Navarra,Pamplona/Iruña,31005,8056 Stuart Alley
 Spain,Ceuta,Ceuta,51005,34731 Pepper Wood Pass
-Spain,Castilla - Leon,Salamanca,37005,952 Marcy Lane
+Spain,Castilla y Leon,Salamanca,37005,952 Marcy Lane
 Spain,Baleares,Palma De Mallorca,07015,15 Northfield Street
 Spain,Andalucia,Sevilla,41020,69638 Stoughton Court
 Spain,Galicia,Pontevedra,36156,4116 3rd Drive
@@ -1729,14 +1729,14 @@ Spain,Galicia,Vigo,36205,14694 Kedzie Place
 Spain,Baleares,Palma De Mallorca,07010,8416 Schiller Place
 Spain,Navarra,Pamplona/Iruña,31005,90019 Nancy Park
 Spain,Navarra,Pamplona/Iruña,31005,5249 Warner Parkway
-Spain,Castilla - Leon,Leon,24010,76302 Grasskamp Center
+Spain,Castilla y Leon,Leon,24010,76302 Grasskamp Center
 Spain,Canarias,Las Palmas de Gran Canaria,35070,3111 Everett Drive
 Spain,Andalucia,Malaga,29015,70 Thompson Point
 Spain,Andalucia,Jaen,23005,9 Moose Terrace
 Spain,Pais Vasco,Vitoria-Gasteiz,01005,5656 American Park
 Spain,Galicia,Santiago De Compostela,15705,4448 Reinke Avenue
 Spain,Pais Vasco,Donostia-San Sebastian,20005,6 Loomis Lane
-Spain,Castilla - Leon,Valladolid,47071,79 Village Circle
+Spain,Castilla y Leon,Valladolid,47071,79 Village Circle
 Spain,Castilla - La Mancha,Albacete,02005,5994 Luster Pass
 Spain,Canarias,Las Palmas de Gran Canaria,35005,188 Montana Street
 Spain,Baleares,Palma De Mallorca,07121,72 Blaine Trail
@@ -1770,7 +1770,7 @@ Spain,Aragon,Huesca,22005,718 North Court
 Spain,Cantabria,Santander,39005,5 Union Terrace
 Spain,Baleares,Palma De Mallorca,07010,8 Lakeland Parkway
 Spain,Galicia,Vigo,36215,534 Northridge Pass
-Spain,Castilla - Leon,Leon,24010,3 Tomscot Crossing
+Spain,Castilla y Leon,Leon,24010,3 Tomscot Crossing
 Spain,La Rioja,Logroño,26005,95197 David Terrace
 Spain,Cataluna,L'Hospitalet de Llobregat,08904,0 Pankratz Crossing
 Spain,Comunidad Valenciana,Torrevieja,03184,59 Butternut Circle
@@ -1786,7 +1786,7 @@ Spain,Cataluna,Lleida,25198,44235 Banding Circle
 Spain,Andalucia,Malaga,29071,33 Rockefeller Pass
 Spain,Asturias,Gijon,33204,9040 Randy Drive
 Spain,Cantabria,Santander,39005,357 Shasta Street
-Spain,Castilla - Leon,Leon,24193,944 Bobwhite Park
+Spain,Castilla y Leon,Leon,24193,944 Bobwhite Park
 Spain,Andalucia,Jaen,23005,66 Fremont Court
 Spain,Ceuta,Ceuta,51005,24157 American Ash Trail
 Spain,Murcia,Cartagena,30204,86 Westend Lane
@@ -1808,33 +1808,33 @@ Spain,Murcia,Murcia,30005,3216 Surrey Junction
 Spain,Canarias,Santa Cruz De Tenerife,38110,7 Vera Alley
 Spain,Cataluna,Lleida,25193,0 Veith Road
 Spain,Castilla - La Mancha,Albacete,02005,09 South Alley
-Spain,Castilla - Leon,Leon,24010,8 International Avenue
-Spain,Castilla - Leon,Palencia,34005,66949 Canary Drive
+Spain,Castilla y Leon,Leon,24010,8 International Avenue
+Spain,Castilla y Leon,Palencia,34005,66949 Canary Drive
 Spain,Cataluna,Lleida,25005,6941 Tomscot Pass
 Spain,Galicia,Vigo,36205,1090 Helena Road
 Spain,Cataluna,Lleida,25193,9 Lindbergh Center
-Spain,Castilla - Leon,Salamanca,37005,1428 Cherokee Terrace
+Spain,Castilla y Leon,Salamanca,37005,1428 Cherokee Terrace
 Spain,Madrid,Madrid,28055,3109 Loeprich Circle
 Spain,Madrid,Fuenlabrada,28944,00 Monterey Street
-Spain,Castilla - Leon,Valladolid,47010,76 Fallview Street
+Spain,Castilla y Leon,Valladolid,47010,76 Fallview Street
 Spain,Canarias,Las Palmas de Gran Canaria,35070,8323 Morningstar Alley
 Spain,Madrid,Madrid,28050,48470 Hanover Parkway
 Spain,Cataluna,Lleida,25005,4750 Daystar Lane
 Spain,Madrid,Fuenlabrada,28944,5 Redwing Place
 Spain,Andalucia,Granada,18015,4 Hintze Avenue
-Spain,Castilla - Leon,Zamora,49003,68060 Katie Crossing
+Spain,Castilla y Leon,Zamora,49003,68060 Katie Crossing
 Spain,Cataluna,Girona,17080,2 Springview Junction
 Spain,Castilla - La Mancha,Albacete,02070,44883 Monument Pass
 Spain,Pais Vasco,Donostia-San Sebastian,20005,8815 Mccormick Parkway
 Spain,Comunidad Valenciana,Elx/Elche,03203,1 Rigney Center
 Spain,Asturias,Aviles,33404,08 Pine View Hill
-Spain,Castilla - Leon,Valladolid,47010,8 Marquette Road
+Spain,Castilla y Leon,Valladolid,47010,8 Marquette Road
 Spain,Ceuta,Ceuta,51005,15480 Havey Road
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12100,8303 Oak Parkway
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,7997 Service Hill
 Spain,Galicia,Vigo,36210,72 Anzinger Center
 Spain,Andalucia,Cadiz,11005,76 Merry Plaza
-Spain,Castilla - Leon,Valladolid,47010,05144 Hooker Alley
+Spain,Castilla y Leon,Valladolid,47010,05144 Hooker Alley
 Spain,Galicia,Vigo,36205,09 Marcy Crossing
 Spain,Extremadura,Badajoz,06005,84 Scott Circle
 Spain,Pais Vasco,Donostia-San Sebastian,20005,37 Pierstorff Drive
@@ -1846,7 +1846,7 @@ Spain,Pais Vasco,Vitoria-Gasteiz,01080,129 Shoshone Junction
 Spain,Cataluna,Barcelona,08030,808 Caliangt Plaza
 Spain,Cataluna,Barcelona,08075,06 Elgar Plaza
 Spain,Cataluna,Barcelona,08075,5568 Sycamore Road
-Spain,Castilla - Leon,Valladolid,47015,9 Kinsman Center
+Spain,Castilla y Leon,Valladolid,47015,9 Kinsman Center
 Spain,Comunidad Valenciana,Elx/Elche,03203,97 Farwell Terrace
 Spain,Extremadura,Badajoz,06010,467 Mifflin Avenue
 Spain,Andalucia,Malaga,29005,011 Riverside Place
@@ -1858,7 +1858,7 @@ Spain,Aragon,Zaragoza,50080,20764 Monument Circle
 Spain,Galicia,Ourense,32005,2 Portage Way
 Spain,Comunidad Valenciana,Elx/Elche,03203,00310 Eastlawn Point
 Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12100,8914 Golden Leaf Lane
-Spain,Castilla - Leon,Leon,24193,10541 Schlimgen Center
+Spain,Castilla y Leon,Leon,24193,10541 Schlimgen Center
 Spain,Andalucia,Dos Hermanas,41703,360 Washington Circle
 Spain,Madrid,Getafe,28904,3 Roth Road
 Spain,Madrid,Madrid,28015,854 Thackeray Terrace
@@ -1869,14 +1869,14 @@ Spain,Canarias,Santa Cruz De Tenerife,38110,7816 Blaine Drive
 Spain,Extremadura,Badajoz,06005,4 Memorial Center
 Spain,Cantabria,Santander,39010,24195 Starling Road
 Spain,Andalucia,Malaga,29005,56 Del Mar Street
-Spain,Castilla - Leon,Zamora,49008,285 Cardinal Plaza
+Spain,Castilla y Leon,Zamora,49008,285 Cardinal Plaza
 Spain,Comunidad Valenciana,Elx/Elche,03203,75472 Kim Court
 Spain,Castilla - La Mancha,Albacete,02070,132 Green Ridge Parkway
 Spain,Comunidad Valenciana,Elx/Elche,03203,087 Carpenter Circle
 Spain,Extremadura,Badajoz,06010,62 Old Shore Place
 Spain,Galicia,Pontevedra,36156,77742 Doe Crossing Trail
 Spain,Baleares,Palma De Mallorca,07015,45399 Heffernan Point
-Spain,Castilla - Leon,Salamanca,37005,511 Burrows Place
+Spain,Castilla y Leon,Salamanca,37005,511 Burrows Place
 Spain,Cataluna,L'Hospitalet de Llobregat,08904,44 Southridge Way
 Spain,Madrid,Madrid,28045,9694 Maple Pass
 Spain,Andalucia,Sevilla,41020,1021 Cardinal Parkway
@@ -1887,7 +1887,7 @@ Spain,Galicia,Santiago De Compostela,15899,54 Golf Hill
 Spain,Madrid,Madrid,28020,545 Cordelia Pass
 Spain,Navarra,Pamplona/Iruña,31005,17 Morning Avenue
 Spain,Comunidad Valenciana,Elx/Elche,03203,6 Butterfield Center
-Spain,Castilla - Leon,Leon,24010,2 Nobel Center
+Spain,Castilla y Leon,Leon,24010,2 Nobel Center
 Spain,Aragon,Huesca,22005,172 Hudson Terrace
 Spain,Madrid,Madrid,28020,28136 Vera Drive
 Spain,Comunidad Valenciana,Valencia,46005,63585 Michigan Point
@@ -1930,12 +1930,12 @@ Spain,Murcia,Cartagena,30204,4 Ramsey Center
 Spain,Baleares,Palma De Mallorca,07010,178 Talmadge Avenue
 Spain,Baleares,Palma De Mallorca,07121,32535 Oxford Crossing
 Spain,Galicia,A Coruña,15190,523 Twin Pines Park
-Spain,Castilla - Leon,Valladolid,47071,7 Sundown Trail
+Spain,Castilla y Leon,Valladolid,47071,7 Sundown Trail
 Spain,Canarias,Las Palmas de Gran Canaria,35005,989 Pine View Lane
 Spain,Cataluna,Lleida,25198,67620 Anniversary Junction
 Spain,Pais Vasco,Vitoria-Gasteiz,01010,067 Old Shore Junction
 Spain,Asturias,Gijon,33204,2 Crescent Oaks Street
-Spain,Castilla - Leon,Leon,24010,51048 Forest Run Hill
+Spain,Castilla y Leon,Leon,24010,51048 Forest Run Hill
 Spain,Andalucia,Malaga,29005,632 Scoville Circle
 Spain,Andalucia,Almeria,04005,85 Eastwood Parkway
 Spain,Asturias,Aviles,33404,2 Tennyson Alley
@@ -1943,7 +1943,7 @@ Spain,Comunidad Valenciana,Elx/Elche,03203,46601 Texas Lane
 Spain,Cataluna,Tarragona,43071,01 Bowman Pass
 Spain,Cataluna,Lleida,25198,69 Oak Road
 Spain,Navarra,Pamplona/Iruña,31005,0 Eastlawn Junction
-Spain,Castilla - Leon,Leon,24010,98 Leroy Point
+Spain,Castilla y Leon,Leon,24010,98 Leroy Point
 Spain,Extremadura,Badajoz,06010,4 Bellgrove Crossing
 Spain,Cantabria,Santander,39010,3 Milwaukee Crossing
 Spain,Andalucia,Granada,18005,2763 Lerdahl Drive
@@ -1970,14 +1970,14 @@ Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,8888 E
 Spain,Aragon,Zaragoza,50080,87790 Ludington Junction
 Spain,Madrid,Fuenlabrada,28944,730 Mallory Parkway
 Spain,Galicia,Pontevedra,36164,4 Anhalt Center
-Spain,Castilla - Leon,Zamora,49008,7 Hanover Point
-Spain,Castilla - Leon,Zamora,49008,09 Bultman Avenue
+Spain,Castilla y Leon,Zamora,49008,7 Hanover Point
+Spain,Castilla y Leon,Zamora,49008,09 Bultman Avenue
 Spain,Navarra,Pamplona/Iruña,31015,07746 Eastlawn Center
 Spain,Comunidad Valenciana,Valencia,46005,8 Spohn Avenue
 Spain,Madrid,Madrid,28055,58 Meadow Ridge Parkway
 Spain,Galicia,Santiago De Compostela,15899,4757 Bultman Hill
 Spain,Pais Vasco,Vitoria-Gasteiz,01080,8 Starling Crossing
-Spain,Castilla - Leon,Valladolid,47015,855 Kim Street
+Spain,Castilla y Leon,Valladolid,47015,855 Kim Street
 Spain,Comunidad Valenciana,Valencia,46005,91 Superior Park
 Spain,Pais Vasco,Donostia-San Sebastian,20005,823 Melby Pass
 Spain,Cantabria,Santander,39005,76 Northport Plaza
@@ -1990,7 +1990,7 @@ Spain,Comunidad Valenciana,Castellon De La Plana/Castello De La Pla,12005,8281 M
 Spain,Cantabria,Santander,39005,0784 Lerdahl Lane
 Spain,Cataluna,Tarragona,43071,89555 Hanson Park
 Spain,Andalucia,Cadiz,11005,413 Becker Place
-Spain,Castilla - Leon,Palencia,34005,9919 Norway Maple Circle
+Spain,Castilla y Leon,Palencia,34005,9919 Norway Maple Circle
 Spain,Asturias,Gijon,33209,96 Larry Center
 Spain,Galicia,Pontevedra,36164,24 Meadow Ridge Plaza
 Spain,Comunidad Valenciana,Alicante/Alacant,03005,00 Randy Drive

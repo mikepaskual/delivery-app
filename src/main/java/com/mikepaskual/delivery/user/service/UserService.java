@@ -1,5 +1,7 @@
 package com.mikepaskual.delivery.user.service;
 
+import com.mikepaskual.delivery.customer.model.Customer;
+import com.mikepaskual.delivery.customer.model.CustomerRepository;
 import com.mikepaskual.delivery.driver.model.Driver;
 import com.mikepaskual.delivery.driver.model.DriverRepository;
 import com.mikepaskual.delivery.user.exception.RoleNotFoundException;
@@ -22,15 +24,18 @@ public class UserService {
     @Autowired
     private final DriverRepository driverRepository;
     @Autowired
+    private final CustomerRepository customerRepository;
+    @Autowired
     private final PasswordEncoder passwordEncoder;
     @Autowired
     private final RoleRepository roleRepository;
     @Autowired
     private final UserRepository userRepository;
 
-    public UserService(DriverRepository driverRepository, PasswordEncoder passwordEncoder,
-                       RoleRepository roleRepository, UserRepository userRepository) {
+    public UserService(DriverRepository driverRepository, CustomerRepository customerRepository,
+                       PasswordEncoder passwordEncoder, RoleRepository roleRepository, UserRepository userRepository) {
         this.driverRepository = driverRepository;
+        this.customerRepository = customerRepository;
         this.passwordEncoder = passwordEncoder;
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
@@ -52,10 +57,14 @@ public class UserService {
                 .setUsername(request.getUsername()).build());
 
         if (roles.stream().anyMatch(role -> UserRole.DRIVER.name().equals(role.getName()))) {
-            driverRepository.save(Driver.builder().setUser(user).build());
+            driverRepository.save(Driver.builder()
+                    .setCreatedAt(user.getCreatedAt())
+                    .setUser(user).build());
         }
         if (roles.stream().anyMatch(role -> UserRole.CUSTOMER.name().equals(role.getName()))) {
-            // TODO
+            customerRepository.save(Customer.builder()
+                    .setCreatedAt(user.getCreatedAt())
+                    .setUser(user).build());
         }
 
         return user;

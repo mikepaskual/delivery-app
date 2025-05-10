@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="#{page.title.pack.list}">My packs</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+    <div class="container py-5 h-100">
+
+        <div th:replace="~{fragments/alerts :: alert('success', ${successMessage})}"></div>
+        <div th:replace="~{fragments/alerts :: alert('warning', ${warningMessage})}"></div>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#" th:href="@{/}" th:text="#{breadcrumb.home}">Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="#{breadcrumb.packs}">My Packs</li>
+            </ol>
+        </nav>
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card rounded-3">
+                    <div class="card-body p-4">
+                        <h3 th:text="#{pack.list.title}">My pack list</h3>
+
+                        <div class="col-12">
+                            <div class="alert alert-primary" role="alert" th:if="${packs.isEmpty()}">
+                                <span th:text="#{pack.list.empty}">There aren't packs yet</span>
+                            </div>
+
+                            <div class="d-flex justify-content-end gap-2 mt-3 mb-4">
+                                <a class="btn btn-primary" href="#" th:href="@{/packs/new}"
+                                   th:text="#{button.addPack}">Add pack</a>
+                                <a class="btn btn-primary" href="#" th:href="@{/}" th:text="#{button.back}">Back</a>
+                            </div>
+
+                            <div class="list-group" th:if="${!packs.isEmpty()}">
+                                <div th:each="pack : ${packs}">
+                                    <a class="list-group-item list-group-item-action"
+                                       href="#" th:href="@{/packs/{id}(id=${pack.id})}">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1" th:text="${pack.receiver}">Jack Ripper</h5>
+                                            <small th:if="${pack.discarded}">
+                                                <span class="badge bg-danger" th:text="#{pack.discarded}">Discarded</span>
+                                            </small>
+                                        </div>
+                                        <p class="mb-1" th:text="${pack.title}">My first package</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
